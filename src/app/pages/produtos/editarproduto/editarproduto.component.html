@@ -1,0 +1,418 @@
+<div class="m-4">
+  <p class="fs-22 bolder">Editar: {{ produtoDados.descricao }}</p>
+
+  <form
+    #cadastroProduto="ngForm"
+    (ngSubmit)="onSubmit(cadastroProduto.value)"
+    enctype="multipart/form-data"
+  >
+    <tabset class="member-tabset">
+      <tab class="tab" heading="Identificação">
+        <div class="inline">
+          <div class="form-group inline-child-5" hidden>
+            <label for="Codigo">id</label>
+            <input
+              type="number"
+              class="form-control w-100"
+              name="id"
+              id="id"
+              value="{{ produtoDados.id }}"
+              [(ngModel)]="produtoDados.id"
+            />
+          </div>
+
+          <div class="form-group inline-child-5">
+            <label for="Codigo">Código</label>
+            <input
+              type="number"
+              class="form-control w-100"
+              name="Codigo"
+              id="Codigo"
+              value="{{ produtoDados.codigo }}"
+              [(ngModel)]="produtoDados.codigo"
+            />
+          </div>
+
+          <div class="form-group inline-child-5">
+            <label for="EAN">EAN</label>
+            <input
+              type="text"
+              class="form-control w-100"
+              name="EAN"
+              id="EAN"
+              value="{{ produtoDados.ean }}"
+              [(ngModel)]="produtoDados.ean"
+            />
+          </div>
+
+          <div class="form-group inline-child-10">
+            <label for="Descricao">Descrição</label>
+            <input
+              type="text"
+              class="form-control w-100"
+              name="Descricao"
+              id="Descricao"
+              value="{{ produtoDados.descricao }}"
+              [(ngModel)]="produtoDados.descricao"
+            />
+          </div>
+        </div>
+
+        <div class="inline">
+          <div class="form-group inline-child-10">
+            <label for="Cest">Cest</label>
+            <input
+              type="text"
+              class="form-control w-100"
+              name="Cest"
+              id="Cest"
+              value="{{ produtoDados.cest }}"
+              [(ngModel)]="produtoDados.cest"
+            />
+          </div>
+        </div>
+
+        <div class="inline">
+          <div class="form-check inline-child-5">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="Ativo"
+              id="Ativo"
+              value="{{ produtoDados.ativo }}"
+              [(ngModel)]="produtoDados.ativo"
+            />
+            <label class="form-check-label" for="Ativo">Ativo?</label>
+          </div>
+
+          <div class="imageContainer">
+            <div class="form-group">
+              <img
+                id="img"
+                #img
+                name="imagem"
+                class="produtoImagem"
+                [src]="
+                  produtoDados.imagem !== null
+                    ? 'data:image/png;base64,' + produtoDados.imagem
+                    : imageBinding
+                "
+              />
+              <div>
+                <label for="file" class="btn"
+                  >Trocar a <strong class="underline">imagem</strong> do
+                  produto</label
+                >
+                <input
+                  name="file"
+                  id="file"
+                  type="file"
+                  accept="image/*"
+                  hidden
+                  #file
+                  (change)="adicionarImagem(file)"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab class="tab" heading="Classificação"
+        ><div class="inline">
+          <div class="form-group inline-child-5">
+            <label for="UnidadeMedidaID">Unidade de medida</label>
+            <div>
+              <select
+                class="form-control"
+                name="UnidadeMedidaID"
+                id="UnidadeMedidaID"
+                value="{{ produtoDados.unidadeMedidaID }}"
+                [(ngModel)]="produtoDados.unidadeMedidaID"
+              >
+                <option value="1">UN</option>
+                <option value="2">KG</option>
+                <option value="3">L</option>
+                <option value="4">CX</option>
+                <option value="5">PCT</option>
+                <option value="6">FD</option>
+                <option value="7">M@</option>
+                <option value="8">M</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group inline-child-5">
+            <label for="OrigemID">Origem do produto</label>
+            <select
+              class="form-control"
+              name="OrigemID"
+              id="OrigemID"
+              value="{{ produtoDados.origemID }}"
+              [(ngModel)]="produtoDados.origemID"
+            >
+              <option value="0">Nacional</option>
+              <option value="1">Estrangeiro</option>
+            </select>
+          </div>
+
+          <div class="form-group inline-child-10">
+            <label for="CategoriaID">Categoria</label>
+            <select
+              class="form-control"
+              name="CategoriaID"
+              id="CategoriaID"
+              value="{{ produtoDados.categoriaID }}"
+              [(ngModel)]="produtoDados.categoriaID"
+            >
+              <option
+                *ngFor="let categoria of categorias"
+                value="{{ categoria.id }}"
+              >
+                {{ categoria.descricao }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <div class="inline">
+          <div class="form-group inline-child-10">
+            <label for="MarcaID">Marca</label>
+            <select
+              class="form-control"
+              name="MarcaID"
+              id="MarcaID"
+              value="{{ produtoDados.marcaID }}"
+              [(ngModel)]="produtoDados.marcaID"
+            >
+              <option
+                *ngFor="let marca of marcas; let i = index"
+                value="{{ i + 2 }}"
+              >
+                {{ marca.descricao }}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group inline-child-10">
+            <label for="NcmID">NCM</label>
+            <select
+              class="form-control"
+              name="NcmID"
+              id="NcmID"
+              value="{{ produtoDados.ncmID }}"
+              [(ngModel)]="produtoDados.ncmID"
+            >
+              <option
+                *ngFor="let ncm of ncms; let i = index"
+                value="{{ i + 2 }}"
+              >
+                {{ ncm.descricao }}
+              </option>
+            </select>
+          </div>
+        </div></tab
+      >
+      <tab class="tab" heading="Estoque"
+        ><div class="form-group inline-child-8">
+          <label for="TipoProdutoID">Tipo do produto</label>
+          <select
+            class="form-control"
+            name="TipoProdutoID"
+            id="TipoProdutoID"
+            value="{{ produtoDados.tipoProdutoID }}"
+            [(ngModel)]="produtoDados.tipoProdutoID"
+          >
+            <option value="1">Materia Prima</option>
+            <option value="2">Produto Acabado</option>
+          </select>
+        </div>
+
+        <div class="form-group inline-child-3">
+          <label for="ValorCompra">Valor compra</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="ValorCompra"
+            id="ValorCompra"
+            value="{{ produtoDados.valorCompra }}"
+            [(ngModel)]="produtoDados.valorCompra"
+          />
+        </div>
+
+        <div class="form-group inline-child-3">
+          <label for="ValorVenda">Preço</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="ValorVenda"
+            id="ValorVenda"
+            value="{{ produtoDados.valorVenda }}"
+            [(ngModel)]="produtoDados.valorVenda"
+          />
+        </div>
+
+        <div class="form-group inline-child-3">
+          <label for="ValorVendaPrazo">Preço a prazo</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="ValorVendaPrazo"
+            id="ValorVendaPrazo"
+            value="{{ produtoDados.valorVendaPrazo }}"
+            [(ngModel)]="produtoDados.valorVendaPrazo"
+          />
+        </div>
+
+        <div class="form-group inline-child-3">
+          <label for="SaldoEstoque">Estoque</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="SaldoEstoque"
+            id="SaldoEstoque"
+            value="{{ produtoDados.saldoEstoque }}"
+            [(ngModel)]="produtoDados.saldoEstoque"
+          />
+        </div>
+
+        <div class="inline">
+          <div class="form-group inline-child-5">
+            <label for="EstoqueMinimo">Estoque minímo</label>
+            <input
+              type="number"
+              class="form-control w-100"
+              name="EstoqueMinimo"
+              id="EstoqueMinimo"
+              value="{{ produtoDados.estoqueMinimo }}"
+              [(ngModel)]="produtoDados.estoqueMinimo"
+            />
+          </div>
+
+          <div class="form-group inline-child-5">
+            <label for="EstoqueMaximo">Estoque máximo</label>
+            <input
+              type="number"
+              class="form-control w-100"
+              name="EstoqueMaximo"
+              id="EstoqueMaximo"
+              value="{{ produtoDados.estoqueMaximo }}"
+              [(ngModel)]="produtoDados.estoqueMaximo"
+            />
+          </div>
+
+          <div class="form-group inline-child-5">
+            <label for="PesoLiquido">Peso liq.</label>
+            <input
+              type="number"
+              class="form-control w-100"
+              name="PesoLiquido"
+              id="PesoLiquido"
+              value="{{ produtoDados.pesoLiquido }}"
+              [(ngModel)]="produtoDados.pesoLiquido"
+            />
+          </div>
+
+          <div class="form-group inline-child-5">
+            <label for="PesoBruto">Peso brut.</label>
+            <input
+              type="number"
+              class="form-control w-100"
+              name="PesoBruto"
+              id="PesoBruto"
+              value="{{ produtoDados.pesoBruto }}"
+              [(ngModel)]="produtoDados.pesoBruto"
+            />
+          </div>
+        </div>
+
+        <div class="inline">
+          <div class="form-check inline-child-5">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="EstoqueNegativo"
+              id="EstoqueNegativo"
+              value="{{ produtoDados.estoqueNegativo }}"
+              [(ngModel)]="produtoDados.estoqueNegativo"
+            />
+            <label class="form-check-label" for="EstoqueNegativo"
+              >Estoque negativo?</label
+            >
+          </div>
+          <div class="form-check inline-child-4">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              name="ParaVender"
+              id="ParaVender"
+              value="{{ produtoDados.paraVender }}"
+              [(ngModel)]="produtoDados.paraVender"
+            />
+            <label class="form-check-label" for="ParaVender"
+              >Para vender?</label
+            >
+          </div>
+        </div></tab
+      >
+      <tab class="tab" heading="Tributos"
+        ><div class="inline">
+          <div class="form-group inline-child-4">
+            <label for="ProdutoIntegracaoFiscalID">Integração fiscal</label>
+            <select
+              class="form-control"
+              name="ProdutoIntegracaoFiscalID"
+              id="ProdutoIntegracaoFiscalID"
+              value="{{ produtoDados.produtoIntegracaoFiscalID }}"
+              [(ngModel)]="produtoDados.produtoIntegracaoFiscalID"
+            >
+              <option value="1">Integração padrão</option>
+            </select>
+          </div>
+        </div></tab
+      >
+      <tab class="tab" heading="Movimentos de Estoque"
+        ><div class="inline">
+          <div class="form-group">
+            <table class="w-100 table row-border hover inline-child-20">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Data</th>
+                  <th>Produto</th>
+                  <th>Quantidade</th>
+                  <th>Movimento</th>
+                  <th>Pedido</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of produtoMovimento; let i = index">
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.dataMovimento }}</td>
+                  <td>{{ item.descricaoProduto }}</td>
+                  <td>{{ item.quantidade }}</td>
+                  <td *ngIf="item.movimento == 1">Saida</td>
+                  <td *ngIf="item.movimento != 1">Entrada</td>
+                  <td>{{ item.vendaID }}</td>
+                  <td>
+                    <button
+                      class="btn btn-dark m-1"
+                      (click)="obterDetalhes(item.vendaID)"
+                    >
+                      <span class="acaoStyle"
+                        ><fa-icon [icon]="faEye"></fa-icon> Ver</span
+                      >
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </tab>
+    </tabset>
+
+    <button type="submit" class="btn btn-primary mt-4 m-1">Salvar</button>
+    <a href="/produtos" class="btn btn-secondary mt-4 m-1">Cancelar</a>
+  </form>
+</div>

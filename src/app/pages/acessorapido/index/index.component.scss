@@ -1,0 +1,48 @@
+.title {
+  animation-name: titleLoading;
+  animation-duration: 2s;
+}
+
+@keyframes titleLoading {
+  from {
+    opacity: 0;
+  }
+  to {
+  }
+}
+
+.card {
+  color: #000000;
+  text-decoration: none;
+  animation-name: itemLoading;
+  animation-duration: 1s;
+}
+
+@keyframes itemLoading {
+  from {
+    bottom: -50px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
+}
+
+.group-cards {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 60px;
+}
+
+.inline {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+}

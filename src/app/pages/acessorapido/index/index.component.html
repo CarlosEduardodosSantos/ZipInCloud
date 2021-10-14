@@ -1,0 +1,38 @@
+<div class="m-4">
+  <p class="fs-22 bolder title">Acesso Rápido</p>
+  <div class="group-cards">
+    <span class="fs-18 bolder title mb-2 mt-5 opacity-70">Estoque</span>
+    <div class="inline">
+      <a class="card" style="width: 18rem" href="{{ itemProdutos.url }}">
+        <img
+          src="../../../../assets/acessorapido/produtosicon.png"
+          alt=""
+          class="card-image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ itemProdutos.nome }}</h5>
+          <p class="card-text">
+            {{ itemProdutos.descricao }}
+          </p>
+        </div>
+      </a>
+    </div>
+
+    <span class="fs-18 bolder title mb-2 mt-5 opacity-70">Vendas</span>
+    <div class="inline">
+      <a class="card" style="width: 18rem" href="{{ itemVendas.url }}">
+        <img
+          src="../../../../assets/acessorapido/vendasicon.png"
+          alt=""
+          class="card-image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ itemVendas.nome }}</h5>
+          <p class="card-text">
+            {{ itemVendas.descricao }}
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

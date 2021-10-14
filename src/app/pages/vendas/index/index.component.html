@@ -1,0 +1,37 @@
+<div class="m-4">
+  <p class="fs-22 bolder">Vendas</p>
+  <table class="w-100 table row-border hover" id="produtos-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Movimento</th>
+        <th>Pedido</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listavendas; let i = index">
+        <td>{{ item.id }}</td>
+        <td>{{ item.dataMovimento }}</td>
+        <td>{{ item.descricaoProduto }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td *ngIf="item.movimento == 1">Saida</td>
+        <td *ngIf="item.movimento != 1">Entrada</td>
+        <td>{{ item.vendaID }}</td>
+        <td>
+          <button
+            class="btn btn-dark m-1"
+            (click)="obterDetalhes(item.vendaID)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faEye"></fa-icon> Ver</span
+            >
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,19 @@
+<div class="m-2">
+  <p class="fs-22 bolder">Pedido de Venda</p>
+
+  <form>
+    <tabset class="member-tabset">
+      <tab class="tab" heading="Identificação"
+        ><h4>Cliente: {{ dados[0].nome }}({{ dados[0].documento }})</h4>
+        <h6>EM: {{ horario }}</h6>
+        <h6>Vendedor:{{ dados[3].nome }}</h6>
+      </tab>
+      <tab class="tab" heading="Itens do Pedido"></tab>
+      <tab class="tab" heading="Forma de Pagamento"></tab>
+      <tab class="tab" heading="Dados Adicionais"></tab>
+    </tabset>
+
+    <input type="submit" class="btn btn-primary mt-4 m-1" value="Salvar" />
+    <a href="/produtos" class="btn btn-secondary mt-4 m-1">Cancelar</a>
+  </form>
+</div>

@@ -1,0 +1,23 @@
+.imageContainer {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+  text-align: center;
+  float: right;
+}
+
+.produtoImagem {
+  width: 200px !important;
+  height: auto !important;
+}
+
+.table {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#img {
+  margin-top: -68px;
+}

@@ -12,7 +12,6 @@ import { EditarprodutoComponent } from './pages/produtos/editarproduto/editarpro
 import { CadastrarComponent } from './pages/produtos/cadastrar/cadastrar.component';
 import { DetalhesComponent } from './pages/vendas/detalhes/detalhes.component';
 import { CategoriasComponent } from './pages/cadastro/categorias/categorias.component';
-import { UnidadesdemedidaComponent } from './pages/cadastro/unidadesdemedida/unidadesdemedida.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DataTablesModule } from 'angular-datatables';
@@ -34,7 +33,6 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     DetalhesComponent,
     CadastrarComponent,
     CategoriasComponent,
-    UnidadesdemedidaComponent,
   ],
   imports: [
     BrowserModule,

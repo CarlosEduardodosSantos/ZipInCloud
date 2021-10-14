@@ -19,6 +19,12 @@ export class IndexComponent implements OnInit {
     url: 'vendas',
   };
 
+  itemCategorias: any = {
+    nome: 'Categorias',
+    descricao: 'Registro de todas as entradas e saidas de produtos',
+    url: 'cadastro/categorias',
+  };
+
   itemDashboard: any = [
     {
       nome: 'Vendas',

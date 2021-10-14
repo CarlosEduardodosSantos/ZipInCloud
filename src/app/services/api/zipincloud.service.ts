@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
 export class ZipincloudService {
   constructor(public http: HttpClient) {}
 
-  //TODO:POST GET PUT DELETE//
+  //TODO:POST GET PUT DELETE - Produtos//
   salvarProduto(data: any) {
     return this.http
       .post(environment.url + 'api/produtoes', data, environment.headersPost)
@@ -54,6 +54,78 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Unidades de Medida//
+  salvarUnidadesDeMedida(data: any) {
+    return this.http
+      .post(environment.url + 'api/categories', data, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  modificarUnidadesDeMedida(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/categories/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirUnidadesDeMedida(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/categories/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - Categorias//
+  salvarCategoria(data: any) {
+    return this.http
+      .post(environment.url + 'api/categories', data, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  modificarCategoria(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/categories/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirCategoria(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/categories/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
   //TODO:GETs ESPECIFICOS//
 
   obterTodosDadosProdutos() {
@@ -88,7 +160,7 @@ export class ZipincloudService {
 
   obterDadosCategoriasProdutos() {
     return this.http
-      .get(environment.url + 'api/produtoes/categorias', environment.headers)
+      .get(environment.url + 'api/categories', environment.headers)
       .toPromise()
       .then((data: any) => {
         return data;

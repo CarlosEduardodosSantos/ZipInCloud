@@ -8,6 +8,8 @@ import { IndexComponent as VendaIndex } from './pages/vendas/index/index.compone
 import { EditarprodutoComponent } from './pages/produtos/editarproduto/editarproduto.component';
 import { CadastrarComponent } from './pages/produtos/cadastrar/cadastrar.component';
 import { DetalhesComponent } from './pages/vendas/detalhes/detalhes.component';
+import { CategoriasComponent } from './pages/cadastro/categorias/categorias.component';
+import { UnidadesdemedidaComponent } from './pages/cadastro/unidadesdemedida/unidadesdemedida.component';
 
 const routes: Routes = [
   { path: '', component: AcessoRapidoIndex },
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'produtos/cadastrar', component: CadastrarComponent },
   { path: 'vendas', component: VendaIndex },
   { path: 'vendas/detalhes/:id/:initialRoute', component: DetalhesComponent },
+  { path: 'cadastro/categorias', component: CategoriasComponent },
+  { path: 'cadastro/unidadesmedida', component: UnidadesdemedidaComponent },
 ];
 
 @NgModule({

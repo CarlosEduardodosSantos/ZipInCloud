@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CategoriasCriarComponent } from './components/cadastro/categorias-criar/categorias-criar.component';
+import { CategoriasModificarComponent } from './components/cadastro/categorias-modificar/categorias-modificar.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     DetalhesComponent,
     CadastrarComponent,
     CategoriasComponent,
+    CategoriasCriarComponent,
+    CategoriasModificarComponent,
   ],
   imports: [
     BrowserModule,

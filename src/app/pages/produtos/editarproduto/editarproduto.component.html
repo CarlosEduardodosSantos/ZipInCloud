@@ -68,20 +68,6 @@
         </div>
 
         <div class="inline">
-          <div class="form-group inline-child-10">
-            <label for="Cest">Cest</label>
-            <input
-              type="text"
-              class="form-control w-100"
-              name="Cest"
-              id="Cest"
-              value="{{ produtoDados.cest }}"
-              [(ngModel)]="produtoDados.cest"
-            />
-          </div>
-        </div>
-
-        <div class="inline">
           <div class="form-check inline-child-5">
             <input
               class="form-check-input"
@@ -128,7 +114,7 @@
       </tab>
       <tab class="tab" heading="Classificação"
         ><div class="inline">
-          <div class="form-group inline-child-5">
+          <div class="form-group inline-child-10">
             <label for="UnidadeMedidaID">Unidade de medida</label>
             <div>
               <select
@@ -148,20 +134,6 @@
                 <option value="8">M</option>
               </select>
             </div>
-          </div>
-
-          <div class="form-group inline-child-5">
-            <label for="OrigemID">Origem do produto</label>
-            <select
-              class="form-control"
-              name="OrigemID"
-              id="OrigemID"
-              value="{{ produtoDados.origemID }}"
-              [(ngModel)]="produtoDados.origemID"
-            >
-              <option value="0">Nacional</option>
-              <option value="1">Estrangeiro</option>
-            </select>
           </div>
 
           <div class="form-group inline-child-10">
@@ -184,7 +156,7 @@
         </div>
 
         <div class="inline">
-          <div class="form-group inline-child-10">
+          <div class="form-group inline-child-20">
             <label for="MarcaID">Marca</label>
             <select
               class="form-control"
@@ -198,24 +170,6 @@
                 value="{{ i + 2 }}"
               >
                 {{ marca.descricao }}
-              </option>
-            </select>
-          </div>
-
-          <div class="form-group inline-child-10">
-            <label for="NcmID">NCM</label>
-            <select
-              class="form-control"
-              name="NcmID"
-              id="NcmID"
-              value="{{ produtoDados.ncmID }}"
-              [(ngModel)]="produtoDados.ncmID"
-            >
-              <option
-                *ngFor="let ncm of ncms; let i = index"
-                value="{{ i + 2 }}"
-              >
-                {{ ncm.descricao }}
               </option>
             </select>
           </div>
@@ -365,7 +319,7 @@
       >
       <tab class="tab" heading="Tributos"
         ><div class="inline">
-          <div class="form-group inline-child-4">
+          <div class="form-group inline-child-10">
             <label for="ProdutoIntegracaoFiscalID">Integração fiscal</label>
             <select
               class="form-control"
@@ -375,6 +329,47 @@
               [(ngModel)]="produtoDados.produtoIntegracaoFiscalID"
             >
               <option value="1">Integração padrão</option>
+            </select>
+          </div>
+          <div class="form-group inline-child-10">
+            <label for="Cest">Cest</label>
+            <input
+              type="text"
+              class="form-control w-100"
+              name="Cest"
+              id="Cest"
+              value="{{ produtoDados.cest }}"
+              [(ngModel)]="produtoDados.cest"
+            />
+          </div>
+          <div class="form-group inline-child-10">
+            <label for="NcmID">NCM</label>
+            <select
+              class="form-control"
+              name="NcmID"
+              id="NcmID"
+              value="{{ produtoDados.ncmID }}"
+              [(ngModel)]="produtoDados.ncmID"
+            >
+              <option
+                *ngFor="let ncm of ncms; let i = index"
+                value="{{ i + 2 }}"
+              >
+                {{ ncm.descricao }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group inline-child-10">
+            <label for="OrigemID">Origem do produto</label>
+            <select
+              class="form-control"
+              name="OrigemID"
+              id="OrigemID"
+              value="{{ produtoDados.origemID }}"
+              [(ngModel)]="produtoDados.origemID"
+            >
+              <option value="0">Nacional</option>
+              <option value="1">Estrangeiro</option>
             </select>
           </div>
         </div></tab

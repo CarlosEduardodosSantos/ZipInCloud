@@ -46,19 +46,6 @@ export class CategoriasComponent implements OnInit {
     location.reload();
   }
 
-  async onSubmitCadastro(data: any) {
-    data.imagem == '' ? (data.imagem = null) : '';
-    await this._api.salvarCategoria(data);
-    location.reload();
-  }
-
-  async onSubmitConfiguracao(data: any) {
-    data.imagem == '' || data.imagem == null ? (data.imagem = null) : '';
-    console.log(data);
-    await this._api.modificarCategoria(data);
-    location.reload();
-  }
-
   obterId(id: any, descricao: any) {
     this.idAtual = id;
     this.descricaoAtual = descricao;

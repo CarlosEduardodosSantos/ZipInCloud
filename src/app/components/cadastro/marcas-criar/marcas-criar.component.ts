@@ -14,7 +14,7 @@ export class MarcasCriarComponent implements OnInit {
 
   async onSubmitCadastro(data: any) {
     console.log(data);
-    await this._api.salvarCategoria(data);
+    await this._api.salvarMarca(data);
     location.reload();
   }
 }

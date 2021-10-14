@@ -18,7 +18,7 @@ export class MarcasModificarComponent implements OnInit {
 
   async onSubmitConfiguracao(data: any) {
     console.log(data);
-    await this._api.modificarCategoria(data);
+    await this._api.modificarMarca(data);
     location.reload();
   }
 }

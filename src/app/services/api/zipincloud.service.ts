@@ -54,42 +54,6 @@ export class ZipincloudService {
       });
   }
 
-  //TODO:POST GET PUT DELETE - Unidades de Medida//
-  salvarUnidadesDeMedida(data: any) {
-    return this.http
-      .post(environment.url + 'api/categories', data, environment.headersPost)
-      .toPromise()
-      .then((response) => {
-        console.log(response);
-      });
-  }
-
-  modificarUnidadesDeMedida(data: any) {
-    return this.http
-      .put(
-        environment.url + 'api/categories/' + data.id,
-        data,
-        environment.headersPost
-      )
-      .toPromise()
-      .then((response) => {
-        console.log(response);
-      });
-  }
-
-  excluirUnidadesDeMedida(ID: any) {
-    return this.http
-      .delete(
-        environment.url + 'api/categories/' + ID,
-
-        environment.headersPost
-      )
-      .toPromise()
-      .then((response) => {
-        console.log(response);
-      });
-  }
-
   //TODO:POST GET PUT DELETE - Categorias//
   salvarCategoria(data: any) {
     data.HabElisa == '' || data.HabElisa == null ? (data.HabElisa = false) : '';
@@ -123,6 +87,46 @@ export class ZipincloudService {
     return this.http
       .delete(
         environment.url + 'api/categories/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - Marcas//
+  salvarMarca(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/marcasprodutos',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  modificarMarca(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/marcasprodutos/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirMarca(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/marcasprodutos/' + ID,
 
         environment.headersPost
       )
@@ -167,6 +171,15 @@ export class ZipincloudService {
   obterDadosCategoriasProdutos() {
     return this.http
       .get(environment.url + 'api/categories', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterDadosMarcasProdutos() {
+    return this.http
+      .get(environment.url + 'api/marcasprodutos', environment.headers)
       .toPromise()
       .then((data: any) => {
         return data;

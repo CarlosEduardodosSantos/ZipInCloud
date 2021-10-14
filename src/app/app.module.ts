@@ -24,6 +24,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CategoriasCriarComponent } from './components/cadastro/categorias-criar/categorias-criar.component';
 import { CategoriasModificarComponent } from './components/cadastro/categorias-modificar/categorias-modificar.component';
+import { MarcasCriarComponent } from './components/cadastro/marcas-criar/marcas-criar.component';
+import { MarcasModificarComponent } from './components/cadastro/marcas-modificar/marcas-modificar.component';
+import { MarcasComponent } from './pages/cadastro/marcas/marcas.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { CategoriasModificarComponent } from './components/cadastro/categorias-m
     CategoriasComponent,
     CategoriasCriarComponent,
     CategoriasModificarComponent,
+    MarcasCriarComponent,
+    MarcasModificarComponent,
+    MarcasComponent,
   ],
   imports: [
     BrowserModule,

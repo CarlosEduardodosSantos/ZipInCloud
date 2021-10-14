@@ -5,14 +5,14 @@ import { Subject } from 'rxjs';
 import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-categorias',
-  templateUrl: './categorias.component.html',
-  styleUrls: ['./categorias.component.scss'],
+  selector: 'app-marcas',
+  templateUrl: './marcas.component.html',
+  styleUrls: ['./marcas.component.scss'],
 })
-export class CategoriasComponent implements OnInit {
+export class MarcasComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
-  listacategorias: any[] = [];
+  listamarcas: any[] = [];
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -20,30 +20,30 @@ export class CategoriasComponent implements OnInit {
   faTrashAlt = faTrashAlt;
 
   idAtual: any = 0;
-  descricaoAtual: any = '';
+  marcaAtual: any = '';
 
   ngOnInit(): void {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 2,
     };
-    this.chamarAPICategorias();
+    this.chamarAPIMarcas();
   }
 
-  async chamarAPICategorias() {
-    let data = await this._api.obterDadosCategoriasProdutos();
+  async chamarAPIMarcas() {
+    let data = await this._api.obterDadosMarcasProdutos();
 
-    this.listacategorias = data;
-    console.log(this.listacategorias);
+    this.listamarcas = data;
+    console.log(this.listamarcas);
   }
 
   excluirElemento(index: number) {
-    this._api.excluirCategoria(index);
-    location.reload();
+    this._api.excluirMarca(index);
+    /* location.reload(); */
   }
 
   obterId(id: any, descricao: any) {
     this.idAtual = id;
-    this.descricaoAtual = descricao;
+    this.marcaAtual = descricao;
   }
 }

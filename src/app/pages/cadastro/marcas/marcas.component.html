@@ -1,0 +1,63 @@
+<div class="m-4">
+  <p class="fs-22 bolder">Marcas</p>
+
+  <div class="tright">
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#cadastroModal"
+    >
+      Nova
+    </button>
+  </div>
+
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger"
+    class="w-100 table row-border hover"
+    id="produtos-table"
+  >
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Descrição</th>
+        <th class="centerTable">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listamarcas; let i = index">
+        <td>{{ item.id }}</td>
+        <td>{{ item.descricao }}</td>
+        <td class="acoesStyle">
+          <button
+            class="btn btn-success m-1 tleft"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#configuracaoModal"
+            (click)="obterId(item.id, item.descricao)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
+            >
+          </button>
+          <button
+            class="btn btn-danger m-1 tright"
+            type="button"
+            (click)="excluirElemento(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faTrashAlt"></fa-icon> Excluir</span
+            >
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<app-marcas-criar></app-marcas-criar>
+<app-marcas-modificar
+  marcaAtual="{{ marcaAtual }}"
+  idAtual="{{ idAtual }}"
+></app-marcas-modificar>

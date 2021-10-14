@@ -21,8 +21,14 @@ export class IndexComponent implements OnInit {
 
   itemCategorias: any = {
     nome: 'Categorias',
-    descricao: 'Registro de todas as entradas e saidas de produtos',
+    descricao: 'Adicione, remova e edite as categorias do projeto',
     url: 'cadastro/categorias',
+  };
+
+  itemMarcas: any = {
+    nome: 'Marcas',
+    descricao: 'Adicione, remova e edite as marcas do projeto',
+    url: 'cadastro/marcas',
   };
 
   itemDashboard: any = [

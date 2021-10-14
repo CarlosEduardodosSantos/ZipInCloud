@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-cadastrar',
@@ -36,14 +37,11 @@ export class CadastrarComponent implements OnInit {
   }
 
   adicionarImagem(data: any) {
-    let imageUrl = window.URL.createObjectURL(data.files[0]);
-    let sanitizedUrl = this.sanitizer.bypassSecurityTrustUrl(
-      imageUrl
-    ) as string;
-    this.imageBinding = sanitizedUrl;
+    this.toBase64(data.files[0]);
   }
 
   async onSubmit(data: any) {
+    data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
     console.log(data);
     data.Ativo == '' ? (data.Ativo = false) : (data.Ativo = data.Ativo);
     data.ParaVender == ''
@@ -68,5 +66,30 @@ export class CadastrarComponent implements OnInit {
     setTimeout(() => {
       this.alertSuccessState = true;
     }, 3000);
+  }
+
+  //TODO:BASE64CONVERT//
+  toBase64(file: File) {
+    const obs = new Observable((sub: Subscriber<any>) => {
+      this.readFile(file, sub);
+    });
+    obs.subscribe((d) => {
+      this.imageBinding = d;
+    });
+  }
+
+  readFile(file: File, sub: Subscriber<any>) {
+    const filereader = new FileReader();
+
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      sub.next(filereader.result);
+      sub.complete();
+    };
+    filereader.onerror = (err: any) => {
+      sub.error(err);
+      sub.complete();
+    };
   }
 }

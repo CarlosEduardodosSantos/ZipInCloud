@@ -4,6 +4,7 @@ import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { Observable, Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-editarproduto',
@@ -53,12 +54,8 @@ export class EditarprodutoComponent implements OnInit {
     console.log(this.produtoDados);
   }
 
-  adicionarImagem(data: any) {
-    let imageUrl = window.URL.createObjectURL(data.files[0]);
-    let sanitizedUrl = this.sanitizer.bypassSecurityTrustUrl(
-      imageUrl
-    ) as string;
-    this.imageBinding = sanitizedUrl;
+  async adicionarImagem(data: any) {
+    this.toBase64(data.files[0]);
   }
 
   obterDetalhes(vendaID: any) {
@@ -66,6 +63,7 @@ export class EditarprodutoComponent implements OnInit {
   }
 
   onSubmit(data: any) {
+    data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
     console.log(data);
 
     this._api.modificarProduto(data).catch((err) => {
@@ -76,5 +74,30 @@ export class EditarprodutoComponent implements OnInit {
     setTimeout(() => {
       this.alertSuccessState = true;
     }, 3000);
+  }
+
+  //TODO:BASE64CONVERT//
+  toBase64(file: File) {
+    const obs = new Observable((sub: Subscriber<any>) => {
+      this.readFile(file, sub);
+    });
+    obs.subscribe((d) => {
+      this.imageBinding = d;
+    });
+  }
+
+  readFile(file: File, sub: Subscriber<any>) {
+    const filereader = new FileReader();
+
+    filereader.readAsDataURL(file);
+
+    filereader.onload = () => {
+      sub.next(filereader.result);
+      sub.complete();
+    };
+    filereader.onerror = (err: any) => {
+      sub.error(err);
+      sub.complete();
+    };
   }
 }

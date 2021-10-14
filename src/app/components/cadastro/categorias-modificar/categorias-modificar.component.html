@@ -81,16 +81,26 @@
             <label class="form-check-label" for="HabPdv">Pdv?</label>
           </div>
           <div class="form-group mt-3">
+            <img
+              id="img"
+              #img
+              name="imagem"
+              class="produtoImagem preview d-flex mx-auto"
+              [src]="imageBinding"
+              [(ngModel)]="img.src"
+            />
+            <hr />
             <label for="imagem">Imagem da categoria</label>
             <input
               name="imagem"
-              type="file"
-              class="form-control mt-1"
               id="imagem"
-              ngModel
+              type="file"
+              accept="image/*"
+              class="form-control mt-1"
+              #imagem
+              (change)="adicionarImagem(imagem)"
             />
           </div>
-          <hr />
         </div>
 
         <div class="modal-footer">

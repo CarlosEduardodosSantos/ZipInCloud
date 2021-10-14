@@ -14,6 +14,8 @@ export class CadastrarComponent implements OnInit {
   origemProdutos: any;
   ncms: any;
 
+  alertSuccessState = true;
+
   imageBinding = '../../../../../assets/semimagem.jpg';
 
   constructor(
@@ -60,6 +62,11 @@ export class CadastrarComponent implements OnInit {
     data.ValorVenda == '' ? (data.ValorVenda = 0) : '';
     data.ValorVendaPrazo == '' ? (data.ValorVendaPrazo = 0) : '';
 
+    this.alertSuccessState = false;
+
     await this._api.salvarProduto(data);
+    setTimeout(() => {
+      this.alertSuccessState = true;
+    }, 3000);
   }
 }

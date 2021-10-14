@@ -19,6 +19,8 @@ export class EditarprodutoComponent implements OnInit {
   origemProdutos: any;
   ncms: any;
 
+  alertSuccessState = true;
+
   faEye = faEye;
 
   imageBinding = '../../../../../assets/semimagem.jpg';
@@ -65,6 +67,14 @@ export class EditarprodutoComponent implements OnInit {
 
   onSubmit(data: any) {
     console.log(data);
-    this._api.modificarProduto(data);
+
+    this._api.modificarProduto(data).catch((err) => {
+      return;
+    });
+
+    this.alertSuccessState = false;
+    setTimeout(() => {
+      this.alertSuccessState = true;
+    }, 3000);
   }
 }

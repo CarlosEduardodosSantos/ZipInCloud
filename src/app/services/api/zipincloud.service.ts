@@ -92,6 +92,9 @@ export class ZipincloudService {
 
   //TODO:POST GET PUT DELETE - Categorias//
   salvarCategoria(data: any) {
+    data.HabElisa == '' || data.HabElisa == null ? (data.HabElisa = false) : '';
+    data.HabTotem == '' || data.HabTotem == null ? (data.HabTotem = false) : '';
+    data.HabPdv == '' || data.HabPdv == null ? (data.HabPdv = false) : '';
     return this.http
       .post(environment.url + 'api/categories', data, environment.headersPost)
       .toPromise()
@@ -101,6 +104,9 @@ export class ZipincloudService {
   }
 
   modificarCategoria(data: any) {
+    data.HabElisa == '' || data.HabElisa == null ? (data.HabElisa = false) : '';
+    data.HabTotem == '' || data.HabTotem == null ? (data.HabTotem = false) : '';
+    data.HabPdv == '' || data.HabPdv == null ? (data.HabPdv = false) : '';
     return this.http
       .put(
         environment.url + 'api/categories/' + data.id,

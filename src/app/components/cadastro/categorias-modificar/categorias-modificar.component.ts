@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 
 @Component({
@@ -7,6 +7,9 @@ import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
   styleUrls: ['./categorias-modificar.component.scss'],
 })
 export class CategoriasModificarComponent implements OnInit {
+  @Input() descricaoAtual: any;
+  @Input() idAtual: any;
+
   constructor(private _api: ZipincloudService) {}
 
   ngOnInit(): void {}

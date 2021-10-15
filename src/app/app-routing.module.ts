@@ -1,26 +1,50 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { IndexComponent as ProdutoIndex } from './pages/produtos/index/index.component';
 import { IndexComponent as AcessoRapidoIndex } from './pages/acessorapido/index/index.component';
-import { IndexComponent as VendaIndex } from './pages/vendas/index/index.component';
 
-import { EditarprodutoComponent } from './pages/produtos/editarproduto/editarproduto.component';
-import { CadastrarComponent } from './pages/produtos/cadastrar/cadastrar.component';
-import { DetalhesComponent } from './pages/vendas/detalhes/detalhes.component';
-import { CategoriasComponent } from './pages/cadastro/categorias/categorias.component';
-import { MarcasComponent } from './pages/cadastro/marcas/marcas.component';
+import { IndexComponent as ProdutoIndex } from './pages/produtos/index/index.component';
+import { EditarprodutoComponent as ProdutoEditar } from './pages/produtos/editarproduto/editarproduto.component';
+import { CadastrarComponent as ProdutoCadastrar } from './pages/produtos/cadastrar/cadastrar.component';
+
+import { IndexComponent as VendaIndex } from './pages/vendas/index/index.component';
+import { DetalhesComponent as VendaDetalhes } from './pages/vendas/detalhes/detalhes.component';
+
+import { CategoriasComponent as CategoriaIndex } from './pages/cadastro/categorias/categorias.component';
+
+import { MarcasComponent as MarcaIndex } from './pages/cadastro/marcas/marcas.component';
+
+import { TipoprodutoComponent as TipoProdutoIndex } from './pages/cadastro/tipoproduto/tipoproduto.component';
+
+import { IntegracaofiscalComponent as IntegracaoFiscalIndex } from './pages/cadastro/integracaofiscal/index/integracaofiscal.component';
+import { IntegracaofiscalDetalhesComponent as IntegracaofiscalDetalhes } from './pages/cadastro/integracaofiscal/detalhes/integracaofiscal-detalhes.component';
+import { CadastrarComponent as IntegracaoFiscalCadastrar } from './pages/cadastro/integracaofiscal/cadastrar/cadastrar.component';
+import { EditarComponent as IntegracaoFiscalEditar } from './pages/cadastro/integracaofiscal/editar/editar.component';
 
 const routes: Routes = [
   { path: '', component: AcessoRapidoIndex },
   { path: 'produtos', component: ProdutoIndex },
   { path: 'acessorapido', component: AcessoRapidoIndex },
-  { path: 'produtos/editar/:id', component: EditarprodutoComponent },
-  { path: 'produtos/cadastrar', component: CadastrarComponent },
+  { path: 'produtos/editar/:id', component: ProdutoEditar },
+  { path: 'produtos/cadastrar', component: ProdutoCadastrar },
   { path: 'vendas', component: VendaIndex },
-  { path: 'vendas/detalhes/:id/:initialRoute', component: DetalhesComponent },
-  { path: 'cadastro/categorias', component: CategoriasComponent },
-  { path: 'cadastro/marcas', component: MarcasComponent },
+  { path: 'vendas/detalhes/:id/:initialRoute', component: VendaDetalhes },
+  { path: 'cadastro/categorias', component: CategoriaIndex },
+  { path: 'cadastro/marcas', component: MarcaIndex },
+  { path: 'cadastro/tipoprodutos', component: TipoProdutoIndex },
+  { path: 'cadastro/integracaofiscal', component: IntegracaoFiscalIndex },
+  {
+    path: 'cadastro/integracaofiscal/detalhes/:id',
+    component: IntegracaofiscalDetalhes,
+  },
+  {
+    path: 'cadastro/integracaofiscal/editar/:id',
+    component: IntegracaoFiscalEditar,
+  },
+  {
+    path: 'cadastro/integracaofiscal/cadastrar',
+    component: IntegracaoFiscalCadastrar,
+  },
 ];
 
 @NgModule({

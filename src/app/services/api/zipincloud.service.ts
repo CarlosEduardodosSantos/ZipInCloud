@@ -136,6 +136,82 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Tipo de produto//
+  salvarTipoProduto(data: any) {
+    return this.http
+      .post(environment.url + 'api/tipoproduto', data, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  modificarTipoProduto(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/tipoproduto/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirTipoProduto(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/tipoproduto/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - Tipo de integrações fiscais//
+  salvarIntegracaoFiscal(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/integracaofiscal',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  modificarIntegracaoFiscal(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/integracaofiscal/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirIntegracaoFiscal(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/integracaofiscal/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
   //TODO:GETs ESPECIFICOS//
 
   obterTodosDadosProdutos() {
@@ -180,6 +256,36 @@ export class ZipincloudService {
   obterDadosMarcasProdutos() {
     return this.http
       .get(environment.url + 'api/marcasprodutos', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterDadosTiposProdutos() {
+    return this.http
+      .get(environment.url + 'api/tipoproduto', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterDadosIntegracaoFiscalProdutos() {
+    return this.http
+      .get(environment.url + 'api/integracaofiscal', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterDadosIntegracaoFiscalPeloID(ID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/integracaofiscal/getintegracaofiscalbyid/' + ID,
+        environment.headers
+      )
       .toPromise()
       .then((data: any) => {
         return data;

@@ -1,0 +1,82 @@
+<div class="m-4">
+  <p class="fs-22 bolder">Integrações fiscais</p>
+
+  <div class="tright">
+    <button
+      type="button"
+      class="btn btn-primary"
+      data-bs-toggle="modal"
+      data-bs-target="#cadastroModal"
+      (click)="cadastrar()"
+    >
+      Nova
+    </button>
+  </div>
+
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    [dtTrigger]="dtTrigger"
+    class="w-100 table row-border hover"
+    id="produtos-table"
+  >
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>CFOP</th>
+        <th>Descrição</th>
+        <th>ICMS</th>
+        <th>PIS</th>
+        <th>COFINS</th>
+        <th>CSTIPI</th>
+        <th>Seguro</th>
+        <th class="centerTable">Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaintegracaofiscal; let i = index">
+        <td>{{ item.id }}</td>
+        <td>{{ item.cfopID }}</td>
+        <td>{{ item.descricao }}</td>
+        <td>{{ item.icms }}</td>
+        <td>{{ item.pis }}</td>
+        <td>{{ item.cofins }}</td>
+        <td>{{ item.cstipi }}</td>
+        <td>{{ item.seguro }}</td>
+        <td class="acoesStyle">
+          <button
+            class="btn btn-secondary m-1 tleft"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#detalhesModal"
+            (click)="dadosespecificos(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Detalhes</span
+            >
+          </button>
+          <button
+            class="btn btn-success m-1 tleft"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#configuracaoModal"
+            (click)="editar(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
+            >
+          </button>
+          <button
+            class="btn btn-danger m-1 tright"
+            type="button"
+            (click)="excluirElemento(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faTrashAlt"></fa-icon> Excluir</span
+            >
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

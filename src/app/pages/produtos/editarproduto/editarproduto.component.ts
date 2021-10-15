@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
-import { DomSanitizer } from '@angular/platform-browser';
 
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { Observable, Subscriber } from 'rxjs';
@@ -26,11 +25,7 @@ export class EditarprodutoComponent implements OnInit {
 
   imageBinding = '../../../../../assets/semimagem.jpg';
 
-  constructor(
-    private route: ActivatedRoute,
-    private _api: ZipincloudService,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor(private route: ActivatedRoute, private _api: ZipincloudService) {}
 
   async ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');

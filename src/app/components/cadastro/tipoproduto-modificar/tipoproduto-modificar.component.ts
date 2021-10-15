@@ -2,12 +2,12 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 
 @Component({
-  selector: 'app-marcas-modificar',
-  templateUrl: './marcas-modificar.component.html',
-  styleUrls: ['./marcas-modificar.component.scss'],
+  selector: 'app-tipoproduto-modificar',
+  templateUrl: './tipoproduto-modificar.component.html',
+  styleUrls: ['./tipoproduto-modificar.component.scss'],
 })
-export class MarcasModificarComponent implements OnInit {
-  @Input() marcaAtual: any;
+export class TipoprodutoModificarComponent implements OnInit {
+  @Input() tipoProdutoAtual: any;
   @Input() idAtual: any;
 
   constructor(private _api: ZipincloudService) {}
@@ -16,7 +16,7 @@ export class MarcasModificarComponent implements OnInit {
 
   async onSubmitConfiguracao(data: any) {
     console.log(data);
-    await this._api.modificarMarca(data);
+    await this._api.modificarTipoProduto(data);
     location.reload();
   }
 }

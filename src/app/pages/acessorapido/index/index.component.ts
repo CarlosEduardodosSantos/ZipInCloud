@@ -31,6 +31,12 @@ export class IndexComponent implements OnInit {
     url: 'cadastro/marcas',
   };
 
+  itemIntegracaoFiscal: any = {
+    nome: 'Integração Fiscal',
+    descricao: 'Adicione, remova e edite as integrações fiscais do projeto',
+    url: 'cadastro/integracaofiscal',
+  };
+
   itemDashboard: any = [
     {
       nome: 'Vendas',

@@ -1,0 +1,179 @@
+<div class="m-4">
+  <p class="fs-22 bolder">Editar: {{ ncmDados.descricao }}</p>
+
+  <div
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+    [hidden]="alertSuccessState"
+  >
+    <strong>Pronto!</strong> Um NCM foi editada.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+
+  <form
+    #cadastroNcm="ngForm"
+    (ngSubmit)="onSubmit(cadastroNcm.value)"
+    enctype="multipart/form-data"
+  >
+    <div class="inline">
+      <div class="form-group inline-child-5" hidden>
+        <label for="id">ID</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="id"
+          id="id"
+          value="{{ ncmDados.id }}"
+          [(ngModel)]="ncmDados.id"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="Codigo">Código</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="Codigo"
+          id="Codigo"
+          value="{{ ncmDados.codigo }}"
+          [(ngModel)]="ncmDados.codigo"
+        />
+      </div>
+
+      <div class="form-group inline-child-15">
+        <label for="Descricao">Descrição</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="Descricao"
+          id="Descricao"
+          value="{{ ncmDados.descricao }}"
+          [(ngModel)]="ncmDados.descricao"
+        />
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="Estado">Estado</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="Estado"
+          id="Estado"
+          value="{{ ncmDados.estado }}"
+          [(ngModel)]="ncmDados.estado"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="Ex">Ex</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="Ex"
+          id="Ex"
+          value="{{ ncmDados.ex }}"
+          [(ngModel)]="ncmDados.ex"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="Tipo">Tipo</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="Tipo"
+          id="Tipo"
+          value="{{ ncmDados.tipo }}"
+          [(ngModel)]="ncmDados.tipo"
+        />
+      </div>
+
+      <div class="form-group inline-child-7">
+        <label for="NacionalFederal">Nacional Federal</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="NacionalFederal"
+          id="NacionalFederal"
+          value="{{ ncmDados.nacionalFederal }}"
+          [(ngModel)]="ncmDados.nacionalFederal"
+        />
+      </div>
+
+      <div class="form-group inline-child-6">
+        <label for="Estadual">Estadual</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="Estadual"
+          id="Estadual"
+          value="{{ ncmDados.estadual }}"
+          [(ngModel)]="ncmDados.estadual"
+        />
+      </div>
+
+      <div class="form-group inline-child-7">
+        <label for="Municipal">Municipal</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="Municipal"
+          id="Municipal"
+          value="{{ ncmDados.municipal }}"
+          [(ngModel)]="ncmDados.municipal"
+        />
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="VigenciaInicio">Vigência inicio</label>
+        <input
+          type="datetime"
+          class="form-control w-100"
+          name="VigenciaInicio"
+          id="VigenciaInicio"
+          value="{{ ncmDados.vigenciaInicio }}"
+          [(ngModel)]="ncmDados.vigenciaInicio"
+        />
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="VigenciaFim">Vigência término</label>
+        <input
+          type="datetime"
+          class="form-control w-100"
+          name="VigenciaFim"
+          id="VigenciaFim"
+          value="{{ ncmDados.vigenciaFim }}"
+          [(ngModel)]="ncmDados.vigenciaFim"
+        />
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="Chave">Chave</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="Chave"
+          id="Chave"
+          value="{{ ncmDados.chave }}"
+          [(ngModel)]="ncmDados.chave"
+        />
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="Fonte">Fonte</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="Fonte"
+          id="Fonte"
+          value="{{ ncmDados.fonte }}"
+          [(ngModel)]="ncmDados.fonte"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4 m-1">Salvar</button>
+    <a href="/cadastro/ncm" class="btn btn-secondary mt-4 m-1">Cancelar</a>
+  </form>
+</div>

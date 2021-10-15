@@ -45,7 +45,7 @@
         <select class="form-control" name="PIS" id="PIS" ngModel required>
           <option
             *ngFor="let item of PISlista; let i = index"
-            value="{{ i + 2 }}"
+            value="{{ item.index }}"
           >
             {{ item.descricao }}
           </option>
@@ -57,7 +57,7 @@
         <select class="form-control" name="COFINS" id="COFINS" ngModel required>
           <option
             *ngFor="let item of COFINSlista; let i = index"
-            value="{{ i + 2 }}"
+            value="{{ item.index }}"
           >
             {{ item.descricao }}
           </option>
@@ -69,7 +69,7 @@
         <select class="form-control" name="CSTIPI" id="CSTIPI" ngModel required>
           <option
             *ngFor="let item of CSTIPIlista; let i = index"
-            value="{{ i + 2 }}"
+            value="{{ item.index }}"
           >
             {{ item.descricao }}
           </option>
@@ -130,7 +130,9 @@
           type="checkbox"
           name="Imcs_RedST"
           id="Imcs_RedST"
-          ngModel
+          #Imcs_RedST
+          [checked]
+          [(ngModel)]="Imcs_RedST.checked"
           required
         />
         <label class="form-check-label" for="Imcs_RedST">%ICMCS REDST</label>

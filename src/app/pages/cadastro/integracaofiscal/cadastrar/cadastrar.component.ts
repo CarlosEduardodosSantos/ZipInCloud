@@ -152,10 +152,6 @@ export class CadastrarComponent implements OnInit {
   async ngOnInit() {}
 
   async onSubmit(data: any) {
-    data.Imcs_RedST != true
-      ? data.Imcs_RedST == false
-      : data.Imcs_RedST == true;
-
     this.alertSuccessState = false;
     console.log(data);
     await this._api.salvarIntegracaoFiscal(data);

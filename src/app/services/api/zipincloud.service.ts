@@ -212,6 +212,42 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Ncm//
+  salvarNcm(data: any) {
+    return this.http
+      .post(environment.url + 'api/ncm', data, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  modificarNcm(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/ncm/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirNcm(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/ncm/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
   //TODO:GETs ESPECIFICOS//
 
   obterTodosDadosProdutos() {
@@ -286,6 +322,15 @@ export class ZipincloudService {
         environment.url + 'api/integracaofiscal/getintegracaofiscalbyid/' + ID,
         environment.headers
       )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterDadosNcmPeloID(ID: any) {
+    return this.http
+      .get(environment.url + 'api/ncm/getncmbyid/' + ID, environment.headers)
       .toPromise()
       .then((data: any) => {
         return data;

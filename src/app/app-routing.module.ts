@@ -21,6 +21,10 @@ import { IntegracaofiscalDetalhesComponent as IntegracaofiscalDetalhes } from '.
 import { CadastrarComponent as IntegracaoFiscalCadastrar } from './pages/cadastro/integracaofiscal/cadastrar/cadastrar.component';
 import { EditarComponent as IntegracaoFiscalEditar } from './pages/cadastro/integracaofiscal/editar/editar.component';
 
+import { IndexComponent as NCMIndex } from './pages/cadastro/ncm/index/index.component';
+import { EditarComponent as NCMEditar } from './pages/cadastro/ncm/editar/editar.component';
+import { CadastrarComponent as NCMCadastrar } from './pages/cadastro/ncm/cadastrar/cadastrar.component';
+
 const routes: Routes = [
   { path: '', component: AcessoRapidoIndex },
   { path: 'produtos', component: ProdutoIndex },
@@ -44,6 +48,15 @@ const routes: Routes = [
   {
     path: 'cadastro/integracaofiscal/cadastrar',
     component: IntegracaoFiscalCadastrar,
+  },
+  { path: 'cadastro/ncm', component: NCMIndex },
+  {
+    path: 'cadastro/ncm/cadastrar',
+    component: NCMCadastrar,
+  },
+  {
+    path: 'cadastro/ncm/editar/:id',
+    component: NCMEditar,
   },
 ];
 

@@ -1,1 +1,290 @@
-<p>editar works!</p>
+<div class="m-4">
+  <p class="fs-22 bolder">Editar: {{ integracaoFiscalDados.descricao }}</p>
+
+  <div
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+    [hidden]="alertSuccessState"
+  >
+    <strong>Pronto!</strong> A integração fiscal foi editada.
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+
+  <form
+    #cadastroIntegracaoFiscal="ngForm"
+    (ngSubmit)="onSubmit(cadastroIntegracaoFiscal.value)"
+    enctype="multipart/form-data"
+  >
+    <div class="inline">
+      <div class="form-group inline-child-20" hidden>
+        <label for="id">ID</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="id"
+          id="id"
+          value="{{ integracaoFiscalDados.id }}"
+          [(ngModel)]="integracaoFiscalDados.id"
+        />
+      </div>
+
+      <div class="form-group inline-child-20">
+        <label for="Descricao">Descrição</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="Descricao"
+          id="Descricao"
+          value="{{ integracaoFiscalDados.descricao }}"
+          [(ngModel)]="integracaoFiscalDados.descricao"
+        />
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="ICMS">ICMS</label>
+        <select
+          class="form-control"
+          name="ICMS"
+          id="ICMS"
+          value="{{ integracaoFiscalDados.icms }}"
+          [(ngModel)]="integracaoFiscalDados.icms"
+        >
+          <option
+            *ngFor="let item of ICMSlista; let i = index"
+            value="{{ item.index }}"
+          >
+            {{ item.descricao }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="PIS">PIS</label>
+        <select
+          class="form-control"
+          name="PIS"
+          id="PIS"
+          value="{{ integracaoFiscalDados.pis }}"
+          [(ngModel)]="integracaoFiscalDados.pis"
+        >
+          <option
+            *ngFor="let item of PISlista; let i = index"
+            value="{{ item.index }}"
+          >
+            {{ item.descricao }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="COFINS">COFINS</label>
+        <select
+          class="form-control"
+          name="COFINS"
+          id="COFINS"
+          value="{{ integracaoFiscalDados.cofins }}"
+          [(ngModel)]="integracaoFiscalDados.cofins"
+        >
+          <option
+            *ngFor="let item of COFINSlista; let i = index"
+            value="{{ item.index }}"
+          >
+            {{ item.descricao }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="CSTIPI">CSTIPI</label>
+        <select
+          class="form-control"
+          name="CSTIPI"
+          id="CSTIPI"
+          value="{{ integracaoFiscalDados.cstipi }}"
+          [(ngModel)]="integracaoFiscalDados.cstipi"
+        >
+          <option
+            *ngFor="let item of CSTIPIlista; let i = index"
+            value="{{ item.index }}"
+          >
+            {{ item.descricao }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="AliqICMS">%Aliquota de ICMS</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="AliqICMS"
+          id="AliqICMS"
+          value="{{ integracaoFiscalDados.aliqICMS }}"
+          [(ngModel)]="integracaoFiscalDados.aliqICMS"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="AliqICMSST">%Aliquota de ICMS ST</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="AliqICMSST"
+          id="AliqICMSST"
+          value="{{ integracaoFiscalDados.aliqICMSST }}"
+          [(ngModel)]="integracaoFiscalDados.aliqICMSST"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="PerCreditoSN">%Credito SN</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="PerCreditoSN"
+          id="PerCreditoSN"
+          value="{{ integracaoFiscalDados.perCreditoSN }}"
+          [(ngModel)]="integracaoFiscalDados.perCreditoSN"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="PerDif">%Dife Dif</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="PerDif"
+          id="PerDif"
+          value="{{ integracaoFiscalDados.perDif }}"
+          [(ngModel)]="integracaoFiscalDados.perDif"
+        />
+      </div>
+
+      <div class="form-check inline-child-5">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          name="Imcs_RedST"
+          id="Imcs_RedST"
+          #Imcs_RedST
+          [checked]="integracaoFiscalDados.imcs_RedST"
+          [(ngModel)]="Imcs_RedST.checked"
+        />
+        <label class="form-check-label" for="Imcs_RedST">%ICMCS REDST</label>
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="Mva">% MVA</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="Mva"
+          id="Mva"
+          value="{{ integracaoFiscalDados.mva }}"
+          [(ngModel)]="integracaoFiscalDados.mva"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="RedBcIcms">% Red. BC de ICMS</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="RedBcIcms"
+          id="RedBcIcms"
+          value="{{ integracaoFiscalDados.redBcIcms }}"
+          [(ngModel)]="integracaoFiscalDados.redBcIcms"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="RedBcIcmsSt">% Red. BC de ICMS Subst.Trib</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="RedBcIcmsSt"
+          id="RedBcIcmsSt"
+          value="{{ integracaoFiscalDados.redBcIcmsSt }}"
+          [(ngModel)]="integracaoFiscalDados.redBcIcmsSt"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="AliqIPI">%Aliquota de IPI</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="AliqIPI"
+          id="AliqIPI"
+          value="{{ integracaoFiscalDados.aliqIPI }}"
+          [(ngModel)]="integracaoFiscalDados.aliqIPI"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="AliqPIS">%Aliquota de PIS</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="AliqPIS"
+          id="AliqPIS"
+          value="{{ integracaoFiscalDados.aliqPIS }}"
+          [(ngModel)]="integracaoFiscalDados.aliqPIS"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="AliqCofins">%Aliquota de Cofins</label>
+        <input
+          type="number"
+          class="form-control w-100"
+          name="AliqCofins"
+          id="AliqCofins"
+          value="{{ integracaoFiscalDados.aliqCofins }}"
+          [(ngModel)]="integracaoFiscalDados.aliqCofins"
+        />
+      </div>
+
+      <div class="form-group inline-child-5">
+        <label for="Frete">Frete</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="Frete"
+          id="Frete"
+          value="{{ integracaoFiscalDados.frete }}"
+          [(ngModel)]="integracaoFiscalDados.frete"
+        />
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="OutrasDespesas">Outras Despesas</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="OutrasDespesas"
+          id="OutrasDespesas"
+          value="{{ integracaoFiscalDados.outrasDespesas }}"
+          [(ngModel)]="integracaoFiscalDados.outrasDespesas"
+        />
+      </div>
+
+      <div class="form-group inline-child-10">
+        <label for="Seguro">Seguro</label>
+        <input
+          type="text"
+          class="form-control w-100"
+          name="Seguro"
+          id="Seguro"
+          value="{{ integracaoFiscalDados.seguro }}"
+          [(ngModel)]="integracaoFiscalDados.seguro"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-4 m-1">Salvar</button>
+    <a href="/cadastro/integracaofiscal" class="btn btn-secondary mt-4 m-1"
+      >Cancelar</a
+    >
+  </form>
+</div>

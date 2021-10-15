@@ -14,6 +14,7 @@ export class CadastrarComponent implements OnInit {
   marcas: any;
   origemProdutos: any;
   ncms: any;
+  integracaofiscal: any;
 
   alertSuccessState = true;
 
@@ -34,6 +35,9 @@ export class CadastrarComponent implements OnInit {
 
     let ncmDados = await this._api.obterDadosNCMProdutos();
     this.ncms = ncmDados;
+
+    let iFDados = await this._api.obterDadosIntegracaoFiscalProdutos();
+    this.integracaofiscal = iFDados;
   }
 
   adicionarImagem(data: any) {

@@ -37,6 +37,12 @@ export class IndexComponent implements OnInit {
     url: 'cadastro/integracaofiscal',
   };
 
+  itemNcm: any = {
+    nome: 'NCM',
+    descricao: 'Adicione, remova e edite os ncms do projeto',
+    url: 'cadastro/ncm',
+  };
+
   itemDashboard: any = [
     {
       nome: 'Vendas',

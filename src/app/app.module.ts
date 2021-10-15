@@ -18,6 +18,9 @@ import { IntegracaofiscalComponent as IntegracaoFiscalIndex } from './pages/cada
 import { IntegracaofiscalDetalhesComponent as IntegracaofiscalDetalhes } from './pages/cadastro/integracaofiscal/detalhes/integracaofiscal-detalhes.component';
 import { CadastrarComponent as IntegracaoFiscalCadastrar } from './pages/cadastro/integracaofiscal/cadastrar/cadastrar.component';
 import { EditarComponent as IntegracaoFiscalEditar } from './pages/cadastro/integracaofiscal/editar/editar.component';
+import { IndexComponent as NCMIndex } from './pages/cadastro/ncm/index/index.component';
+import { EditarComponent as NCMEditar } from './pages/cadastro/ncm/editar/editar.component';
+import { CadastrarComponent as NCMCadastrar } from './pages/cadastro/ncm/cadastrar/cadastrar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DataTablesModule } from 'angular-datatables';
@@ -58,6 +61,9 @@ import { TipoprodutoCriarComponent } from './components/cadastro/tipoproduto-cri
     MarcasModificarComponent,
     TipoprodutoModificarComponent,
     TipoprodutoCriarComponent,
+    NCMIndex,
+    NCMEditar,
+    NCMCadastrar,
   ],
   imports: [
     BrowserModule,

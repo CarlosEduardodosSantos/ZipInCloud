@@ -1,12 +1,13 @@
 <div class="m-4">
-  <p class="fs-22 bolder">Categorias</p>
+  <p class="fs-22 bolder">NCM</p>
 
   <div class="tright">
     <button
       type="button"
       class="btn btn-primary"
       data-bs-toggle="modal"
-      data-bs-target="#cadastroCategoriaModal"
+      data-bs-target="#cadastroModal"
+      (click)="cadastrar()"
     >
       Nova
     </button>
@@ -23,22 +24,33 @@
       <tr>
         <th>#</th>
         <th>Descrição</th>
-        <th>Imagem</th>
+        <th>Código</th>
         <th class="centerTable">Ação</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listacategorias; let i = index">
+      <tr *ngFor="let item of listancm; let i = index">
         <td>{{ item.id }}</td>
         <td>{{ item.descricao }}</td>
-        <td class="imagemStyle">{{ item.imagem }}</td>
+        <td>{{ item.codigo }}</td>
         <td class="acoesStyle">
+          <button
+            class="btn btn-secondary m-1 tleft"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#detalhesModal"
+            (click)="dadosespecificos(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Detalhes</span
+            >
+          </button>
           <button
             class="btn btn-success m-1 tleft"
             type="button"
             data-bs-toggle="modal"
-            data-bs-target="#configuracaoCategoriaModal"
-            (click)="obterId(item.id, item.descricao)"
+            data-bs-target="#configuracaoModal"
+            (click)="editar(item.id)"
           >
             <span class="acaoStyle"
               ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
@@ -58,8 +70,3 @@
     </tbody>
   </table>
 </div>
-<app-categorias-criar></app-categorias-criar>
-<app-categorias-modificar
-  descricaoAtual="{{ descricaoAtual }}"
-  idAtual="{{ idAtual }}"
-></app-categorias-modificar>

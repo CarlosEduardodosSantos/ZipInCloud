@@ -13,7 +13,6 @@ import { IndexComponent as VendaIndex } from './pages/vendas/index/index.compone
 import { DetalhesComponent as VendaDetalhes } from './pages/vendas/detalhes/detalhes.component';
 import { CategoriasComponent as CategoriaIndex } from './pages/cadastro/categorias/categorias.component';
 import { MarcasComponent as MarcaIndex } from './pages/cadastro/marcas/marcas.component';
-import { TipoprodutoComponent as TipoProdutoIndex } from './pages/cadastro/tipoproduto/tipoproduto.component';
 import { IntegracaofiscalComponent as IntegracaoFiscalIndex } from './pages/cadastro/integracaofiscal/index/integracaofiscal.component';
 import { IntegracaofiscalDetalhesComponent as IntegracaofiscalDetalhes } from './pages/cadastro/integracaofiscal/detalhes/integracaofiscal-detalhes.component';
 import { CadastrarComponent as IntegracaoFiscalCadastrar } from './pages/cadastro/integracaofiscal/cadastrar/cadastrar.component';
@@ -21,6 +20,7 @@ import { EditarComponent as IntegracaoFiscalEditar } from './pages/cadastro/inte
 import { IndexComponent as NCMIndex } from './pages/cadastro/ncm/index/index.component';
 import { EditarComponent as NCMEditar } from './pages/cadastro/ncm/editar/editar.component';
 import { CadastrarComponent as NCMCadastrar } from './pages/cadastro/ncm/cadastrar/cadastrar.component';
+import { IndexComponent as MovimentaoEstoqueIndex } from './pages/movimentacaoestoque/index/index.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DataTablesModule } from 'angular-datatables';
@@ -50,7 +50,6 @@ import { TipoprodutoCriarComponent } from './components/cadastro/tipoproduto-cri
     VendaDetalhes,
     CategoriaIndex,
     MarcaIndex,
-    TipoProdutoIndex,
     IntegracaoFiscalIndex,
     IntegracaofiscalDetalhes,
     IntegracaoFiscalCadastrar,
@@ -64,6 +63,7 @@ import { TipoprodutoCriarComponent } from './components/cadastro/tipoproduto-cri
     NCMIndex,
     NCMEditar,
     NCMCadastrar,
+    MovimentaoEstoqueIndex,
   ],
   imports: [
     BrowserModule,

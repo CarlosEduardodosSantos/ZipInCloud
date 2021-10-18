@@ -56,7 +56,7 @@
         </div>
 
         <div class="inline">
-          <div class="form-check inline-child-5">
+          <div class="form-check inline-child-19">
             <input
               class="form-check-input"
               type="checkbox"
@@ -101,7 +101,7 @@
         ><div class="inline">
           <div class="form-group inline-child-10">
             <label for="UnidadeMedidaID">Unidade de medida</label>
-            <div>
+            <div class="inline">
               <select
                 class="form-control"
                 name="UnidadeMedidaID"
@@ -116,8 +116,15 @@
                 <option value="5">PCT</option>
                 <option value="6">FD</option>
                 <option value="7">M@</option>
-                <option value="8">M</option>
-              </select>
+                <option value="8">M</option></select
+              ><button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#cadastroUnidadeMedidaModal"
+                class="btn btn-dark"
+              >
+                +
+              </button>
             </div>
           </div>
 
@@ -141,7 +148,7 @@
                 type="button"
                 data-bs-toggle="modal"
                 data-bs-target="#cadastroCategoriaModal"
-                class="btn btn-primary"
+                class="btn btn-dark"
               >
                 +
               </button>
@@ -171,7 +178,7 @@
                 type="button"
                 data-bs-toggle="modal"
                 data-bs-target="#cadastroMarcaModal"
-                class="btn btn-primary"
+                class="btn btn-dark"
               >
                 +
               </button>
@@ -183,16 +190,25 @@
         ><div class="inline">
           <div class="form-group inline-child-8">
             <label for="TipoProdutoID">Tipo do produto</label>
-            <select
-              class="form-control"
-              name="TipoProdutoID"
-              id="TipoProdutoID"
-              ngModel
-              required
-            >
-              <option value="1">Materia Prima</option>
-              <option value="2">Produto Acabado</option>
-            </select>
+            <div class="inline">
+              <select
+                class="form-control"
+                name="TipoProdutoID"
+                id="TipoProdutoID"
+                ngModel
+                required
+              >
+                <option value="1">Materia Prima</option>
+                <option value="2">Produto Acabado</option></select
+              ><button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#cadastroTipoProdutoModal"
+                class="btn btn-dark"
+              >
+                +
+              </button>
+            </div>
           </div>
 
           <div class="form-group inline-child-3">
@@ -336,14 +352,14 @@
               >
                 <option
                   *ngFor="let iF of integracaofiscal; let i = index"
-                  value="{{ i + 2 }}"
+                  value="{{ iF.id }}"
                 >
                   {{ iF.descricao }}
                 </option></select
               ><a
                 href="/cadastro/integracaofiscal/cadastrar"
                 target="_blank"
-                class="btn btn-primary"
+                class="btn btn-dark"
               >
                 +
               </a>
@@ -362,20 +378,28 @@
           </div>
           <div class="form-group inline-child-10">
             <label for="NcmID">NCM</label>
-            <select
-              class="form-control"
-              name="NcmID"
-              id="NcmID"
-              ngModel
-              required
-            >
-              <option
-                *ngFor="let ncm of ncms; let i = index"
-                value="{{ i + 2 }}"
+            <div class="inline">
+              <select
+                class="form-control"
+                name="NcmID"
+                id="NcmID"
+                ngModel
+                required
               >
-                {{ ncm.descricao }}
-              </option>
-            </select>
+                <option
+                  *ngFor="let ncm of ncms; let i = index"
+                  value="{{ i + 2 }}"
+                >
+                  {{ ncm.descricao }}
+                </option></select
+              ><a
+                href="/cadastro/ncm/cadastrar"
+                target="_blank"
+                class="btn btn-dark"
+              >
+                +
+              </a>
+            </div>
           </div>
           <div class="form-group inline-child-10">
             <label for="OrigemID">Origem do produto</label>

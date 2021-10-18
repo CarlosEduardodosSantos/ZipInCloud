@@ -12,7 +12,8 @@ export class DetalhesComponent implements OnInit {
   fromRoute: any;
 
   dados: any;
-  horario: any;
+  dadosVenda: any;
+  dadosVendedor: any;
 
   constructor(private route: ActivatedRoute, private _api: ZipincloudService) {}
 
@@ -20,38 +21,31 @@ export class DetalhesComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.fromRoute = this.route.snapshot.paramMap.get('initialRoute');
 
-    await this._api
-      .obterTodosDadosMovEstoqueVendasPeloID(this.id)
-      .then((data) => {
-        this.dados = data;
-      });
+    await this._api.obterDadosVendaPeloID(this.id).then((data) => {
+      this.dados = data;
 
-    this.setHorario();
+      this._api
+        .obterTodosDadosVendaPeloID(this.dados.vendaID)
+        .then((data: any) => {
+          this.dadosVenda = data;
 
-    console.log(this.horario);
-    console.log(this.dados);
+          this._api
+            .obterDadosVendedor(this.dadosVenda.pessoaVendedorID)
+            .then((data: any) => {
+              this.dadosVendedor = data;
+              console.log(this.dados);
+              console.log(this.dadosVenda);
+              console.log(this.dadosVendedor);
+            });
+        });
+    });
   }
 
-  setHorario() {
-    this.horario =
-      this.dados[2].data[8] +
-      this.dados[2].data[9] +
-      '/' +
-      this.dados[2].data[5] +
-      this.dados[2].data[6] +
-      '/' +
-      this.dados[2].data[0] +
-      this.dados[2].data[1] +
-      this.dados[2].data[2] +
-      this.dados[2].data[3] +
-      '-' +
-      this.dados[2].data[11] +
-      this.dados[2].data[12] +
-      this.dados[2].data[13] +
-      this.dados[2].data[14] +
-      this.dados[2].data[15] +
-      this.dados[2].data[16] +
-      this.dados[2].data[17] +
-      this.dados[2].data[18];
+  retornar() {
+    if (this.fromRoute == 1) {
+      location.href = '/vendas';
+    } else if (this.fromRoute == 2) {
+      location.href = '/produtos';
+    }
   }
 }

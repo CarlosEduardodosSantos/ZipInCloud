@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
+import { Subject } from 'rxjs';
 
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
@@ -16,13 +17,13 @@ export class IndexComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
   async ngOnInit() {
-    let data = await this._api.obterDadosVendaProdutos();
+    let data = await this._api.obterDadosMovimentacaoEstoque();
 
     this.listavendas = data;
     console.log(this.listavendas);
   }
 
-  obterDetalhes(vendaItemID: any) {
-    location.href = `vendas/detalhes/${vendaItemID}/1`;
+  obterDetalhes(vendaID: any) {
+    location.href = `vendas/detalhes/${vendaID}/1`;
   }
 }

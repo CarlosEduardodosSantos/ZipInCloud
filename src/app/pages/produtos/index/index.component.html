@@ -30,12 +30,16 @@
       <tr *ngFor="let item of listaprodutos; let i = index">
         <td>{{ item.id }}</td>
         <td>{{ item.codigo }}</td>
-        <td>{{ item.nome }}</td>
-        <td>R${{ item.preco }}</td>
-        <td>{{ item.estoque }}</td>
+        <td>{{ item.descricao }}</td>
+        <td>R${{ item.valorVenda }}</td>
+        <td>{{ item.saldoEstoque }}</td>
         <img
           class="img-Table"
-          src="data:image/png;base64,{{ item.imagemBytes }}"
+          [src]="
+            item.imagem !== null
+              ? 'data:image/png;base64,' + item.imagem
+              : '/assets/semimagem.jpg'
+          "
         />
 
         <td class="acoesStyle">

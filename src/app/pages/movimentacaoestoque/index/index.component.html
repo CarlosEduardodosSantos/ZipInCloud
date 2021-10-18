@@ -7,27 +7,27 @@
         <th>Data</th>
         <th>Produto</th>
         <th>Quantidade</th>
+        <th>Movimento</th>
         <th>Pedido</th>
-        <th>Confirmado</th>
         <th class="centerTable">Ações</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of listavendas; let i = index">
         <td>{{ item.id }}</td>
-        <td>{{ item.data }}</td>
-        <td>{{ item.produtoNome }}</td>
+        <td>{{ item.dataMovimento }}</td>
+        <td>{{ item.descricaoProduto }}</td>
         <td>{{ item.quantidade }}</td>
+        <td *ngIf="item.movimento == 1">Saida</td>
+        <td *ngIf="item.movimento != 1">Entrada</td>
         <td>{{ item.vendaID }}</td>
-        <td *ngIf="item.confirmado == true">Sim</td>
-        <td *ngIf="item.confirmado != true">Não</td>
         <td class="acoesStyle">
           <button
             class="btn btn-dark m-1"
-            (click)="obterDetalhes(item.vendaItemID)"
+            (click)="obterDetalhes(item.vendaID)"
           >
             <span class="acaoStyle"
-              ><fa-icon [icon]="faEye"></fa-icon> Detalhes</span
+              ><fa-icon [icon]="faEye"></fa-icon> Ver</span
             >
           </button>
         </td>

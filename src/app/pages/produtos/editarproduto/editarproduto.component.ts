@@ -54,7 +54,11 @@ export class EditarprodutoComponent implements OnInit {
   }
 
   obterDetalhes(vendaID: any) {
-    location.href = `vendas/detalhes/${vendaID}/2`;
+    this._api.obterDadosVendaProdutosByVendaID(vendaID).then((data: any) => {
+      let x = data;
+
+      location.href = `vendas/detalhes/${x.id}/2`;
+    });
   }
 
   onSubmit(data: any) {
@@ -77,7 +81,9 @@ export class EditarprodutoComponent implements OnInit {
       this.readFile(file, sub);
     });
     obs.subscribe((d) => {
+      d = d.replace(/^data:image\/[a-z]+;base64,/, '');
       this.imageBinding = d;
+      this.produtoDados.imagem = d;
     });
   }
 

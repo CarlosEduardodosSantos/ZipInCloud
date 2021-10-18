@@ -14,8 +14,6 @@ import { CategoriasComponent as CategoriaIndex } from './pages/cadastro/categori
 
 import { MarcasComponent as MarcaIndex } from './pages/cadastro/marcas/marcas.component';
 
-import { TipoprodutoComponent as TipoProdutoIndex } from './pages/cadastro/tipoproduto/tipoproduto.component';
-
 import { IntegracaofiscalComponent as IntegracaoFiscalIndex } from './pages/cadastro/integracaofiscal/index/integracaofiscal.component';
 import { IntegracaofiscalDetalhesComponent as IntegracaofiscalDetalhes } from './pages/cadastro/integracaofiscal/detalhes/integracaofiscal-detalhes.component';
 import { CadastrarComponent as IntegracaoFiscalCadastrar } from './pages/cadastro/integracaofiscal/cadastrar/cadastrar.component';
@@ -24,6 +22,8 @@ import { EditarComponent as IntegracaoFiscalEditar } from './pages/cadastro/inte
 import { IndexComponent as NCMIndex } from './pages/cadastro/ncm/index/index.component';
 import { EditarComponent as NCMEditar } from './pages/cadastro/ncm/editar/editar.component';
 import { CadastrarComponent as NCMCadastrar } from './pages/cadastro/ncm/cadastrar/cadastrar.component';
+
+import { IndexComponent as MovimentaoEstoqueIndex } from './pages/movimentacaoestoque/index/index.component';
 
 const routes: Routes = [
   { path: '', component: AcessoRapidoIndex },
@@ -35,7 +35,6 @@ const routes: Routes = [
   { path: 'vendas/detalhes/:id/:initialRoute', component: VendaDetalhes },
   { path: 'cadastro/categorias', component: CategoriaIndex },
   { path: 'cadastro/marcas', component: MarcaIndex },
-  { path: 'cadastro/tipoprodutos', component: TipoProdutoIndex },
   { path: 'cadastro/integracaofiscal', component: IntegracaoFiscalIndex },
   {
     path: 'cadastro/integracaofiscal/detalhes/:id',
@@ -57,6 +56,10 @@ const routes: Routes = [
   {
     path: 'cadastro/ncm/editar/:id',
     component: NCMEditar,
+  },
+  {
+    path: 'movimentacaoestoque',
+    component: MovimentaoEstoqueIndex,
   },
 ];
 

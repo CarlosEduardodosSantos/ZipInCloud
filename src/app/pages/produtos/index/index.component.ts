@@ -30,7 +30,7 @@ export class IndexComponent implements OnInit {
   }
 
   async chamarAPIProdutos() {
-    let data = await this._api.obterTodosDadosProdutosDataTable();
+    let data = await this._api.obterTodosDadosProdutos();
 
     this.listaprodutos = data;
     console.log(this.listaprodutos);

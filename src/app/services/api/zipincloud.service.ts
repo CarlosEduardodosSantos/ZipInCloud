@@ -379,81 +379,55 @@ export class ZipincloudService {
       });
   }
 
-  async obterTodosDadosMovEstoqueVendasPeloID(vendaid: any) {
-    let vendaData: any;
-    let pessoaClienteData: any;
-    let pessoaVendedorData: any;
-    let pessoaData: any;
-    let vendedorData: any;
-
-    let fullData: any;
-
-    await this.http
+  obterDadosVendedor(vendedorid: any) {
+    return this.http
       .get(
-        environment.url + 'api/produtoes/venda/detalhe/venda/' + vendaid,
+        environment.url + 'api/PessoaVendedors/' + vendedorid,
         environment.headers
       )
       .toPromise()
       .then((data: any) => {
-        vendaData = data;
+        return data;
       });
+  }
 
-    await this.http
+  //TODO: Vendas//
+  obterDadosVendaProdutos() {
+    return this.http
+      .get(environment.url + 'api/vendaitems', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterDadosVendaProdutosByVendaID(vendaid: any) {
+    return this.http
       .get(
-        environment.url +
-          'api/produtoes/venda/detalhe/pessoacliente/' +
-          vendaData[0].pessoaClienteID,
+        environment.url + 'api/vendaitems/getbyvendaid/' + vendaid,
         environment.headers
       )
       .toPromise()
       .then((data: any) => {
-        pessoaClienteData = data;
+        return data;
       });
+  }
 
-    await this.http
-      .get(
-        environment.url +
-          'api/produtoes/venda/detalhe/pessoa/' +
-          pessoaClienteData[0].pessoaID,
-        environment.headers
-      )
+  obterDadosVendaPeloID(vendaid: any) {
+    return this.http
+      .get(environment.url + 'api/vendaitems/' + vendaid, environment.headers)
       .toPromise()
       .then((data: any) => {
-        pessoaData = data;
+        return data;
       });
+  }
 
-    await this.http
-      .get(
-        environment.url +
-          'api/produtoes/venda/detalhe/pessoavendedor/' +
-          vendaData[0].pessoaVendedorID,
-        environment.headers
-      )
+  obterTodosDadosVendaPeloID(vendaid: any) {
+    return this.http
+      .get(environment.url + 'api/vendas/' + vendaid, environment.headers)
       .toPromise()
       .then((data: any) => {
-        pessoaVendedorData = data;
+        return data;
       });
-
-    await this.http
-      .get(
-        environment.url +
-          'api/produtoes/venda/detalhe/pessoa/' +
-          pessoaVendedorData[0].pessoaID,
-        environment.headers
-      )
-      .toPromise()
-      .then((data: any) => {
-        vendedorData = data;
-      });
-
-    fullData = await [].concat(
-      pessoaData[0],
-      pessoaClienteData[0],
-      vendaData[0],
-      vendedorData[0],
-      pessoaVendedorData[0]
-    );
-
-    return fullData;
   }
 }

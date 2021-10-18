@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
-import { DomSanitizer } from '@angular/platform-browser';
-import { HttpClient } from '@angular/common/http';
 import { Observable, Subscriber } from 'rxjs';
 
 @Component({
@@ -20,11 +18,7 @@ export class CadastrarComponent implements OnInit {
 
   imageBinding = '../../../../../assets/semimagem.jpg';
 
-  constructor(
-    private _api: ZipincloudService,
-    private sanitizer: DomSanitizer,
-    private http: HttpClient
-  ) {}
+  constructor(private _api: ZipincloudService) {}
 
   async ngOnInit() {
     let categoriaDados = await this._api.obterDadosCategoriasProdutos();
@@ -38,6 +32,7 @@ export class CadastrarComponent implements OnInit {
 
     let iFDados = await this._api.obterDadosIntegracaoFiscalProdutos();
     this.integracaofiscal = iFDados;
+    console.log(iFDados);
   }
 
   adicionarImagem(data: any) {

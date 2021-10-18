@@ -391,6 +391,53 @@ export class ZipincloudService {
       });
   }
 
+  obterDadosCliente(pessoaid: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PessoaClientesApi/' + pessoaid,
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterDadosPessoa(pessoaid: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PessoasAPI/obterdados/' + pessoaid,
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        data = data[0];
+        return data;
+      });
+  }
+
+  obterDadosTipoOperação(operacaoid: any) {
+    return this.http
+      .get(
+        environment.url + 'api/TipoOperacaoAPI/obterdados/' + operacaoid,
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        data = data[0];
+        return data;
+      });
+  }
+
+  obterFormasDePagamento() {
+    return this.http
+      .get(environment.url + 'api/FormaPagamentoes', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
   //TODO: Vendas//
   obterDadosVendaProdutos() {
     return this.http

@@ -21,19 +21,17 @@ export class IndexComponent implements OnInit {
 
   term: any;
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 2,
     };
-    this.chamarAPIProdutos();
-  }
 
-  async chamarAPIProdutos() {
-    let data = await this._api.obterTodosDadosProdutos();
+    await this._api.obterTodosDadosProdutos().then((data) => {
+      this.listaprodutos = data;
 
-    this.listaprodutos = data;
-    console.log(this.listaprodutos);
+      console.log(this.listaprodutos);
+    });
   }
 
   editarElemento(index: number) {

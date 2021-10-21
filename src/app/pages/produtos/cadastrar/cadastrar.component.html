@@ -74,7 +74,7 @@
                 id="img"
                 #img
                 name="imagem"
-                class="produtoImagem"
+                class="produtoImagem preview"
                 [src]="imageBinding"
                 [(ngModel)]="img.src"
               />
@@ -150,8 +150,8 @@
                 data-bs-target="#cadastroCategoriaModal"
                 class="btn btn-dark"
               >
-                +
-              </button>
+                +</button
+              ><app-categorias-criar></app-categorias-criar>
             </div>
           </div>
         </div>
@@ -180,12 +180,11 @@
                 data-bs-target="#cadastroMarcaModal"
                 class="btn btn-dark"
               >
-                +
-              </button>
+                +</button
+              ><app-marcas-criar></app-marcas-criar>
             </div>
-          </div>
-        </div></tab
-      >
+          </div></div
+      ></tab>
       <tab class="tab" heading="Estoque"
         ><div class="inline">
           <div class="form-group inline-child-8">
@@ -422,5 +421,3 @@
     <a href="/produtos" class="btn btn-secondary mt-4 m-1">Cancelar</a>
   </form>
 </div>
-<app-categorias-criar></app-categorias-criar>
-<app-marcas-criar></app-marcas-criar>

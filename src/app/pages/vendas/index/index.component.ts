@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import {
+  faWindowClose,
+  faPrint,
+  faEye,
+  faCreditCard,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-index',
@@ -9,20 +14,62 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-  listavendas: any[] = [];
+  listavendas: any;
+  listavendasFormatada: any;
+
+  dataDaVenda: any;
 
   faEye = faEye;
+  faWindowClose = faWindowClose;
+  faPrint = faPrint;
+  faCreditCard = faCreditCard;
 
   constructor(private _api: ZipincloudService) {}
 
   async ngOnInit() {
-    let data = await this._api.obterDadosVendaProdutos();
+    await this._api.obterDadosVendas().then((data: any) => {
+      this.listavendas = data;
+      this.listavendasFormatada = data;
 
-    this.listavendas = data;
-    console.log(this.listavendas);
+      let formatter = new Intl.NumberFormat([], {
+        style: 'currency',
+        currency: 'BRL',
+      });
+
+      for (let i = 0; i < this.listavendasFormatada.length; i++) {
+        this.listavendasFormatada[i].data = new Date(
+          this.listavendasFormatada[i].data
+        ).toLocaleString();
+        this.listavendasFormatada[i].totalPedido = formatter.format(
+          this.listavendasFormatada[i].totalPedido
+        );
+      }
+
+      console.log(this.listavendasFormatada);
+    });
+  }
+
+  cadastrar() {
+    location.href = `vendas/cadastrar`;
+  }
+
+  deletarVenda(id: any) {
+    var alertCondition = confirm('Deseja mesmo excluir está venda?');
+    if (alertCondition) {
+      this._api.excluirVenda(id);
+      /* location.reload(); */
+    }
   }
 
   obterDetalhes(vendaItemID: any) {
-    location.href = `vendas/detalhes/${vendaItemID}/1`;
+    location.href = `vendas/editar/${vendaItemID}`;
+  }
+
+  faturarPedido(vendaID: any) {
+    let data = this._api.obterTodosDadosVendaPeloID(vendaID).then((data) => {
+      data.status = 2;
+      this._api.faturarVenda(vendaID, data);
+    });
+    /* location.reload(); */
   }
 }

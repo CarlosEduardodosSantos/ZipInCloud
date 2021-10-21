@@ -1,6 +1,19 @@
+.modal-content {
+  left: 50%;
+  transform: translate(-50%);
+  width: 60vw;
+  height: 90vh;
+}
+
+.modal-body {
+  overflow-y: scroll;
+}
+
 .table {
   display: flexbox;
   vertical-align: middle;
+  width: 90%;
+  height: 10%;
 }
 
 tr th,
@@ -18,13 +31,6 @@ tbody tr:hover {
   background-color: rgb(238, 238, 238);
 }
 
-.img-Table {
-  display: block;
-  margin: auto;
-  width: auto;
-  height: 70px;
-}
-
 tbody tr td {
   border-bottom: none !important;
 }
@@ -38,7 +44,8 @@ tbody tr {
 }
 
 .acoesStyle {
-  width: 240px;
+  width: 130px;
+  max-width: 130px;
   align-items: center;
   justify-content: space-between;
   text-align: center;

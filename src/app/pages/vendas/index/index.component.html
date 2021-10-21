@@ -1,34 +1,57 @@
 <div class="m-4">
   <p class="fs-22 bolder">Vendas</p>
+
+  <div class="tright">
+    <button class="btn btn-primary m-2" (click)="cadastrar()">Novo</button>
+  </div>
+
   <table class="w-100 table row-border hover" id="produtos-table">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>#</th>
         <th>Data</th>
-        <th>Produto</th>
-        <th>Quantidade</th>
-        <th>Pedido</th>
-        <th>Confirmado</th>
+        <th>Cliente</th>
+        <th>Operação</th>
+        <th>Vendedor</th>
+        <th>NF</th>
+        <th>Status</th>
+        <th>Total</th>
         <th class="centerTable">Ações</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listavendas; let i = index">
+      <tr *ngFor="let item of listavendasFormatada; let i = index">
         <td>{{ item.id }}</td>
         <td>{{ item.data }}</td>
-        <td>{{ item.produtoNome }}</td>
-        <td>{{ item.quantidade }}</td>
-        <td>{{ item.vendaID }}</td>
-        <td *ngIf="item.confirmado == true">Sim</td>
-        <td *ngIf="item.confirmado != true">Não</td>
+        <td>{{ item.clienteNome }}</td>
+        <td>{{ item.tipoOperacao }}</td>
+        <td>{{ item.vendedorNome }}</td>
+        <td></td>
+        <td>{{ item.status }}</td>
+        <td>{{ item.totalPedido }}</td>
         <td class="acoesStyle">
+          <button class="btn btn-dark m-1" (click)="deletarVenda(item.id)">
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faWindowClose"></fa-icon
+            ></span>
+          </button>
           <button
-            class="btn btn-dark m-1"
-            (click)="obterDetalhes(item.vendaItemID)"
+            class="btn btn-warningDark m-1"
+            *ngIf="item.status != 'Aberto'"
+          >
+            <span class="acaoStyle"><fa-icon [icon]="faPrint"></fa-icon></span>
+          </button>
+          <button
+            class="btn btn-success m-1"
+            *ngIf="item.status != 'Faturado'"
+            (click)="faturarPedido(item.id)"
           >
             <span class="acaoStyle"
-              ><fa-icon [icon]="faEye"></fa-icon> Selecionar</span
-            >
+              ><fa-icon [icon]="faCreditCard"></fa-icon
+            ></span>
+          </button>
+          <button class="btn btn-dark m-1" (click)="obterDetalhes(item.id)">
+            <span class="acaoStyle"><fa-icon [icon]="faEye"></fa-icon></span>
           </button>
         </td>
       </tr>

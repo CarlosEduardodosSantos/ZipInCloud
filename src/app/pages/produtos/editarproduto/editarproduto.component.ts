@@ -23,7 +23,7 @@ export class EditarprodutoComponent implements OnInit {
 
   faEye = faEye;
 
-  imageBinding = '../../../../../assets/semimagem.jpg';
+  imageBinding = 'assets/semimagem.jpg';
 
   constructor(private route: ActivatedRoute, private _api: ZipincloudService) {}
 
@@ -55,18 +55,25 @@ export class EditarprodutoComponent implements OnInit {
 
   obterDetalhes(vendaID: any) {
     this._api.obterDadosVendaProdutosByVendaID(vendaID).then((data: any) => {
-      let x = data;
+      let x = data[0];
 
-      location.href = `vendas/detalhes/${x.id}/2`;
+      location.href = `vendas/editar/${x.vendaID}`;
     });
   }
 
-  onSubmit(data: any) {
-    data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
+  async onSubmit(data: any) {
+    if (data.imagem[0] == '/') {
+      data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
+    } else {
+      delete data.imagem;
+      delete data.imagem;
+    }
+
+    console.log(this.produtoDados);
     console.log(data);
 
-    this._api.modificarProduto(data).catch((err) => {
-      return;
+    this._api.modificarProduto(data).then((res) => {
+      console.log(res);
     });
 
     this.alertSuccessState = false;

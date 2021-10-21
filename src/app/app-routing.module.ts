@@ -8,7 +8,8 @@ import { EditarprodutoComponent as ProdutoEditar } from './pages/produtos/editar
 import { CadastrarComponent as ProdutoCadastrar } from './pages/produtos/cadastrar/cadastrar.component';
 
 import { IndexComponent as VendaIndex } from './pages/vendas/index/index.component';
-import { DetalhesComponent as VendaDetalhes } from './pages/vendas/detalhes/detalhes.component';
+import { EditarvendaComponent as VendaEditar } from './pages/vendas/editarvenda/editarvenda.component';
+import { CadastrarComponent as VendaCadastrar } from './pages/vendas/cadastrar/cadastrar.component';
 
 import { CategoriasComponent as CategoriaIndex } from './pages/cadastro/categorias/categorias.component';
 
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'produtos/editar/:id', component: ProdutoEditar },
   { path: 'produtos/cadastrar', component: ProdutoCadastrar },
   { path: 'vendas', component: VendaIndex },
-  { path: 'vendas/detalhes/:id/:initialRoute', component: VendaDetalhes },
+  { path: 'vendas/editar/:id', component: VendaEditar },
+  { path: 'vendas/cadastrar', component: VendaCadastrar },
   { path: 'cadastro/categorias', component: CategoriaIndex },
   { path: 'cadastro/marcas', component: MarcaIndex },
   { path: 'cadastro/integracaofiscal', component: IntegracaoFiscalIndex },

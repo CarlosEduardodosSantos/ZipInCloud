@@ -68,7 +68,7 @@
         </div>
 
         <div class="inline">
-          <div class="form-check inline-child-5">
+          <div class="form-check inline-child-19">
             <input
               class="form-check-input"
               type="checkbox"
@@ -428,44 +428,43 @@
           </div>
         </div></tab
       >
-      <tab class="tab" heading="Movimentos de Estoque"
-        ><div class="inline">
-          <div class="form-group">
-            <table class="w-100 table row-border hover inline-child-20">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Data</th>
-                  <th>Produto</th>
-                  <th>Quantidade</th>
-                  <th>Movimento</th>
-                  <th>Pedido</th>
-                  <th>Ações</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of produtoMovimento; let i = index">
-                  <td>{{ item.id }}</td>
-                  <td>{{ item.dataMovimento }}</td>
-                  <td>{{ item.descricaoProduto }}</td>
-                  <td>{{ item.quantidade }}</td>
-                  <td *ngIf="item.movimento == 1">Saida</td>
-                  <td *ngIf="item.movimento != 1">Entrada</td>
-                  <td>{{ item.vendaID }}</td>
-                  <td>
-                    <button
-                      class="btn btn-dark m-1"
-                      (click)="obterDetalhes(item.vendaID)"
+      <tab class="tab" heading="Movimentos de Estoque">
+        <div class="form-group">
+          <table class="w-100 table row-border hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Data</th>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Movimento</th>
+                <th>Pedido</th>
+                <th class="centerTable">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of produtoMovimento; let i = index">
+                <td>{{ item.id }}</td>
+                <td>{{ item.dataMovimento }}</td>
+                <td>{{ item.descricaoProduto }}</td>
+                <td>{{ item.quantidade }}</td>
+                <td *ngIf="item.movimento == 1">Saida</td>
+                <td *ngIf="item.movimento != 1">Entrada</td>
+                <td>{{ item.vendaID }}</td>
+                <td class="centerTable">
+                  <button
+                    type="button"
+                    class="btn btn-dark m-1"
+                    (click)="obterDetalhes(item.vendaID)"
+                  >
+                    <span class="acaoStyle"
+                      ><fa-icon [icon]="faEye"></fa-icon> Venda</span
                     >
-                      <span class="acaoStyle"
-                        ><fa-icon [icon]="faEye"></fa-icon> Ver</span
-                      >
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </tab>
     </tabset>

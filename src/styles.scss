@@ -44,6 +44,10 @@
   float: left;
 }
 
+.disableMouse {
+  pointer-events: none;
+}
+
 .inline {
   width: 100%;
   display: inline-block;
@@ -181,6 +185,29 @@
 .preview {
   width: 200px;
   height: 200px;
+}
+
+.btn-warningDark {
+  background-color: #d8a50b !important;
+  transition: 3s;
+}
+
+.btn-warningDark:hover {
+  background-color: #c59506 !important;
+}
+
+.bg-dangerLight {
+  background-color: #f5c2c7 !important;
+  transition: 3s;
+}
+
+.bg-dangerLight:hover {
+  background-color: #eea7ae !important;
+}
+
+.bg-successLight {
+  background-color: #c2f5c5 !important;
+  transition: 3s;
 }
 
 body {

@@ -10,7 +10,8 @@ import { IndexComponent as ProdutoIndex } from './pages/produtos/index/index.com
 import { EditarprodutoComponent as ProdutoEditar } from './pages/produtos/editarproduto/editarproduto.component';
 import { CadastrarComponent as ProdutoCadastrar } from './pages/produtos/cadastrar/cadastrar.component';
 import { IndexComponent as VendaIndex } from './pages/vendas/index/index.component';
-import { DetalhesComponent as VendaDetalhes } from './pages/vendas/detalhes/detalhes.component';
+import { EditarvendaComponent as VendaEditar } from './pages/vendas/editarvenda/editarvenda.component';
+import { CadastrarComponent as VendaCadastrar } from './pages/vendas/cadastrar/cadastrar.component';
 import { CategoriasComponent as CategoriaIndex } from './pages/cadastro/categorias/categorias.component';
 import { MarcasComponent as MarcaIndex } from './pages/cadastro/marcas/marcas.component';
 import { IntegracaofiscalComponent as IntegracaoFiscalIndex } from './pages/cadastro/integracaofiscal/index/integracaofiscal.component';
@@ -38,6 +39,11 @@ import { MarcasCriarComponent } from './components/cadastro/marcas-criar/marcas-
 import { MarcasModificarComponent } from './components/cadastro/marcas-modificar/marcas-modificar.component';
 import { TipoprodutoModificarComponent } from './components/cadastro/tipoproduto-modificar/tipoproduto-modificar.component';
 import { TipoprodutoCriarComponent } from './components/cadastro/tipoproduto-criar/tipoproduto-criar.component';
+import { ClientesExibirComponent } from './components/cadastro/vendas/clientes-exibir/clientes-exibir.component';
+import { VendedoresExibirComponent } from './components/cadastro/vendas/vendedores-exibir/vendedores-exibir.component';
+import { TipooperacoesExibirComponent } from './components/cadastro/vendas/tipooperacoes-exibir/tipooperacoes-exibir.component';
+import { TransportadoraExibirComponent } from './components/cadastro/vendas/transportadora-exibir/transportadora-exibir.component';
+import { FormaspagamentoExibirComponent } from './components/cadastro/vendas/formaspagamento-exibir/formaspagamento-exibir.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +53,7 @@ import { TipoprodutoCriarComponent } from './components/cadastro/tipoproduto-cri
     ProdutoEditar,
     ProdutoCadastrar,
     VendaIndex,
-    VendaDetalhes,
+    VendaEditar,
     CategoriaIndex,
     MarcaIndex,
     IntegracaoFiscalIndex,
@@ -64,6 +70,12 @@ import { TipoprodutoCriarComponent } from './components/cadastro/tipoproduto-cri
     NCMEditar,
     NCMCadastrar,
     MovimentaoEstoqueIndex,
+    VendaCadastrar,
+    ClientesExibirComponent,
+    VendedoresExibirComponent,
+    TipooperacoesExibirComponent,
+    TransportadoraExibirComponent,
+    FormaspagamentoExibirComponent,
   ],
   imports: [
     BrowserModule,

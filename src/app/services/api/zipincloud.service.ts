@@ -28,7 +28,6 @@ export class ZipincloudService {
       .toPromise()
       .then((response) => {
         console.log(response);
-        location.href = '/produtos';
       });
   }
 
@@ -248,6 +247,58 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Vendas//
+  salvarVenda(data: any) {
+    return this.http
+      .post(environment.url + 'api/vendas', data, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  modificarVenda(data: any) {
+    console.log(data);
+    return this.http
+      .put(
+        environment.url + 'api/vendas/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirDocumento(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/Documentoes/deletebyvendaid/' + ID,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirVenda(ID: any) {
+    return this.http
+      .delete(environment.url + 'api/vendas/' + ID, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((err) => {
+        if (err.status === 500) {
+          this.excluirDocumento(ID).then((res) => {
+            console.log(res);
+          });
+        }
+      });
+  }
+
   //TODO:GETs ESPECIFICOS//
 
   obterTodosDadosProdutos() {
@@ -367,6 +418,18 @@ export class ZipincloudService {
       });
   }
 
+  obterDadosTransportadoraPeloID(transportadoraID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PessoasAPI/transportadora/' + transportadoraID,
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
   obterDadosMovimentacaoEstoque() {
     return this.http
       .get(
@@ -416,6 +479,32 @@ export class ZipincloudService {
       });
   }
 
+  obterDadosClienteCompleto(clienteid: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PessoasAPI/cliente/' + clienteid,
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        data = data[0];
+        return data;
+      });
+  }
+
+  obterDadosVendedorCompleto(vendedorid: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PessoasAPI/vendedor/' + vendedorid,
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        data = data[0];
+        return data;
+      });
+  }
+
   obterDadosTipoOperação(operacaoid: any) {
     return this.http
       .get(
@@ -438,7 +527,133 @@ export class ZipincloudService {
       });
   }
 
+  obterTodosProdutosNaVenda(id: any) {
+    return this.http
+      .get(
+        environment.url + 'api/vendaitems/getbyvendaid/' + id,
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterTodosDadosClientes() {
+    return this.http
+      .get(environment.url + 'api/PessoaClientesApi', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterTodosDadosVendedores() {
+    return this.http
+      .get(environment.url + 'api/PessoaVendedors', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterTodosDadosOperacoes() {
+    return this.http
+      .get(
+        environment.url + 'api/TipoOperacaoAPI/obterdados',
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterTodosDadosOperacoesVenda() {
+    return this.http
+      .get(
+        environment.url + 'api/TipoOperacaoAPI/venda/obterdados',
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterTodosDadosOperacoesCompra() {
+    return this.http
+      .get(
+        environment.url + 'api/TipoOperacaoAPI/compra/obterdados',
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterTodosDadosTransportadoras() {
+    return this.http
+      .get(
+        environment.url + 'api/PessoasAPI/transportadora',
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterFormasDePagamentoPeloID(id: any) {
+    return this.http
+      .get(environment.url + 'api/FormaPagamentoes/' + id, environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  //TODO:POSTs ESPECIFICOS//
+  salvarNovoProdutoNaVendaItems(data: any) {
+    return this.http
+      .post(environment.url + 'api/vendaitems', data, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  //TODO:DELETEs ESPECIFICOS//
+  deletarProdutoNaVendaItems(id: any) {
+    return this.http
+      .delete(environment.url + 'api/vendaitems/' + id, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  //TODO:PUTs ESPECIFICOS//
+  faturarVenda(id: any, data: any) {
+    return this.http
+      .put(environment.url + 'api/vendas/' + id, data, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
   //TODO: Vendas//
+  obterDadosVendas() {
+    return this.http
+      .get(environment.url + 'api/vendas', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
   obterDadosVendaProdutos() {
     return this.http
       .get(environment.url + 'api/vendaitems', environment.headers)

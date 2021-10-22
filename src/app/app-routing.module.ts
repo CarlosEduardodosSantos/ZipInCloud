@@ -26,6 +26,16 @@ import { CadastrarComponent as NCMCadastrar } from './pages/cadastro/ncm/cadastr
 
 import { IndexComponent as MovimentaoEstoqueIndex } from './pages/movimentacaoestoque/index/index.component';
 
+import { IndexComponent as CompraIndex } from './pages/compra/index/index.component';
+import { CadastroComponent as CompraCadastrar } from './pages/compra/cadastro/cadastro.component';
+import { EditarComponent as CompraEditar } from './pages/compra/editar/editar.component';
+
+import { IndexComponent as EmpresasIndex } from './pages/cadastro/empresas/index/index.component';
+import { CadastroComponent as EmpresasCadastrar } from './pages/cadastro/empresas/cadastro/cadastro.component';
+import { EditarComponent as EmpresasEditar } from './pages/cadastro/empresas/editar/editar.component';
+
+import { IndexComponent as GrupoEmpresasIndex } from './pages/cadastro/grupoempresa/index/index.component';
+
 const routes: Routes = [
   { path: '', component: AcessoRapidoIndex },
   { path: 'produtos', component: ProdutoIndex },
@@ -35,6 +45,13 @@ const routes: Routes = [
   { path: 'vendas', component: VendaIndex },
   { path: 'vendas/editar/:id', component: VendaEditar },
   { path: 'vendas/cadastrar', component: VendaCadastrar },
+  { path: 'compra', component: CompraIndex },
+  { path: 'compra/editar/:id', component: CompraEditar },
+  { path: 'compra/cadastrar', component: CompraCadastrar },
+  { path: 'cadastro/empresas', component: EmpresasIndex },
+  { path: 'cadastro/empresas/editar/:id', component: EmpresasEditar },
+  { path: 'cadastro/empresas/cadastrar', component: EmpresasCadastrar },
+  { path: 'cadastro/grupoempresas', component: GrupoEmpresasIndex },
   { path: 'cadastro/categorias', component: CategoriaIndex },
   { path: 'cadastro/marcas', component: MarcaIndex },
   { path: 'cadastro/integracaofiscal', component: IntegracaoFiscalIndex },

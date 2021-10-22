@@ -1,0 +1,67 @@
+<!-- Modal Cadastro -->
+<div
+  class="modal fade"
+  id="unidadeFederativaExibirModal"
+  tabindex="-1"
+  aria-labelledby="unidadeFederativaExibirModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <form #unidadeFederativaExibirModal="ngForm" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Unidade Federativa</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <table class="w-100 table row-border hover" id="produtos-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Sigla</th>
+                <th>Nome</th>
+                <th>Aliquota Interna</th>
+                <th>Aliquota Externa</th>
+                <th>Código</th>
+                <th class="centerTable">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of ufLista">
+                <td>{{ item.id }}</td>
+                <td>{{ item.sigla }}</td>
+                <td>{{ item.descricao }}</td>
+                <td>{{ item.aliquotaInterna }}</td>
+                <td>{{ item.aliquotaExterna }}</td>
+                <td>{{ item.codigo }}</td>
+                <td class="acoesStyle">
+                  <button
+                    class="btn btn-dark m-1"
+                    data-bs-dismiss="modal"
+                    (click)="onSubmitUFEmpresa(item.id)"
+                  >
+                    <span class="acaoStyle">Selecionar</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

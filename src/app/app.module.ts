@@ -22,6 +22,13 @@ import { IndexComponent as NCMIndex } from './pages/cadastro/ncm/index/index.com
 import { EditarComponent as NCMEditar } from './pages/cadastro/ncm/editar/editar.component';
 import { CadastrarComponent as NCMCadastrar } from './pages/cadastro/ncm/cadastrar/cadastrar.component';
 import { IndexComponent as MovimentaoEstoqueIndex } from './pages/movimentacaoestoque/index/index.component';
+import { IndexComponent as CompraIndex } from './pages/compra/index/index.component';
+import { CadastroComponent as CompraCadastrar } from './pages/compra/cadastro/cadastro.component';
+import { EditarComponent as CompraEditar } from './pages/compra/editar/editar.component';
+import { IndexComponent as EmpresasIndex } from './pages/cadastro/empresas/index/index.component';
+import { CadastroComponent as EmpresasCadastrar } from './pages/cadastro/empresas/cadastro/cadastro.component';
+import { EditarComponent as EmpresasEditar } from './pages/cadastro/empresas/editar/editar.component';
+import { IndexComponent as GrupoEmpresasIndex } from './pages/cadastro/grupoempresa/index/index.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DataTablesModule } from 'angular-datatables';
@@ -44,6 +51,10 @@ import { VendedoresExibirComponent } from './components/cadastro/vendas/vendedor
 import { TipooperacoesExibirComponent } from './components/cadastro/vendas/tipooperacoes-exibir/tipooperacoes-exibir.component';
 import { TransportadoraExibirComponent } from './components/cadastro/vendas/transportadora-exibir/transportadora-exibir.component';
 import { FormaspagamentoExibirComponent } from './components/cadastro/vendas/formaspagamento-exibir/formaspagamento-exibir.component';
+import { GrupoExibirComponent } from './components/cadastro/empresas/grupo-exibir/grupo-exibir.component';
+import { RegimetributarioExibirComponent } from './components/cadastro/empresas/regimetributario-exibir/regimetributario-exibir.component';
+import { EstadoExibirComponent } from './components/cadastro/empresas/estado-exibir/estado-exibir.component';
+import { MunicipioExibirComponent } from './components/cadastro/empresas/municipio-exibir/municipio-exibir.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +87,17 @@ import { FormaspagamentoExibirComponent } from './components/cadastro/vendas/for
     TipooperacoesExibirComponent,
     TransportadoraExibirComponent,
     FormaspagamentoExibirComponent,
+    CompraIndex,
+    CompraCadastrar,
+    CompraEditar,
+    EmpresasIndex,
+    EmpresasCadastrar,
+    EmpresasEditar,
+    GrupoExibirComponent,
+    RegimetributarioExibirComponent,
+    EstadoExibirComponent,
+    MunicipioExibirComponent,
+    GrupoEmpresasIndex,
   ],
   imports: [
     BrowserModule,

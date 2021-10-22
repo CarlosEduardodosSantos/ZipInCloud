@@ -299,6 +299,155 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Empresa//
+  salvarEmpresa(data: any) {
+    return this.http
+      .post(environment.url + 'api/Empresas', data, environment.headersPost)
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  obterEmpresa() {
+    return this.http
+      .get(environment.url + 'api/Empresas/', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  modificarEmpresa(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/Empresas/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirEmpresa(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/Empresas/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  //TODO:GET POST PUT DELETE - GrupoEmpresas//
+  obterGrupoEmpresa() {
+    return this.http
+      .get(environment.url + 'api/GrupoEmpresas/', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterGrupoEmpresaByID(id: any) {
+    let data;
+
+    if (id == 1) {
+      data = { Nome: 'FILIAL', ID: 1 };
+    } else {
+      data = { Nome: 'MATRIZ', ID: 2 };
+    }
+    return data;
+  }
+
+  salvarGrupoEmpresa(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/GrupoEmpresas',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  modificarGrupoEmpresa(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/GrupoEmpresas/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  excluirGrupoEmpresa(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/GrupoEmpresas/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((response) => {
+        console.log(response);
+      });
+  }
+
+  //TODO:GET POST PUT DELETE - Unidade Federativa//
+  obterTodosEstadosUF() {
+    return this.http
+      .get(environment.url + 'api/unidadefederativa', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterTodosEstadosUFByID(id: any) {
+    return this.http
+      .get(environment.url + 'api/unidadefederativa/' + id, environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  //TODO:GET POST PUT DELETE - Municipios//
+  obterTodosMunicipios() {
+    return this.http
+      .get(
+        environment.url + 'api/unidadefederativa/municipios',
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
+  obterTodosMunicipiosByID(id: any) {
+    return this.http
+      .get(
+        environment.url + 'api/unidadefederativa/municipios/' + id,
+        environment.headers
+      )
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  }
+
   //TODO:GETs ESPECIFICOS//
 
   obterTodosDadosProdutos() {
@@ -643,6 +792,16 @@ export class ZipincloudService {
         console.log(response);
       });
   }
+
+  //TODO: Compras//
+  /* obterDadosCompras() {
+    return this.http
+      .get(environment.url + 'api/vendas', environment.headers)
+      .toPromise()
+      .then((data: any) => {
+        return data;
+      });
+  } */
 
   //TODO: Vendas//
   obterDadosVendas() {

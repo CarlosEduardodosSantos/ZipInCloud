@@ -327,6 +327,15 @@ export class ZipincloudService {
       });
   }
 
+  obterEmpresaByID(id: any) {
+    return this.http
+      .get(environment.url + 'api/Empresas/' + id, environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   modificarEmpresa(data: any) {
     return this.http
       .put(

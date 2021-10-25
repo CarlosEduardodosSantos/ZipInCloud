@@ -1,1 +1,647 @@
-<p>editar works!</p>
+<div class="m-2">
+  <p class="fs-22 bolder">Editar Empresa: {{ dadosAnteriores.razaoSocial }}</p>
+
+  <form
+    #cadastroEmpresa="ngForm"
+    (ngSubmit)="onSubmit(cadastroEmpresa.value)"
+    enctype="multipart/form-data"
+  >
+    <tabset class="member-tabset">
+      <tab class="tab" heading="Identificação">
+        <div class="form-group inline-child-10">
+          <label for="GrupoEmpresaID">Grupo</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="GrupoEmpresaID"
+            id="GrupoEmpresaID"
+            #GrupoEmpresaID
+            [value]="empresaDados.nome"
+            data-bs-toggle="modal"
+            data-bs-target="#grupoExibirModal"
+          />
+          <app-grupo-exibir
+            (grupoEmpresaId)="salvarIdGrupoEmpresa($event)"
+          ></app-grupo-exibir>
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="RegimeTributarioID">Regime Tributário</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="RegimeTributarioID"
+            id="RegimeTributarioID"
+            #RegimeTributarioID
+            [value]="rtDados.Nome"
+            data-bs-toggle="modal"
+            data-bs-target="#regimeTributarioExibirModal"
+          />
+          <app-regimetributario-exibir
+            (regimeTributarioId)="salvarIdRTEmpresa($event)"
+          ></app-regimetributario-exibir>
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="RazaoSocial">Razão Social</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="RazaoSocial"
+            id="RazaoSocial"
+            #RazaoSocial
+            [value]="dadosAnteriores.razaoSocial"
+            [(ngModel)]="RazaoSocial.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="NomeFantasia">Nome Fantasia</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="NomeFantasia"
+            id="NomeFantasia"
+            #NomeFantasia
+            [value]="dadosAnteriores.nomeFantasia"
+            [(ngModel)]="NomeFantasia.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="CNPJ">CNPJ</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="CNPJ"
+            id="CNPJ"
+            #CNPJ
+            [value]="dadosAnteriores.cnpj"
+            [(ngModel)]="CNPJ.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="InscricaoEstadual">Inscrição Estadual</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="InscricaoEstadual"
+            id="InscricaoEstadual"
+            #InscricaoEstadual
+            [value]="dadosAnteriores.inscricaoEstadual"
+            [(ngModel)]="InscricaoEstadual.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="InscricaoMunicipal">Inscrição Municipal</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="InscricaoMunicipal"
+            id="InscricaoMunicipal"
+            #InscricaoMunicipal
+            [value]="dadosAnteriores.inscricaoMunicipal"
+            [(ngModel)]="InscricaoMunicipal.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="CNAE">CNAE</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="CNAE"
+            id="CNAE"
+            #CNAE
+            [value]="dadosAnteriores.cnae"
+            [(ngModel)]="CNAE.value"
+          />
+        </div>
+
+        <div class="imageContainer inline-child-20">
+          <div class="form-group">
+            <img
+              id="img"
+              #img
+              name="ImagemLogo"
+              class="produtoImagem preview"
+              [src]="
+                dadosAnteriores.imagemLogo !== null
+                  ? 'data:image/png;base64,' + dadosAnteriores.imagemLogo
+                  : imageBinding
+              "
+              [(ngModel)]="img.src"
+            />
+            <div>
+              <label for="file" class="btn"
+                >Adicionar uma <strong class="underline">imagem</strong> ao
+                produto</label
+              >
+              <input
+                name="file"
+                id="file"
+                type="file"
+                accept="image/*"
+                hidden
+                #file
+                (change)="adicionarImagem(file)"
+              />
+            </div>
+          </div>
+        </div>
+      </tab>
+      <tab class="tab" heading="Endereço">
+        <div class="form-group inline-child-6">
+          <label for="CEP">CEP</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="CEP"
+            id="CEP"
+            #CEP
+            [value]="dadosAnteriores.cep"
+            [(ngModel)]="CEP.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-7">
+          <label for="UnidadeFederativaID">Estado</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="UnidadeFederativaID"
+            id="UnidadeFederativaID"
+            #UnidadeFederativaID
+            [value]="unidadeFederativaDados.descricao"
+            data-bs-toggle="modal"
+            data-bs-target="#unidadeFederativaExibirModal"
+          />
+          <app-estado-exibir
+            (unidadeFederativaId)="salvarIdUFEmpresa($event)"
+          ></app-estado-exibir>
+        </div>
+
+        <div class="form-group inline-child-7">
+          <label for="MunicipioID">Municipio</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="MunicipioID"
+            id="MunicipioID"
+            #MunicipioID
+            [value]="municipioDados.descricao"
+            data-bs-toggle="modal"
+            data-bs-target="#municipioExibirModal"
+          />
+          <app-municipio-exibir
+            [estadoId]="codigoEstadual"
+            (municipioId)="salvarIdMunicipioEmpresa($event)"
+          ></app-municipio-exibir>
+        </div>
+
+        <div class="form-group inline-child-6">
+          <label for="Bairro">Bairro</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Bairro"
+            id="Bairro"
+            #Bairro
+            [value]="dadosAnteriores.bairro"
+            [(ngModel)]="Bairro.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-7">
+          <label for="Logradouro">Logradouro</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Logradouro"
+            id="Logradouro"
+            #Logradouro
+            [value]="dadosAnteriores.logradouro"
+            [(ngModel)]="Logradouro.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-7">
+          <label for="Numero">Número</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Numero"
+            id="Numero"
+            #Numero
+            [value]="dadosAnteriores.numero"
+            [(ngModel)]="Numero.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-20">
+          <label for="Complemento">Complemento</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Complemento"
+            id="Complemento"
+            #Complemento
+            [value]="dadosAnteriores.complemento"
+            [(ngModel)]="Complemento.value"
+          />
+        </div>
+      </tab>
+      <tab class="tab" heading="Contato">
+        <div class="form-group inline-child-10">
+          <label for="Telefone">Telefone</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Telefone"
+            id="Telefone"
+            #Telefone
+            [value]="dadosAnteriores.telefone"
+            [(ngModel)]="Telefone.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="Email">Email</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Email"
+            id="Email"
+            #Email
+            [value]="dadosAnteriores.email"
+            [(ngModel)]="Email.value"
+          />
+        </div>
+      </tab>
+      <tab class="tab" heading="Config.Email">
+        <div class="form-group inline-child-10">
+          <label for="Login">Login</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Login"
+            id="Login"
+            #Login
+            [value]="dadosAnteriores.login"
+            [(ngModel)]="Login.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="Senha">Senha</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Senha"
+            id="Senha"
+            #Senha
+            [value]="dadosAnteriores.senha"
+            [(ngModel)]="Senha.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="Host">Host</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Host"
+            id="Host"
+            #Host
+            [value]="dadosAnteriores.host"
+            [(ngModel)]="Host.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="Porta">Porta</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="Porta"
+            id="Porta"
+            #Porta
+            [value]="dadosAnteriores.porta"
+            [(ngModel)]="Porta.value"
+          />
+        </div>
+
+        <div class="form-check inline-child-10">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="SSL"
+            id="SSL"
+            #SSL
+            [value]="dadosAnteriores.ssl"
+            [checked]="dadosAnteriores.ssl"
+            [(ngModel)]="SSL.value"
+          />
+          <label class="form-check-label" for="SSL">SSL?</label>
+        </div>
+
+        <div class="form-check inline-child-10">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            name="CredenciaisPadrao"
+            id="CredenciaisPadrao"
+            #CredenciaisPadrao
+            [value]="dadosAnteriores.credenciaisPadrao"
+            [checked]="dadosAnteriores.credenciaisPadrao"
+            [(ngModel)]="CredenciaisPadrao.value"
+          />
+          <label class="form-check-label" for="CredenciaisPadrao"
+            >Usar Credencial Padrão?</label
+          >
+        </div>
+
+        <div class="form-group inline-child-20">
+          <label for="Timeout">Timeout</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Timeout"
+            id="Timeout"
+            #Timeout
+            [value]="dadosAnteriores.timeout"
+            [(ngModel)]="Timeout.value"
+          />
+        </div>
+      </tab>
+      <tab class="tab" heading="NFCe">
+        <div class="form-group inline-child-10">
+          <label for="CSC">CSC</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="CSC"
+            id="CSC"
+            #CSC
+            [value]="dadosAnteriores.csc"
+            [(ngModel)]="CSC.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="IDCSC">IDCSC</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="IDCSC"
+            id="IDCSC"
+            #IDCSC
+            [value]="dadosAnteriores.idcsc"
+            [(ngModel)]="IDCSC.value"
+          />
+        </div>
+      </tab>
+      <tab class="tab" heading="CFe SAT">
+        <div class="form-group inline-child-20">
+          <label for="CNPJSoftwareHouse">CNPJ Software House</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="CNPJSoftwareHouse"
+            id="CNPJSoftwareHouse"
+            #CNPJSoftwareHouse
+            [value]="dadosAnteriores.cnpjSoftwareHouse"
+            [(ngModel)]="CNPJSoftwareHouse.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="VersaoXML">Versão XML</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="VersaoXML"
+            id="VersaoXML"
+            #VersaoXML
+            [value]="dadosAnteriores.versaoXML"
+            [(ngModel)]="VersaoXML.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="CodigoAtivacao">Codigo de Ativação</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="CodigoAtivacao"
+            id="CodigoAtivacao"
+            #CodigoAtivacao
+            [value]="dadosAnteriores.codigoAtivacao"
+            [(ngModel)]="CodigoAtivacao.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="PastaInput">Pasta Input</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="PastaInput"
+            id="PastaInput"
+            #PastaInput
+            [value]="dadosAnteriores.pastaInput"
+            [(ngModel)]="PastaInput.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="PastaOutput">Pasta Output</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="PastaOutput"
+            id="PastaOutput"
+            #PastaOutput
+            [value]="dadosAnteriores.pastaOutput"
+            [(ngModel)]="PastaOutput.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="PastaMFe">Pasta MFe</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="PastaMFe"
+            id="PastaMFe"
+            #PastaMFe
+            [value]="dadosAnteriores.pastaMFe"
+            [(ngModel)]="PastaMFe.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="SignAC">Sign AC</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="SignAC"
+            id="SignAC"
+            #SignAC
+            [value]="dadosAnteriores.signAC"
+            [(ngModel)]="SignAC.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="CRegTribISSQN">CRegTribISSQN</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="CRegTribISSQN"
+            id="CRegTribISSQN"
+            #CRegTribISSQN
+            [value]="dadosAnteriores.cRegTribISSQN"
+            [(ngModel)]="CRegTribISSQN.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-10">
+          <label for="IndRatISSQN">IndRatISSQN</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="IndRatISSQN"
+            id="IndRatISSQN"
+            #IndRatISSQN
+            [value]="dadosAnteriores.indRatISSQN"
+            [(ngModel)]="IndRatISSQN.value"
+          />
+        </div>
+
+        <div class="form-group inline-child-20">
+          <label for="ChaveAcessoValidador">Chave Acesso Validador</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="ChaveAcessoValidador"
+            id="ChaveAcessoValidador"
+            #ChaveAcessoValidador
+            [value]="dadosAnteriores.chaveAcessoValidador"
+            [(ngModel)]="ChaveAcessoValidador.value"
+          />
+        </div>
+      </tab>
+      <tab class="tab" heading="Publicidade PDV">
+        <div class="imageContainer inline-child-20">
+          <div class="form-group">
+            <img
+              id="imgImpressao"
+              #imgImpressao
+              name="ImagemImpressoão"
+              class="produtoImagem preview"
+              [src]="
+                imagemImpressoao !== null
+                  ? 'data:image/png;base64,' + imagemImpressoao
+                  : imageImpressoaoBinding
+              "
+              [(ngModel)]="imgImpressao.src"
+            />
+            <div>
+              <label for="fileImpressoao" class="btn"
+                >Adicionar uma <strong class="underline">imagem</strong> ao
+                produto</label
+              >
+              <input
+                name="fileImpressoao"
+                id="fileImpressoao"
+                type="file"
+                accept="image/*"
+                hidden
+                #fileImpressoao
+                (change)="adicionarImagemImpressoao(fileImpressoao)"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="imageContainer inline-child-20">
+          <div class="form-group">
+            <img
+              id="imgPropPDV1"
+              #imgPropPDV1
+              name="ImagemPropragandaPDV1"
+              class="produtoImagem preview"
+              [src]="
+                dadosAnteriores.imagemPropragandaPDV1 !== null
+                  ? 'data:image/png;base64,' +
+                    dadosAnteriores.imagemPropragandaPDV1
+                  : imagePropragandaPDV1Binding
+              "
+              [(ngModel)]="imgPropPDV1.src"
+            />
+            <div>
+              <label for="filePropPDV1" class="btn"
+                >Adicionar uma <strong class="underline">imagem</strong> ao
+                produto</label
+              >
+              <input
+                name="filePropPDV1"
+                id="filePropPDV1"
+                type="file"
+                accept="image/*"
+                hidden
+                #filePropPDV1
+                (change)="adicionarImagemPropPDV1(filePropPDV1)"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="imageContainer inline-child-20">
+          <div class="form-group">
+            <img
+              id="imgPropPDV2"
+              #imgPropPDV2
+              name="ImagemPropragandaPDV2"
+              class="produtoImagem preview"
+              [src]="
+                dadosAnteriores.imagemPropragandaPDV2 !== null
+                  ? 'data:image/png;base64,' +
+                    dadosAnteriores.imagemPropragandaPDV2
+                  : imagePropragandaPDV2Binding
+              "
+              [(ngModel)]="imgPropPDV2.src"
+            />
+            <div>
+              <label for="filePropPDV2" class="btn"
+                >Adicionar uma <strong class="underline">imagem</strong> ao
+                produto</label
+              >
+              <input
+                name="filePropPDV2"
+                id="filePropPDV2"
+                type="file"
+                accept="image/*"
+                hidden
+                #filePropPDV2
+                (change)="adicionarImagemPropPDV2(filePropPDV2)"
+              />
+            </div>
+          </div>
+        </div>
+      </tab>
+    </tabset>
+
+    <input type="submit" class="btn btn-primary mt-4 m-1" value="Salvar" />
+    <button
+      type="button"
+      (click)="retornar()"
+      class="btn btn-secondary mt-4 m-1"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>

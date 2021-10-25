@@ -32,7 +32,6 @@ export class CadastrarComponent implements OnInit {
 
     let iFDados = await this._api.obterDadosIntegracaoFiscalProdutos();
     this.integracaofiscal = iFDados;
-    console.log(iFDados);
   }
 
   adicionarImagem(data: any) {
@@ -40,8 +39,9 @@ export class CadastrarComponent implements OnInit {
   }
 
   async onSubmit(data: any) {
-    data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
     console.log(data);
+
+    data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
     data.Ativo == '' ? (data.Ativo = false) : (data.Ativo = data.Ativo);
     data.ParaVender == ''
       ? (data.ParaVender = false)
@@ -59,9 +59,11 @@ export class CadastrarComponent implements OnInit {
     data.ValorVenda == '' ? (data.ValorVenda = 0) : '';
     data.ValorVendaPrazo == '' ? (data.ValorVendaPrazo = 0) : '';
 
-    this.alertSuccessState = false;
+    data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
+    data.imagem[0] != '/' ? delete data.imagem : '';
 
     await this._api.salvarProduto(data);
+    this.alertSuccessState = false;
     setTimeout(() => {
       this.alertSuccessState = true;
     }, 3000);

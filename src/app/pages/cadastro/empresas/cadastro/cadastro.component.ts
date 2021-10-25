@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { data } from 'jquery';
 import { Observable, Subscriber } from 'rxjs';
-import { TerceirosService } from 'src/app/services/api/terceiros.service';
 import { ZipincloudService } from '../../../../services/api/zipincloud.service';
 
 @Component({
@@ -17,22 +15,20 @@ export class CadastroComponent implements OnInit {
   rtDados: any = { Nome: '' };
 
   idUFEmpresa: any;
+  codigoEstadual: any;
   unidadeFederativaDados: any = { descricao: '' };
 
   idMunicipioEmpresa: any;
   municipioDados: any = { descricao: '' };
 
-  empresaDados: any = { Nome: '' };
+  empresaDados: any = { nome: '' };
 
   imageBinding = '../../../../../assets/semimagem.jpg';
   imageImpressoaoBinding = '../../../../../assets/semimagem.jpg';
   imagePropragandaPDV1Binding = '../../../../../assets/semimagem.jpg';
   imagePropragandaPDV2Binding = '../../../../../assets/semimagem.jpg';
 
-  constructor(
-    private _api: ZipincloudService,
-    private _apiTerceiros: TerceirosService
-  ) {}
+  constructor(private _api: ZipincloudService) {}
 
   async ngOnInit() {}
 
@@ -55,7 +51,9 @@ export class CadastroComponent implements OnInit {
   salvarIdGrupoEmpresa(num: any) {
     this.idGrupoEmpresa = num;
 
-    this.empresaDados = this._api.obterGrupoEmpresaByID(this.idGrupoEmpresa);
+    this._api.obterGrupoEmpresaByID(this.idGrupoEmpresa).then((data) => {
+      this.empresaDados = data;
+    });
   }
 
   salvarIdRTEmpresa(num: any) {
@@ -73,15 +71,19 @@ export class CadastroComponent implements OnInit {
 
     this._api.obterTodosEstadosUFByID(this.idUFEmpresa).then((res) => {
       this.unidadeFederativaDados = res;
+      this.codigoEstadual = this.unidadeFederativaDados.codigo;
     });
   }
 
   salvarIdMunicipioEmpresa(num: any) {
     this.idMunicipioEmpresa = num;
+    console.log(num);
 
-    this._api.obterTodosMunicipiosByID(this.idUFEmpresa).then((res) => {
-      this.municipioDados = res;
-    });
+    this._api
+      .obterMunicipioByID(this.codigoEstadual, this.idMunicipioEmpresa)
+      .then((res) => {
+        this.municipioDados = res;
+      });
   }
 
   async onSubmit(data: any) {
@@ -116,13 +118,14 @@ export class CadastroComponent implements OnInit {
     data.GrupoEmpresaID = this.idGrupoEmpresa;
     data.RegimeTributarioID = this.idRTEmpresa;
     data.UnidadeFederativaID = this.idUFEmpresa;
+    data.MunicipioID = this.municipioDados.id;
     console.log(data);
 
     await this._api.salvarEmpresa(data);
   }
 
   retornar() {
-    location.href = '/vendas';
+    location.href = '/cadastro/empresas';
   }
 
   //TODO:BASE64CONVERT//

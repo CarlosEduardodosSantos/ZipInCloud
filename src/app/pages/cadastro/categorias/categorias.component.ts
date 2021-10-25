@@ -12,7 +12,7 @@ import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 export class CategoriasComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
-  listacategorias: any[] = [];
+  listacategorias: any;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -21,6 +21,8 @@ export class CategoriasComponent implements OnInit {
 
   idAtual: any = 0;
   descricaoAtual: any = '';
+
+  categoriaDadosAtuais: any;
 
   ngOnInit(): void {
     this.dtOptions = {
@@ -31,10 +33,15 @@ export class CategoriasComponent implements OnInit {
   }
 
   async chamarAPICategorias() {
-    let data = await this._api.obterDadosCategoriasProdutos();
+    await this._api.obterDadosCategoriasProdutos().then((data) => {
+      console.log(data);
+      this.listacategorias = data;
+    });
+  }
 
-    this.listacategorias = data;
-    console.log(this.listacategorias);
+  async modificarCategoria(data: any) {
+    await this._api.modificarCategoria(data);
+    location.reload();
   }
 
   excluirElemento(index: number) {

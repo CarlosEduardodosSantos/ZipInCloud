@@ -8,6 +8,19 @@
   >
     <tabset class="member-tabset">
       <tab class="tab" heading="Identificação">
+        <div class="form-group inline-child-20" hidden>
+          <label for="Status">Status</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Status"
+            id="Status"
+            #Status
+            [value]="dadosAnteriores.status"
+            [(ngModel)]="Status.value"
+          />
+        </div>
+
         <div class="form-group inline-child-14">
           <label for="PessoaClienteID">Cliente</label>
           <input

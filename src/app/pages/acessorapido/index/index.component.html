@@ -1,6 +1,23 @@
 <div class="m-4">
   <p class="fs-22 bolder title">Acesso Rápido</p>
   <div class="group-cards">
+    <div class="row">
+      <p class="fs-18 bolder title">Cadastro</p>
+      <div *ngFor="let item of cadastroItems" class="col">
+        <app-acessorapido
+          [nome]="item.nome"
+          [url]="item.url"
+          [imageUrl]="item.imageUrl"
+          [imageAlt]="item.imageAlt"
+        ></app-acessorapido>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="m-4">
+  <p class="fs-22 bolder title">Acesso Rápido</p>
+  <div class="group-cards">
     <span class="fs-18 bolder title mb-2 mt-5 opacity-70">Estoque</span>
     <div class="inline">
       <a class="card" style="width: 18rem" href="{{ itemProdutos.url }}">
@@ -18,11 +35,26 @@
       </a>
     </div>
 
-    <span class="fs-18 bolder title mb-2 mt-5 opacity-70">Vendas</span>
+    <span class="fs-18 bolder title mb-2 mt-5 opacity-70"
+      >Compras e Vendas</span
+    >
     <div class="inline">
+      <a class="card" style="width: 18rem" href="{{ itemCompras.url }}">
+        <img
+          src="../../../../assets/acessorapido/a.png"
+          alt=""
+          class="card-image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ itemCompras.nome }}</h5>
+          <p class="card-text">
+            {{ itemCompras.descricao }}
+          </p>
+        </div>
+      </a>
       <a class="card" style="width: 18rem" href="{{ itemVendas.url }}">
         <img
-          src="../../../../assets/acessorapido/vendasicon.png"
+          src="../../../../assets/acessorapido/a.png"
           alt=""
           class="card-image"
         />
@@ -39,7 +71,7 @@
     <div class="inline">
       <a class="card" style="width: 18rem" href="{{ itemCategorias.url }}">
         <img
-          src="../../../../assets/acessorapido/categoriasicon.png"
+          src="../../../../assets/acessorapido/a.png"
           alt=""
           class="card-image"
         />
@@ -53,7 +85,7 @@
 
       <a class="card" style="width: 18rem" href="{{ itemMarcas.url }}">
         <img
-          src="../../../../assets/acessorapido/marcasicon.png"
+          src="../../../../assets/acessorapido/a.png"
           alt=""
           class="card-image"
         />
@@ -71,7 +103,7 @@
         href="{{ itemIntegracaoFiscal.url }}"
       >
         <img
-          src="../../../../assets/acessorapido/integracaofiscalicon.png"
+          src="../../../../assets/acessorapido/a.png"
           alt=""
           class="card-image"
         />
@@ -86,7 +118,7 @@
     <div class="inline">
       <a class="card" style="width: 18rem" href="{{ itemNcm.url }}">
         <img
-          src="../../../../assets/acessorapido/ncmicon.png"
+          src="../../../../assets/acessorapido/a.png"
           alt=""
           class="card-image"
         />
@@ -97,6 +129,33 @@
           </p>
         </div>
       </a>
+      <a class="card" style="width: 18rem" href="{{ itemEmpresas.url }}">
+        <img
+          src="../../../../assets/acessorapido/a.png"
+          alt=""
+          class="card-image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ itemEmpresas.nome }}</h5>
+          <p class="card-text">
+            {{ itemEmpresas.descricao }}
+          </p>
+        </div>
+      </a>
+      <a class="card" style="width: 18rem" href="{{ itemGrupoEmpresas.url }}">
+        <img
+          src="../../../../assets/acessorapido/a.png"
+          alt=""
+          class="card-image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ itemGrupoEmpresas.nome }}</h5>
+          <p class="card-text">
+            {{ itemGrupoEmpresas.descricao }}
+          </p>
+        </div>
+      </a>
     </div>
   </div>
 </div>
+ -->

@@ -1,0 +1,34 @@
+<div class="m-2">
+  <p class="fs-22 bolder">Cadastro do Grupo de Empresas</p>
+
+  <form
+    #cadastroGrupoEmpresa="ngForm"
+    (ngSubmit)="onSubmit(cadastroGrupoEmpresa.value)"
+    enctype="multipart/form-data"
+  >
+    <tabset class="member-tabset">
+      <tab class="tab" heading="Identificação">
+        <div class="form-group inline-child-20">
+          <label for="Nome">Nome do Grupo</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Nome"
+            id="Nome"
+            #Nome
+            ngModel
+          />
+        </div>
+      </tab>
+    </tabset>
+
+    <input type="submit" class="btn btn-primary mt-4 m-1" value="Salvar" />
+    <button
+      type="button"
+      (click)="retornar()"
+      class="btn btn-secondary mt-4 m-1"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>

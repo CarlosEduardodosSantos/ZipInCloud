@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { faCube } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-index',
@@ -7,59 +6,42 @@ import { faCube } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-  itemProdutos: any = {
-    nome: 'Produtos',
-    descricao: 'Acompanhe informações úteis sobre o estoque de produtos',
-    url: 'produtos',
-  };
-
-  itemVendas: any = {
-    nome: 'Vendas',
-    descricao: 'Registro de todas as entradas e saidas de produtos',
-    url: 'vendas',
-  };
-
-  itemCategorias: any = {
-    nome: 'Categorias',
-    descricao: 'Adicione, remova e edite as categorias do projeto',
-    url: 'cadastro/categorias',
-  };
-
-  itemMarcas: any = {
-    nome: 'Marcas',
-    descricao: 'Adicione, remova e edite as marcas do projeto',
-    url: 'cadastro/marcas',
-  };
-
-  itemIntegracaoFiscal: any = {
-    nome: 'Integração Fiscal',
-    descricao: 'Adicione, remova e edite as integrações fiscais do projeto',
-    url: 'cadastro/integracaofiscal',
-  };
-
-  itemNcm: any = {
-    nome: 'NCM',
-    descricao: 'Adicione, remova e edite os ncms do projeto',
-    url: 'cadastro/ncm',
-  };
-
-  itemDashboard: any = [
+  cadastroItems = [
     {
-      nome: 'Vendas',
-      descricao: 'Desc',
-      url: 'dashboard/vendas',
+      nome: 'Empresas',
+      url: 'cadastro/empresas',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro empresas',
     },
-
     {
-      nome: 'Compras',
-      descricao: 'Desc',
-      url: 'dashboard/compras',
+      nome: 'Clientes',
+      url: 'cadastro/clientes',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro empresas',
     },
-
     {
-      nome: 'Estoque',
-      descricao: 'Desc',
-      url: 'dashboard/estoque',
+      nome: 'Produtos',
+      url: 'produtos',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem produtos',
+    },
+    {
+      nome: 'Fornecedores',
+      url: 'cadastro/fornecedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+    {
+      nome: 'Vendedores',
+      url: 'cadastro/vendedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro vendedores',
+    },
+    {
+      nome: 'Transportadora',
+      url: 'cadastro/transportadora',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro transportadora',
     },
   ];
 

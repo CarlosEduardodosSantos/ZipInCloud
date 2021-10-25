@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 
@@ -11,25 +10,26 @@ import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 export class CategoriasModificarComponent implements OnInit {
   @Input() descricaoAtual: any;
   @Input() idAtual: any;
+  @Output() outdata: EventEmitter<any> = new EventEmitter<any>();
 
   imageBinding: any = '/assets/semimagem.jpg';
 
-  constructor(
-    private _api: ZipincloudService,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor(private _api: ZipincloudService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {}
 
   async adicionarImagem(data: any) {
     this.toBase64(data.files[0]);
   }
 
   async onSubmitConfiguracao(data: any) {
-    data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
     console.log(data);
-    await this._api.modificarCategoria(data);
-    location.reload();
+    if (data.Imagem) {
+      data.Imagem = data.Imagem.replace(/^data:image\/[a-z]+;base64,/, '');
+      data.Imagem[0] != '/' ? delete data.Imagem : '';
+    }
+
+    this.outdata.emit(data);
   }
 
   //TODO:BASE64CONVERT//

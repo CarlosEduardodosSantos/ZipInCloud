@@ -16,7 +16,7 @@
             name="GrupoEmpresaID"
             id="GrupoEmpresaID"
             #GrupoEmpresaID
-            [value]="empresaDados.Nome"
+            [value]="empresaDados.nome"
             data-bs-toggle="modal"
             data-bs-target="#grupoExibirModal"
           />
@@ -185,8 +185,8 @@
             data-bs-target="#municipioExibirModal"
           />
           <app-municipio-exibir
+            [estadoId]="codigoEstadual"
             (municipioId)="salvarIdMunicipioEmpresa($event)"
-            [estadoId]="idUFEmpresa"
           ></app-municipio-exibir>
         </div>
 

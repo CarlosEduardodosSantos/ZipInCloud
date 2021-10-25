@@ -12,7 +12,7 @@ import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 export class IntegracaofiscalComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
-  listaintegracaofiscal: any[] = [];
+  listaintegracaofiscal: any;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -33,10 +33,10 @@ export class IntegracaofiscalComponent implements OnInit {
   }
 
   async chamarAPIIntegracaoFiscal() {
-    let data = await this._api.obterDadosIntegracaoFiscalProdutos();
-
-    this.listaintegracaofiscal = data;
-    console.log(this.listaintegracaofiscal);
+    await this._api.obterDadosIntegracaoFiscalProdutos().then((data) => {
+      this.listaintegracaofiscal = data;
+      console.log(this.listaintegracaofiscal);
+    });
   }
 
   excluirElemento(index: number) {

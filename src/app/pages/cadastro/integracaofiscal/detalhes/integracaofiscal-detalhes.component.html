@@ -1,42 +1,213 @@
-<span>Alíquota Cofins: {{ detalheslista[0].aliqCofins }}</span
-><br />
-<span>Alíquota ICMS: {{ detalheslista[0].aliqICMS }}</span
-><br />
-<span>Alíquota ICMSST: {{ detalheslista[0].aliqICMSST }}</span
-><br />
-<span>Alíquota IPI: {{ detalheslista[0].aliqIPI }}</span
-><br />
-<span>Alíquota PIS: {{ detalheslista[0].aliqPIS }}</span
-><br />
-<span>CFOPID: {{ detalheslista[0].cfopID }}</span
-><br />
-<span>Cofins: {{ detalheslista[0].cofins }}</span
-><br />
-<span>Cstipi: {{ detalheslista[0].cstipi }}</span
-><br />
-<span>Descrição: {{ detalheslista[0].descricao }}</span
-><br />
-<span>Frete: {{ detalheslista[0].frete }}</span
-><br />
-<span>ICMS: {{ detalheslista[0].icms }}</span
-><br />
-<span>ID: {{ detalheslista[0].id }}</span
-><br />
-<span>ICMS REDST: {{ detalheslista[0].imcs_RedST }}</span
-><br />
-<span>MVA: {{ detalheslista[0].mva }}</span
-><br />
-<span>Outras despesas: {{ detalheslista[0].outrasDespesas }}</span
-><br />
-<span>Credito SN: {{ detalheslista[0].perCreditoSN }}</span
-><br />
-<span>Dif: {{ detalheslista[0].perDif }}</span
-><br />
-<span>PIS: {{ detalheslista[0].pis }}</span
-><br />
-<span>RED BC ICMS: {{ detalheslista[0].redBcIcms }}</span
-><br />
-<span>RED BC ICMSST: {{ detalheslista[0].redBcIcmsSt }}</span
-><br />
-<span>Seguro: {{ detalheslista[0].seguro }}</span
-><br />
+<div class="m-4">
+  <p class="fs-22 bolder">Detalhes: {{ integracaoFiscalDados.descricao }}</p>
+
+  <div class="inline">
+    <div class="form-group inline-child-20" hidden>
+      <label>ID</label>
+      <input
+        type="text"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.id }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-20">
+      <label>Descrição</label>
+      <input
+        type="text"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.descricao }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-10">
+      <label>ICMS</label>
+      <select
+        class="form-control disableMouse"
+        value="{{ integracaoFiscalDados.icms }}"
+      >
+        <option
+          *ngFor="let item of ICMSlista; let i = index"
+          value="{{ item.index }}"
+        >
+          {{ item.descricao }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group inline-child-10">
+      <label>PIS</label>
+      <select
+        class="form-control disableMouse"
+        value="{{ integracaoFiscalDados.pis }}"
+      >
+        <option
+          *ngFor="let item of PISlista; let i = index"
+          value="{{ item.index }}"
+        >
+          {{ item.descricao }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group inline-child-10">
+      <label>COFINS</label>
+      <select
+        class="form-control disableMouse"
+        value="{{ integracaoFiscalDados.cofins }}"
+      >
+        <option
+          *ngFor="let item of COFINSlista; let i = index"
+          value="{{ item.index }}"
+        >
+          {{ item.descricao }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group inline-child-10">
+      <label>CSTIPI</label>
+      <select
+        class="form-control disableMouse"
+        value="{{ integracaoFiscalDados.cstipi }}"
+      >
+        <option
+          *ngFor="let item of CSTIPIlista; let i = index"
+          value="{{ item.index }}"
+        >
+          {{ item.descricao }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>%Aliquota de ICMS</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.aliqICMS }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>%Aliquota de ICMS ST</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.aliqICMSST }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>%Credito SN</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.perCreditoSN }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>%Dife Dif</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.perDif }}"
+      />
+    </div>
+
+    <div class="form-check inline-child-5">
+      <input
+        class="form-check-input disableMouse"
+        type="checkbox"
+        [checked]="integracaoFiscalDados.imcs_RedST"
+      />
+      <label class="form-check-label">%ICMCS REDST</label>
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>% MVA</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.mva }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>% Red. BC de ICMS</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.redBcIcms }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>% Red. BC de ICMS Subst.Trib</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.redBcIcmsSt }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>%Aliquota de IPI</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.aliqIPI }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>%Aliquota de PIS</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.aliqPIS }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>%Aliquota de Cofins</label>
+      <input
+        type="number"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.aliqCofins }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-5">
+      <label>Frete</label>
+      <input
+        type="text"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.frete }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-10">
+      <label>Outras Despesas</label>
+      <input
+        type="text"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.outrasDespesas }}"
+      />
+    </div>
+
+    <div class="form-group inline-child-10">
+      <label>Seguro</label>
+      <input
+        type="text"
+        class="form-control w-100 disableMouse"
+        value="{{ integracaoFiscalDados.seguro }}"
+      />
+    </div>
+  </div>
+
+  <a href="/cadastro/integracaofiscal" class="btn btn-secondary mt-4 m-1"
+    >Voltar</a
+  >
+</div>

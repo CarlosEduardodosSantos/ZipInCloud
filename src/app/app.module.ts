@@ -29,6 +29,11 @@ import { IndexComponent as EmpresasIndex } from './pages/cadastro/empresas/index
 import { CadastroComponent as EmpresasCadastrar } from './pages/cadastro/empresas/cadastro/cadastro.component';
 import { EditarComponent as EmpresasEditar } from './pages/cadastro/empresas/editar/editar.component';
 import { IndexComponent as GrupoEmpresasIndex } from './pages/cadastro/grupoempresa/index/index.component';
+import { CadastroComponent as GrupoEmpresasCadastrar } from './pages/cadastro/grupoempresa/cadastro/cadastro.component';
+import { EditarComponent as GrupoEmpresasEditar } from './pages/cadastro/grupoempresa/editar/editar.component';
+import { IndexComponent as ClientesIndex } from './pages/cadastro/clientes/index/index.component';
+import { EditarComponent as ClientesEditar } from './pages/cadastro/clientes/editar/editar.component';
+import { CadastrarComponent as ClientesCadastrar } from './pages/cadastro/clientes/cadastrar/cadastrar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DataTablesModule } from 'angular-datatables';
@@ -55,6 +60,7 @@ import { GrupoExibirComponent } from './components/cadastro/empresas/grupo-exibi
 import { RegimetributarioExibirComponent } from './components/cadastro/empresas/regimetributario-exibir/regimetributario-exibir.component';
 import { EstadoExibirComponent } from './components/cadastro/empresas/estado-exibir/estado-exibir.component';
 import { MunicipioExibirComponent } from './components/cadastro/empresas/municipio-exibir/municipio-exibir.component';
+import { AcessorapidoComponent } from './components/cards/acessorapido/acessorapido.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +104,12 @@ import { MunicipioExibirComponent } from './components/cadastro/empresas/municip
     EstadoExibirComponent,
     MunicipioExibirComponent,
     GrupoEmpresasIndex,
+    GrupoEmpresasCadastrar,
+    GrupoEmpresasEditar,
+    AcessorapidoComponent,
+    ClientesIndex,
+    ClientesEditar,
+    ClientesCadastrar,
   ],
   imports: [
     BrowserModule,

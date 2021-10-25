@@ -155,10 +155,10 @@ export class EditarComponent implements OnInit {
   async ngOnInit() {
     let id = this.route.snapshot.paramMap.get('id');
 
-    await this._api.obterDadosIntegracaoFiscalPeloID(id).then((dados) => {
-      this.integracaoFiscalDados = dados[0];
+    await this._api.obterDadosIntegracaoFiscalPeloID(id).then((data) => {
+      this.integracaoFiscalDados = data;
+      console.log(data);
     });
-    console.log(this.integracaoFiscalDados);
   }
 
   async onSubmit(data: any) {
@@ -167,6 +167,7 @@ export class EditarComponent implements OnInit {
     this.alertSuccessState = false;
     setTimeout(() => {
       this.alertSuccessState = true;
+      location.href = '/cadastro/integracaofiscal';
     }, 3000);
   }
 }

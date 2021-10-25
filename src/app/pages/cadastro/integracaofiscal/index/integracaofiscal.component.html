@@ -13,13 +13,7 @@
     </button>
   </div>
 
-  <table
-    datatable
-    [dtOptions]="dtOptions"
-    [dtTrigger]="dtTrigger"
-    class="w-100 table row-border hover"
-    id="produtos-table"
-  >
+  <table class="w-100 table row-border hover" id="produtos-table">
     <thead>
       <tr>
         <th>#</th>
@@ -47,8 +41,6 @@
           <button
             class="btn btn-secondary m-1 tleft"
             type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#detalhesModal"
             (click)="dadosespecificos(item.id)"
           >
             <span class="acaoStyle"
@@ -58,8 +50,6 @@
           <button
             class="btn btn-success m-1 tleft"
             type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#configuracaoModal"
             (click)="editar(item.id)"
           >
             <span class="acaoStyle"

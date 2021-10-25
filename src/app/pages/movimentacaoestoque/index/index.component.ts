@@ -19,7 +19,7 @@ export class IndexComponent implements OnInit {
   async ngOnInit() {
     let data = await this._api.obterDadosMovimentacaoEstoque();
 
-    this.listavendas = data;
+    /* this.listavendas = data; */
     console.log(this.listavendas);
   }
 

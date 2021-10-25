@@ -23,11 +23,11 @@ export class EditarvendaComponent implements OnInit {
   transportadoraDados: any = { nome: '' };
 
   idFormaDePagamento: any;
-  formaDePagamentoDados: any[] = [{ descricao: '', id: '' }];
+  formaDePagamentoDados: any = [{ descricao: '', id: '' }];
 
   todosOsProdutos: any;
   item: any;
-  listaProdutos: any[] = [];
+  listaProdutos: any;
 
   descontoFinal: number = 0;
   acrescimoFinal: number = 0;
@@ -95,9 +95,8 @@ export class EditarvendaComponent implements OnInit {
         .obterDadosTransportadoraPeloID(data.pessoaTransportadoraID)
         .then((data: any) => {
           console.log(data);
-          this.idTransportadora = data[0].id;
-          this.transportadoraDados = data[0].pessoa;
-          console.log(data);
+          this.idTransportadora = data.id;
+          this.transportadoraDados = data.pessoa;
         });
 
       this._api
@@ -146,8 +145,11 @@ export class EditarvendaComponent implements OnInit {
     this.idCliente = num;
 
     this._api.obterDadosClienteCompleto(this.idCliente).then((data) => {
-      this.clienteDados = data.pessoa;
       console.log(data);
+
+      let res: any = data;
+      console.log(res);
+      this.clienteDados = res.pessoa;
     });
   }
 
@@ -155,8 +157,10 @@ export class EditarvendaComponent implements OnInit {
     this.idVendedor = num;
 
     this._api.obterDadosVendedorCompleto(this.idVendedor).then((data) => {
-      this.vendedorDados = data.pessoa;
       console.log(data);
+
+      let res: any = data;
+      this.vendedorDados = res.pessoa;
     });
   }
 
@@ -190,7 +194,6 @@ export class EditarvendaComponent implements OnInit {
   onSubmit(data: any) {
     data.VendaItens = this.listaProdutos;
     data.Troco = this.falta <= 0 ? Math.abs(this.falta) : 0;
-    data.Status = 1;
     data.PessoaTransportadoraID = this.idTransportadora;
     console.log(this.formaDePagamentoDados);
     console.log(data.VendaFormaPagamentos);
@@ -208,6 +211,7 @@ export class EditarvendaComponent implements OnInit {
 
     this._api.modificarVenda(data).then((data: any) => {
       console.log(data);
+      this.retornar();
     });
   }
 

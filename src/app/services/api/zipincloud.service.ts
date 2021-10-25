@@ -13,8 +13,8 @@ export class ZipincloudService {
     return this.http
       .post(environment.url + 'api/produtoes', data, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -26,8 +26,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -39,8 +39,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -48,12 +48,21 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/produtoes', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
   //TODO:POST GET PUT DELETE - Categorias//
+  obterCategoriaByID(id: any) {
+    return this.http
+      .get(environment.url + 'api/categories/' + id, environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   salvarCategoria(data: any) {
     data.HabElisa == '' || data.HabElisa == null ? (data.HabElisa = false) : '';
     data.HabTotem == '' || data.HabTotem == null ? (data.HabTotem = false) : '';
@@ -61,8 +70,8 @@ export class ZipincloudService {
     return this.http
       .post(environment.url + 'api/categories', data, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -72,13 +81,13 @@ export class ZipincloudService {
     data.HabPdv == '' || data.HabPdv == null ? (data.HabPdv = false) : '';
     return this.http
       .put(
-        environment.url + 'api/categories/' + data.id,
+        environment.url + 'api/categories/' + data.ID,
         data,
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -90,8 +99,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -104,8 +113,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -117,8 +126,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -130,8 +139,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -140,8 +149,8 @@ export class ZipincloudService {
     return this.http
       .post(environment.url + 'api/tipoproduto', data, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -153,8 +162,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -166,8 +175,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -180,8 +189,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -193,8 +202,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -206,8 +215,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -216,8 +225,8 @@ export class ZipincloudService {
     return this.http
       .post(environment.url + 'api/ncm', data, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -229,8 +238,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -242,8 +251,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -252,8 +261,8 @@ export class ZipincloudService {
     return this.http
       .post(environment.url + 'api/vendas', data, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -266,8 +275,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -278,8 +287,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -287,8 +296,8 @@ export class ZipincloudService {
     return this.http
       .delete(environment.url + 'api/vendas/' + ID, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       })
       .catch((err) => {
         if (err.status === 500) {
@@ -304,8 +313,8 @@ export class ZipincloudService {
     return this.http
       .post(environment.url + 'api/Empresas', data, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -313,8 +322,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/Empresas/', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -326,8 +335,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -339,8 +348,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -349,20 +358,18 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/GrupoEmpresas/', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
   obterGrupoEmpresaByID(id: any) {
-    let data;
-
-    if (id == 1) {
-      data = { Nome: 'FILIAL', ID: 1 };
-    } else {
-      data = { Nome: 'MATRIZ', ID: 2 };
-    }
-    return data;
+    return this.http
+      .get(environment.url + 'api/GrupoEmpresas/' + id, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
   }
 
   salvarGrupoEmpresa(data: any) {
@@ -373,21 +380,21 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
   modificarGrupoEmpresa(data: any) {
     return this.http
       .put(
-        environment.url + 'api/GrupoEmpresas/' + data.id,
+        environment.url + 'api/GrupoEmpresas/' + data.ID,
         data,
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -399,8 +406,8 @@ export class ZipincloudService {
         environment.headersPost
       )
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -409,8 +416,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/unidadefederativa', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -418,8 +425,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/unidadefederativa/' + id, environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -431,8 +438,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -443,8 +450,24 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterMunicipioByID(id: any, estadoid: any) {
+    return this.http
+      .get(
+        environment.url +
+          'api/unidadefederativa/municipio/' +
+          id +
+          '/' +
+          estadoid,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
       });
   }
 
@@ -454,8 +477,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/produtoes/produtos', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -466,8 +489,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -475,8 +498,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/produtoes/' + ID, environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -484,8 +507,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/categories', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -493,8 +516,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/marcasprodutos', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -502,8 +525,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/tipoproduto', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -511,8 +534,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/integracaofiscal', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -523,8 +546,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -532,8 +555,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/ncm/getncmbyid/' + ID, environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -541,8 +564,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/produtoes/marcaproduto', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -550,8 +573,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/produtoes/ncm', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -562,8 +585,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -574,8 +597,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -586,8 +609,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -598,20 +621,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
-      });
-  }
-
-  obterDadosCliente(pessoaid: any) {
-    return this.http
-      .get(
-        environment.url + 'api/PessoaClientesApi/' + pessoaid,
-        environment.headers
-      )
-      .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -622,9 +633,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        data = data[0];
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -635,9 +645,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        data = data[0];
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -648,9 +657,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        data = data[0];
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -661,9 +669,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        data = data[0];
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -671,8 +678,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/FormaPagamentoes', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -683,8 +690,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -692,8 +699,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/PessoaClientesApi', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -701,8 +708,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/PessoaVendedors', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -713,8 +720,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -725,8 +732,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -737,8 +744,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -749,8 +756,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -758,8 +765,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/FormaPagamentoes/' + id, environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -768,8 +775,8 @@ export class ZipincloudService {
     return this.http
       .post(environment.url + 'api/vendaitems', data, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -778,8 +785,8 @@ export class ZipincloudService {
     return this.http
       .delete(environment.url + 'api/vendaitems/' + id, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
@@ -788,28 +795,28 @@ export class ZipincloudService {
     return this.http
       .put(environment.url + 'api/vendas/' + id, data, environment.headersPost)
       .toPromise()
-      .then((response) => {
-        console.log(response);
+      .then((res) => {
+        return res;
       });
   }
 
   //TODO: Compras//
-  /* obterDadosCompras() {
+  obterDadosCompras() {
     return this.http
       .get(environment.url + 'api/vendas', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
-  } */
+  }
 
   //TODO: Vendas//
   obterDadosVendas() {
     return this.http
       .get(environment.url + 'api/vendas', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -817,8 +824,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/vendaitems', environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -829,8 +836,8 @@ export class ZipincloudService {
         environment.headers
       )
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -838,8 +845,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/vendaitems/' + vendaid, environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 
@@ -847,8 +854,8 @@ export class ZipincloudService {
     return this.http
       .get(environment.url + 'api/vendas/' + vendaid, environment.headers)
       .toPromise()
-      .then((data: any) => {
-        return data;
+      .then((res) => {
+        return res;
       });
   }
 }

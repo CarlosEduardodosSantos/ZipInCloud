@@ -17,10 +17,13 @@ export class MunicipioExibirComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
   ngOnInit() {
-    this._api.obterTodosMunicipiosByID(this.estadoId).then((data) => {
-      this.municipioLista = data;
-      console.log(this.municipioLista);
-    });
+    setInterval(() => {
+      if (this.estadoId != null || this.estadoId != undefined) {
+        this._api.obterTodosMunicipiosByID(this.estadoId).then((data) => {
+          this.municipioLista = data;
+        });
+      }
+    }, 2000);
   }
 
   onSubmitMunicipioEmpresa(data: any) {

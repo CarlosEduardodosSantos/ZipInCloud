@@ -32,7 +32,7 @@ export class IndexComponent implements OnInit {
   async chamarAPINCM() {
     let data = await this._api.obterDadosNCMProdutos();
 
-    this.listancm = data;
+    /* this.listancm = data; */
     console.log(this.listancm);
   }
 

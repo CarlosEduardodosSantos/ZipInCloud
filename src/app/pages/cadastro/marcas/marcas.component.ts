@@ -12,7 +12,7 @@ import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 export class MarcasComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
-  listamarcas: any[] = [];
+  listamarcas: any;
   dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject<any>();
 
@@ -39,7 +39,7 @@ export class MarcasComponent implements OnInit {
 
   excluirElemento(index: number) {
     this._api.excluirMarca(index);
-    /* location.reload(); */
+    location.reload();
   }
 
   obterId(id: any, descricao: any) {

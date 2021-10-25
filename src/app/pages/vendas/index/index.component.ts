@@ -57,7 +57,7 @@ export class IndexComponent implements OnInit {
     var alertCondition = confirm('Deseja mesmo excluir está venda?');
     if (alertCondition) {
       this._api.excluirVenda(id);
-      /* location.reload(); */
+      location.reload();
     }
   }
 
@@ -66,10 +66,13 @@ export class IndexComponent implements OnInit {
   }
 
   faturarPedido(vendaID: any) {
-    let data = this._api.obterTodosDadosVendaPeloID(vendaID).then((data) => {
-      data.status = 2;
-      this._api.faturarVenda(vendaID, data);
+    this._api.obterTodosDadosVendaPeloID(vendaID).then((data) => {
+      console.log(data);
+
+      let res: any = data;
+      res.status = 2;
+      this._api.faturarVenda(vendaID, res);
     });
-    /* location.reload(); */
+    location.reload();
   }
 }

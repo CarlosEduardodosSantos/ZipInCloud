@@ -18,7 +18,7 @@ export class EditarComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
 
     await this._api.obterDadosNcmPeloID(id).then((dados) => {
-      this.ncmDados = dados[0];
+      /* this.ncmDados = dados[0]; */
     });
     console.log(this.ncmDados);
   }

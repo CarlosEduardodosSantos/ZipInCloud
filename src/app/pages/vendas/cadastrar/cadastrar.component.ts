@@ -78,10 +78,8 @@ export class CadastrarComponent implements OnInit {
   salvarIdCliente(num: any) {
     this.idCliente = num;
 
-    this._api.obterDadosCliente(this.idCliente).then((data) => {
-      this._api.obterDadosPessoa(data.pessoaID).then((data) => {
-        this.clienteDados[0] = data;
-      });
+    this._api.obterDadosClienteCompleto(this.idCliente).then((data: any) => {
+      this.clienteDados = data;
     });
   }
 

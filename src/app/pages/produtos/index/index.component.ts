@@ -28,7 +28,7 @@ export class IndexComponent implements OnInit {
     };
 
     await this._api.obterTodosDadosProdutos().then((data) => {
-      this.listaprodutos = data;
+      /* this.listaprodutos = data; */
 
       console.log(this.listaprodutos);
     });

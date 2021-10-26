@@ -1,5 +1,5 @@
 <div class="m-4">
-  <p class="fs-22 bolder">Empresas</p>
+  <p class="fs-22 bolder">Formas de pagamento</p>
 
   <div class="tright">
     <button type="button" class="btn btn-primary" (click)="cadastrar()">
@@ -11,27 +11,14 @@
     <thead>
       <tr>
         <th>#</th>
-        <th>Razão Social</th>
-        <th>CNPJ</th>
-        <th class="centerTable">Logo</th>
+        <th>Descrição</th>
         <th class="centerTable">Ações</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listaEmpresas; let i = index">
+      <tr *ngFor="let item of listaFormasPagamento; let i = index">
         <td>{{ item.id }}</td>
-        <td>{{ item.razaoSocial }}</td>
-        <td>{{ item.cnpj }}</td>
-        <td>
-          <img
-            class="img-Table"
-            [src]="
-              item.imagemLogo !== null
-                ? 'data:image/png;base64,' + item.imagemLogo
-                : '/assets/semimagem.jpg'
-            "
-          />
-        </td>
+        <td>{{ item.descricao }}</td>
         <td class="acoesStyle">
           <button
             class="btn btn-success m-1 tleft"

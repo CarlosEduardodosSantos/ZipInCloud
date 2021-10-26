@@ -2,13 +2,7 @@
   <p class="fs-22 bolder">Clientes</p>
 
   <div class="tright">
-    <button
-      type="button"
-      class="btn btn-primary"
-      data-bs-toggle="modal"
-      data-bs-target="#cadastroModal"
-      (click)="cadastrar()"
-    >
+    <button type="button" class="btn btn-primary" (click)="cadastrar()">
       Novo
     </button>
   </div>
@@ -31,8 +25,6 @@
           <button
             class="btn btn-success m-1 tleft"
             type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#configuracaoModal"
             (click)="editar(item.id)"
           >
             <span class="acaoStyle"

@@ -50,6 +50,10 @@ import { CadastrarComponent as FornecedoresCadastrar } from './pages/cadastro/fo
 import { IndexComponent as ContasReceberIndex } from './pages/contas/receber/index/index.component';
 import { IndexComponent as ContasPagarIndex } from './pages/contas/pagar/index/index.component';
 
+import { IndexComponent as FormasPagamentoIndex } from './pages/cadastro/formaspagamento/index/index.component';
+import { CadastroComponent as FormasPagamentoCadastrar } from './pages/cadastro/formaspagamento/cadastro/cadastro.component';
+import { EditarComponent as FormasPagamentoEditar } from './pages/cadastro/formaspagamento/editar/editar.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -186,6 +190,18 @@ const routes: Routes = [
   {
     path: 'cadastro/fornecedores/editar/:id',
     component: FornecedoresEditar,
+  },
+  {
+    path: 'cadastro/formaspagamento',
+    component: FormasPagamentoIndex,
+  },
+  {
+    path: 'cadastro/formaspagamento/cadastrar',
+    component: FormasPagamentoCadastrar,
+  },
+  {
+    path: 'cadastro/formaspagamento/editar/:id',
+    component: FormasPagamentoEditar,
   },
   {
     path: 'contas/receber',

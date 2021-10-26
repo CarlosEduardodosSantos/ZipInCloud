@@ -27,7 +27,9 @@ export class EditarComponent implements OnInit {
   async onSubmit(data: any) {
     console.log(data);
 
-    await this._api.modificarGrupoEmpresa(data);
+    await this._api.modificarGrupoEmpresa(data).then(() => {
+      this.retornar();
+    });
   }
 
   retornar() {

@@ -507,6 +507,66 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Formas de Pagamento//
+  obterFormaPagamento() {
+    return this.http
+      .get(environment.url + 'api/FormaPagamentoes', environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterFormaPagamentoByID(ID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/FormaPagamentoes/' + ID,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarFormaPagamento(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/FormaPagamentoes',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarFormaPagamento(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/FormaPagamentoes/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirFormaPagamento(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/FormaPagamentoes/' + ID,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO:GETs ESPECIFICOS//
 
   obterTodosDadosProdutos() {

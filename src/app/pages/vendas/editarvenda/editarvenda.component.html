@@ -8,7 +8,7 @@
   >
     <tabset class="member-tabset">
       <tab class="tab" heading="Identificação">
-        <div class="form-group inline-child-20" hidden>
+        <div class="form-group inline-length-20" hidden>
           <label for="Status">Status</label>
           <input
             type="text"
@@ -21,7 +21,7 @@
           />
         </div>
 
-        <div class="form-group inline-child-14">
+        <div class="form-group inline-length-14">
           <label for="PessoaClienteID">Cliente</label>
           <input
             type="text"
@@ -38,7 +38,7 @@
           ></app-clientes-exibir>
         </div>
 
-        <div class="form-group inline-child-6">
+        <div class="form-group inline-length-6">
           <label for="Data">Data do Pedido</label>
           <input
             type="datetime-local"
@@ -51,7 +51,7 @@
           />
         </div>
 
-        <div class="form-group inline-child-7">
+        <div class="form-group inline-length-7">
           <label for="PessoaVendedorID">Vendedor</label>
           <input
             type="text"
@@ -69,7 +69,7 @@
           ></app-vendedores-exibir>
         </div>
 
-        <div class="form-group inline-child-7">
+        <div class="form-group inline-length-7">
           <label for="TipoOperacaoID">Tipo de Operação</label>
           <input
             type="text"
@@ -87,7 +87,7 @@
           ></app-tipooperacoes-exibir>
         </div>
 
-        <div class="form-group inline-child-6">
+        <div class="form-group inline-length-6">
           <label for="PessoaTransportadoraID">Transportadora</label>
           <input
             type="text"
@@ -110,7 +110,7 @@
           (change)="adicionarProduto(d.value)"
           enctype="multipart/form-data"
         >
-          <div class="form-group inline-child-20">
+          <div class="form-group inline-length-20">
             <label for="ProdutoID">Produtos</label>
             <select
               class="form-control"
@@ -166,7 +166,7 @@
           </tbody>
         </table>
 
-        <div class="form-group inline-child-4">
+        <div class="form-group inline-length-4">
           <label for="TotalDesconto">Total Desconto</label>
           <input
             type="text"
@@ -177,7 +177,7 @@
           />
         </div>
 
-        <div class="form-group inline-child-4">
+        <div class="form-group inline-length-4">
           <label for="TotalAcrescimo">Total Acrescimo</label>
           <input
             type="text"
@@ -188,7 +188,7 @@
           />
         </div>
 
-        <div class="form-group inline-child-4">
+        <div class="form-group inline-length-4">
           <label for="TotalFinal">Total Final</label>
           <input
             type="text"
@@ -201,7 +201,7 @@
           />
         </div>
 
-        <div class="form-group inline-child-4">
+        <div class="form-group inline-length-4">
           <label for="totalPagamento">Total Pagamento</label>
           <input
             type="text"
@@ -213,7 +213,7 @@
           />
         </div>
 
-        <div class="form-group inline-child-4">
+        <div class="form-group inline-length-4">
           <label for="faltaPagamento" *ngIf="falta >= 0.01">Falta</label>
           <label for="faltaPagamento" *ngIf="falta <= 0.0">Troco</label>
           <input
@@ -230,7 +230,7 @@
         </div>
       </tab>
       <tab class="tab" heading="Forma de Pagamento"
-        ><div class="form-group inline-child-14">
+        ><div class="form-group inline-length-14">
           <label for="VendaFormaPagamentos">Formas de Pagamento</label>
           <input
             type="text"
@@ -246,7 +246,7 @@
             (formapagamentoId)="salvarFormaPagamentoId($event)"
           ></app-formaspagamento-exibir>
         </div>
-        <div class="form-group inline-child-6">
+        <div class="form-group inline-length-6">
           <label for="valorPagoAtualmente">Valor pago atualmente</label>
           <input
             type="number"

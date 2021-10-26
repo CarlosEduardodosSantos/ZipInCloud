@@ -23,6 +23,8 @@ export class EditarComponent implements OnInit {
 
   async onSubmit(data: any) {
     console.log(data);
-    await this._api.modificarNcm(data);
+    await this._api.modificarNcm(data).then(() => {
+      location.href = '/cadastro/ncm';
+    });
   }
 }

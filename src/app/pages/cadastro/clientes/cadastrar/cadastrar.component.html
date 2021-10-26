@@ -1,1 +1,30 @@
-<p>cadastrar works!</p>
+<div class="m-4">
+  <p class="fs-22 bolder">Cadastro de Pessoa</p>
+
+  <form
+    #cadastroPessoa="ngForm"
+    (ngSubmit)="onSubmit(cadastroPessoa.value)"
+    enctype="multipart/form-data"
+  >
+    <tabset class="member-tabset">
+      <tab class="tab" heading="Identificação">
+        <div class="form-group inline-length-20">
+          <label for="PessoaFornecedorID">Fornecedores</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="PessoaFornecedorID"
+            id="PessoaFornecedorID"
+            #PessoaFornecedorID
+            data-bs-toggle="modal"
+            data-bs-target="#tipoPessoaExibirModal"
+          />
+          <app-tipo-pessoa-exibir></app-tipo-pessoa-exibir>
+        </div>
+      </tab>
+    </tabset>
+
+    <button type="submit" class="btn btn-primary mt-4 m-1">Salvar</button>
+    <a href="/cadastro/ncm" class="btn btn-secondary mt-4 m-1">Cancelar</a>
+  </form>
+</div>

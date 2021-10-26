@@ -73,6 +73,12 @@ export class IndexComponent implements OnInit {
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro ncm',
     },
+    {
+      nome: 'Formas de Pagamentos',
+      url: 'cadastro/formaspagamento',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro formas de pagamento',
+    },
   ];
 
   comercialItems = [

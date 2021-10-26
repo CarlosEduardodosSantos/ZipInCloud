@@ -151,6 +151,8 @@ export class CadastrarComponent implements OnInit {
 
   async onSubmit(data: any) {
     console.log(data);
-    await this._api.salvarIntegracaoFiscal(data);
+    await this._api.salvarIntegracaoFiscal(data).then(() => {
+      location.href = '/cadastro/integracaofiscal';
+    });
   }
 }

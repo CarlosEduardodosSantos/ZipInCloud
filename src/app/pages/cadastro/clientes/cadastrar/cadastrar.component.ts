@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 
 @Component({
   selector: 'app-cadastrar',
   templateUrl: './cadastrar.component.html',
-  styleUrls: ['./cadastrar.component.scss']
+  styleUrls: ['./cadastrar.component.scss'],
 })
 export class CadastrarComponent implements OnInit {
+  constructor(private _api: ZipincloudService) {}
 
-  constructor() { }
+  async ngOnInit() {}
 
-  ngOnInit(): void {
+  async onSubmit(data: any) {
+    console.log(data);
+    await this._api.salvarNcm(data);
   }
-
 }

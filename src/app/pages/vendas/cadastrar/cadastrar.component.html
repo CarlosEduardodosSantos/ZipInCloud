@@ -16,7 +16,7 @@
             name="PessoaClienteID"
             id="PessoaClienteID"
             #PessoaClienteID
-            [value]="clienteDados[0].nome"
+            [value]="clienteDados.nome"
             [(ngModel)]="idCliente"
             data-bs-toggle="modal"
             data-bs-target="#clientesExibirModal"
@@ -46,7 +46,7 @@
             name="PessoaVendedorID"
             id="PessoaVendedorID"
             #PessoaVendedorID
-            [value]="vendedorDados[0].nome"
+            [value]="vendedorDados.nome"
             [(ngModel)]="idVendedor"
             data-bs-toggle="modal"
             data-bs-target="#vendedoresExibirModal"
@@ -64,7 +64,7 @@
             name="TipoOperacaoID"
             id="TipoOperacaoID"
             #TipoOperacaoID
-            [value]="operacaoDados[0].descricao"
+            [value]="operacaoDados.descricao"
             [(ngModel)]="idOperacao"
             data-bs-toggle="modal"
             data-bs-target="#operacaoExibirModal"
@@ -82,7 +82,7 @@
             name="PessoaTransportadoraID"
             id="PessoaTransportadoraID"
             #PessoaTransportadoraID
-            [value]="transportadoraDados[0].nome"
+            [value]="transportadoraDados.nome"
             data-bs-toggle="modal"
             data-bs-target="#transportadoraExibirModal"
           />
@@ -226,7 +226,7 @@
             name="VendaFormaPagamentos"
             id="VendaFormaPagamentos"
             #VendaFormaPagamentos
-            [value]="formaDePagamentoDados[0].descricao"
+            [value]="formaDePagamentoDados.descricao"
             data-bs-toggle="modal"
             data-bs-target="#formapagamentoExibirModal"
           />
@@ -235,14 +235,14 @@
           ></app-formaspagamento-exibir>
         </div>
         <div class="form-group inline-child-6">
-          <label for="valorPagoAtualemnte">Valor pago atualmente</label>
+          <label for="valorPagoAtualmente">Valor pago atualmente</label>
           <input
             type="number"
             class="form-control w-100"
-            name="valorPagoAtualemnte"
-            id="valorPagoAtualemnte"
-            #valorPagoAtualemnte
-            (input)="passarValorPago(this.valorPagoAtualemnte.value)"
+            name="valorPagoAtualmente"
+            id="valorPagoAtualmente"
+            #valorPagoAtualmente
+            (input)="passarValorPago(this.valorPagoAtualmente.value)"
             value="{{ pagamentoFinal }}"
           /></div
       ></tab>

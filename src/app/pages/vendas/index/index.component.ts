@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 
 import {
-  faWindowClose,
+  faTrashAlt,
   faPrint,
-  faEye,
   faCreditCard,
+  faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -19,8 +19,8 @@ export class IndexComponent implements OnInit {
 
   dataDaVenda: any;
 
-  faEye = faEye;
-  faWindowClose = faWindowClose;
+  faPencilAlt = faPencilAlt;
+  faTrashAlt = faTrashAlt;
   faPrint = faPrint;
   faCreditCard = faCreditCard;
 
@@ -69,10 +69,12 @@ export class IndexComponent implements OnInit {
     this._api.obterTodosDadosVendaPeloID(vendaID).then((data) => {
       console.log(data);
 
-      let res: any = data;
-      res.status = 2;
-      this._api.faturarVenda(vendaID, res);
+      let result: any = data;
+      result.dataFaturamento = new Date();
+      result.status = 2;
+      this._api.faturarVenda(vendaID, result).then(() => {
+        location.reload();
+      });
     });
-    location.reload();
   }
 }

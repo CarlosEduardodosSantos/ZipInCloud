@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from '../../../../services/api/zipincloud.service';
-import { Subject } from 'rxjs';
 
 import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,8 +12,6 @@ export class IntegracaofiscalComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
   listaintegracaofiscal: any;
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
 
   faCogs = faCogs;
   faTrashAlt = faTrashAlt;
@@ -24,15 +21,7 @@ export class IntegracaofiscalComponent implements OnInit {
 
   detalheslista: any;
 
-  ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 2,
-    };
-    this.chamarAPIIntegracaoFiscal();
-  }
-
-  async chamarAPIIntegracaoFiscal() {
+  async ngOnInit() {
     await this._api.obterDadosIntegracaoFiscalProdutos().then((data) => {
       this.listaintegracaofiscal = data;
       console.log(this.listaintegracaofiscal);

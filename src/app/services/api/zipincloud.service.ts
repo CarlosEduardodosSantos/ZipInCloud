@@ -280,10 +280,37 @@ export class ZipincloudService {
       });
   }
 
-  excluirDocumento(ID: any) {
+  excluirVenda(ID: any) {
     return this.http
-      .delete(
-        environment.url + 'api/Documentoes/deletebyvendaid/' + ID,
+      .delete(environment.url + 'api/vendas/' + ID, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      })
+      .catch((err) => {
+        if (err.status === 500) {
+          this.excluirDocumento(ID).then((res) => {
+            console.log(res);
+          });
+        }
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - Compras//
+  salvarCompra(data: any) {
+    return this.http
+      .post(environment.url + 'api/compra', data, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarCompra(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/compra/' + data.ID,
+        data,
         environment.headersPost
       )
       .toPromise()
@@ -292,9 +319,9 @@ export class ZipincloudService {
       });
   }
 
-  excluirVenda(ID: any) {
+  excluirCompra(ID: any) {
     return this.http
-      .delete(environment.url + 'api/vendas/' + ID, environment.headersPost)
+      .delete(environment.url + 'api/compra/' + ID, environment.headersPost)
       .toPromise()
       .then((res) => {
         return res;
@@ -339,7 +366,7 @@ export class ZipincloudService {
   modificarEmpresa(data: any) {
     return this.http
       .put(
-        environment.url + 'api/Empresas/' + data.id,
+        environment.url + 'api/Empresas/' + data.ID,
         data,
         environment.headersPost
       )
@@ -562,7 +589,7 @@ export class ZipincloudService {
 
   obterDadosNcmPeloID(ID: any) {
     return this.http
-      .get(environment.url + 'api/ncm/getncmbyid/' + ID, environment.headers)
+      .get(environment.url + 'api/ncm/' + ID, environment.headers)
       .toPromise()
       .then((res) => {
         return res;
@@ -665,6 +692,48 @@ export class ZipincloudService {
         environment.url + 'api/PessoasAPI/vendedor/' + vendedorid,
         environment.headers
       )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterDadosComprador(compradorid: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PessoaCompradorApi/' + compradorid,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterDadosFornecedor(fornecedorid: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PessoaFornecedorApi/' + fornecedorid,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterTodosDadosComprador() {
+    return this.http
+      .get(environment.url + 'api/PessoaCompradorApi', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterTodosDadosFornecedor() {
+    return this.http
+      .get(environment.url + 'api/PessoaFornecedorApi', environment.headers)
       .toPromise()
       .then((res) => {
         return res;
@@ -779,6 +848,18 @@ export class ZipincloudService {
       });
   }
 
+  excluirDocumento(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/Documentoes/deletebyvendaid/' + ID,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO:POSTs ESPECIFICOS//
   salvarNovoProdutoNaVendaItems(data: any) {
     return this.http
@@ -809,10 +890,58 @@ export class ZipincloudService {
       });
   }
 
+  faturarCompra(id: any, data: any) {
+    return this.http
+      .put(environment.url + 'api/compra/' + id, data, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO: Compras//
   obterDadosCompras() {
     return this.http
-      .get(environment.url + 'api/vendas', environment.headers)
+      .get(environment.url + 'api/compra', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterDadosComprasProdutos() {
+    return this.http
+      .get(environment.url + 'api/compraitems', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterDadosComprasProdutosByComprasID(compraid: any) {
+    return this.http
+      .get(
+        environment.url + 'api/compraitems/getbycompraid/' + compraid,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterDadosComprasPeloID(compraid: any) {
+    return this.http
+      .get(environment.url + 'api/compraitems/' + compraid, environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterTodosDadosComprasPeloID(compraid: any) {
+    return this.http
+      .get(environment.url + 'api/compra/' + compraid, environment.headers)
       .toPromise()
       .then((res) => {
         return res;

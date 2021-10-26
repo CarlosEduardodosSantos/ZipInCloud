@@ -8,19 +8,19 @@ import { ZipincloudService } from '../../../services/api/zipincloud.service';
 })
 export class CadastrarComponent implements OnInit {
   idCliente: any;
-  clienteDados: any[] = [{ nome: '', id: '' }];
+  clienteDados: any = { nome: '' };
 
   idVendedor: any;
-  vendedorDados: any[] = [{ nome: '', id: '' }];
+  vendedorDados: any = { nome: '' };
 
   idOperacao: any;
-  operacaoDados: any[] = [{ nome: '', id: '' }];
+  operacaoDados: any = { descricao: '' };
 
   idTransportadora: any;
-  transportadoraDados: any[] = [{ nome: '', id: '' }];
+  transportadoraDados: any = { nome: '' };
 
   idFormaDePagamento: any;
-  formaDePagamentoDados: any[] = [{ descricao: '', id: '' }];
+  formaDePagamentoDados: any = { descricao: '' };
 
   todosOsProdutos: any;
   item: any;
@@ -79,7 +79,7 @@ export class CadastrarComponent implements OnInit {
     this.idCliente = num;
 
     this._api.obterDadosClienteCompleto(this.idCliente).then((data: any) => {
-      this.clienteDados = data;
+      this.clienteDados = data.pessoa;
     });
   }
 
@@ -87,7 +87,7 @@ export class CadastrarComponent implements OnInit {
     this.idVendedor = num;
 
     this._api.obterDadosVendedor(this.idVendedor).then((data) => {
-      this.vendedorDados[0] = data;
+      this.vendedorDados = data;
     });
   }
 
@@ -95,7 +95,8 @@ export class CadastrarComponent implements OnInit {
     this.idOperacao = num;
 
     this._api.obterDadosTipoOperação(this.idOperacao).then((data) => {
-      this.operacaoDados[0] = data;
+      this.operacaoDados = data;
+      console.log(data);
     });
   }
 
@@ -103,7 +104,7 @@ export class CadastrarComponent implements OnInit {
     this.idTransportadora = num;
   }
   salvarTransportadoraNome(str: any) {
-    this.transportadoraDados[0].nome = str;
+    this.transportadoraDados.nome = str;
   }
 
   salvarFormaPagamentoId(num: any) {
@@ -112,7 +113,7 @@ export class CadastrarComponent implements OnInit {
     this._api
       .obterFormasDePagamentoPeloID(this.idFormaDePagamento)
       .then((data) => {
-        this.formaDePagamentoDados[0] = data;
+        this.formaDePagamentoDados = data;
         console.log(data);
       });
   }
@@ -120,19 +121,23 @@ export class CadastrarComponent implements OnInit {
   onSubmit(data: any) {
     data.VendaItens = this.listaProdutos;
     data.troco = this.falta <= 0 ? Math.abs(this.falta) : 0;
-    data.VendaItens.Desconto = this.descontoFinal;
-    data.VendaItens.Acrescimo = this.acrescimoFinal;
+    for (let index = 0; index < this.listaProdutos.length; index++) {
+      data.VendaItens[index].Desconto = this.listaProdutos[index].totalDesconto;
+      data.VendaItens[index].Acrescimo =
+        this.listaProdutos[index].totalAcrescimo;
+    }
     data.status = 1;
     data.PessoaTransportadoraID = this.idTransportadora;
-    data.VendaFormaPagamentos = this.formaDePagamentoDados;
+    delete this.formaDePagamentoDados.id;
+    data.VendaFormaPagamentos = [this.formaDePagamentoDados];
     data.VendaFormaPagamentos[0].FormaPagamentoID = this.idFormaDePagamento;
     data.VendaFormaPagamentos[0].Valor = this.valorFinal;
-    delete this.formaDePagamentoDados[0].id;
-    data.VendaFormaPagamentos = this.formaDePagamentoDados;
 
     console.log(data);
 
-    this._api.salvarVenda(data);
+    this._api.salvarVenda(data).then(() => {
+      this.retornar();
+    });
   }
 
   retornar() {

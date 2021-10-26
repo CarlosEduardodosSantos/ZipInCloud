@@ -8,8 +8,6 @@ import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
   styleUrls: ['./editar.component.scss'],
 })
 export class EditarComponent implements OnInit {
-  alertSuccessState = true;
-
   ICMSlista: any[] = [
     { descricao: '00 - Tributada integralmente', index: 0 },
     {
@@ -164,10 +162,5 @@ export class EditarComponent implements OnInit {
   async onSubmit(data: any) {
     console.log(data);
     await this._api.modificarIntegracaoFiscal(data);
-    this.alertSuccessState = false;
-    setTimeout(() => {
-      this.alertSuccessState = true;
-      location.href = '/cadastro/integracaofiscal';
-    }, 3000);
   }
 }

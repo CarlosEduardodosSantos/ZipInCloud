@@ -91,29 +91,59 @@ export class CadastroComponent implements OnInit {
       /^data:image\/[a-z]+;base64,/,
       ''
     );
-    data.ImagemLogo[0] != '/' ? delete data.ImagemLogo : '';
+    if (
+      data.ImagemLogo[0] == 'h' &&
+      data.ImagemLogo[1] == 't' &&
+      data.ImagemLogo[2] == 't' &&
+      data.ImagemLogo[3] == 'p' &&
+      (data.ImagemLogo[4] == 's' || data.ImagemLogo[4] == ':')
+    ) {
+      delete data.ImagemLogo;
+    }
 
     data.ImagemImpressoão = data.ImagemImpressoão.replace(
       /^data:image\/[a-z]+;base64,/,
       ''
     );
-    data.ImagemImpressoão[0] != '/' ? delete data.ImagemImpressoão : '';
+    if (
+      data.ImagemImpressoão[0] == 'h' &&
+      data.ImagemImpressoão[1] == 't' &&
+      data.ImagemImpressoão[2] == 't' &&
+      data.ImagemImpressoão[3] == 'p' &&
+      (data.ImagemImpressoão[4] == 's' || data.ImagemImpressoão[4] == ':')
+    ) {
+      delete data.ImagemImpressoão;
+    }
 
     data.ImagemPropragandaPDV1 = data.ImagemPropragandaPDV1.replace(
       /^data:image\/[a-z]+;base64,/,
       ''
     );
-    data.ImagemPropragandaPDV1[0] != '/'
-      ? delete data.ImagemPropragandaPDV1
-      : '';
+    if (
+      data.ImagemPropragandaPDV1[0] == 'h' &&
+      data.ImagemPropragandaPDV1[1] == 't' &&
+      data.ImagemPropragandaPDV1[2] == 't' &&
+      data.ImagemPropragandaPDV1[3] == 'p' &&
+      (data.ImagemPropragandaPDV1[4] == 's' ||
+        data.ImagemPropragandaPDV1[4] == ':')
+    ) {
+      delete data.ImagemPropragandaPDV1;
+    }
 
     data.ImagemPropragandaPDV2 = data.ImagemPropragandaPDV2.replace(
       /^data:image\/[a-z]+;base64,/,
       ''
     );
-    data.ImagemPropragandaPDV2[0] != '/'
-      ? delete data.ImagemPropragandaPDV2
-      : '';
+    if (
+      data.ImagemPropragandaPDV2[0] == 'h' &&
+      data.ImagemPropragandaPDV2[1] == 't' &&
+      data.ImagemPropragandaPDV2[2] == 't' &&
+      data.ImagemPropragandaPDV2[3] == 'p' &&
+      (data.ImagemPropragandaPDV2[4] == 's' ||
+        data.ImagemPropragandaPDV2[4] == ':')
+    ) {
+      delete data.ImagemPropragandaPDV2;
+    }
 
     data.GrupoEmpresaID = this.idGrupoEmpresa;
     data.RegimeTributarioID = this.idRTEmpresa;
@@ -121,7 +151,9 @@ export class CadastroComponent implements OnInit {
     data.MunicipioID = this.municipioDados.id;
     console.log(data);
 
-    await this._api.salvarEmpresa(data);
+    await this._api.salvarEmpresa(data).then(() => {
+      this.retornar();
+    });
   }
 
   retornar() {

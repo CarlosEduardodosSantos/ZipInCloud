@@ -39,7 +39,7 @@
             type="button"
             data-bs-toggle="modal"
             data-bs-target="#configuracaoCategoriaModal"
-            (click)="obterId(item.id, item.descricao)"
+            (click)="obterId(item.id, item.descricao, item.imagem)"
           >
             <span class="acaoStyle"
               ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
@@ -61,7 +61,8 @@
 </div>
 <app-categorias-criar></app-categorias-criar>
 <app-categorias-modificar
-  descricaoAtual="{{ descricaoAtual }}"
-  idAtual="{{ idAtual }}"
+  [descricaoAtual]="descricaoAtual"
+  [idAtual]="idAtual"
+  [img]="imagem"
   (outdata)="modificarCategoria($event)"
 ></app-categorias-modificar>

@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 
 import {
-  faWindowClose,
+  faTrashAlt,
   faPrint,
-  faEye,
   faCreditCard,
+  faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -17,17 +17,17 @@ export class IndexComponent implements OnInit {
   listacompras: any;
   listacomprasFormatada: any;
 
-  dataDaCompra: any;
+  dataDaVenda: any;
 
-  faEye = faEye;
-  faWindowClose = faWindowClose;
+  faPencilAlt = faPencilAlt;
+  faTrashAlt = faTrashAlt;
   faPrint = faPrint;
   faCreditCard = faCreditCard;
 
   constructor(private _api: ZipincloudService) {}
 
   async ngOnInit() {
-    /* await this._api.obterDadosCompras().then((data: any) => {
+    await this._api.obterDadosCompras().then((data: any) => {
       this.listacompras = data;
       this.listacomprasFormatada = data;
 
@@ -46,7 +46,7 @@ export class IndexComponent implements OnInit {
       }
 
       console.log(this.listacomprasFormatada);
-    }); */
+    });
   }
 
   cadastrar() {
@@ -54,10 +54,10 @@ export class IndexComponent implements OnInit {
   }
 
   deletarCompra(id: any) {
-    var alertCondition = confirm('Deseja mesmo excluir esta compra?');
+    var alertCondition = confirm('Deseja mesmo excluir está compra?');
     if (alertCondition) {
-      /* this._api.excluirCompra(id); */
-      /* location.reload(); */
+      this._api.excluirCompra(id);
+      location.reload();
     }
   }
 
@@ -66,10 +66,15 @@ export class IndexComponent implements OnInit {
   }
 
   faturarPedido(compraID: any) {
-    /* let data = this._api.obterTodosDadosCompraPeloID(compraID).then((data) => {
-      data.status = 2;
-      this._api.faturarCompra(compraID, data);
+    this._api.obterTodosDadosComprasPeloID(compraID).then((data) => {
+      console.log(data);
+
+      let result: any = data;
+      result.dataFaturamento = new Date();
+      result.status = 2;
+      this._api.faturarCompra(compraID, result).then(() => {
+        location.reload();
+      });
     });
-    location.reload(); */
   }
 }

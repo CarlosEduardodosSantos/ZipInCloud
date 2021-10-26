@@ -1,5 +1,5 @@
 <div class="m-4">
-  <p class="fs-22 bolder">Compra</p>
+  <p class="fs-22 bolder">Compras</p>
 
   <div class="tright">
     <button class="btn btn-primary m-2" (click)="cadastrar()">Novo</button>
@@ -10,9 +10,9 @@
       <tr>
         <th>#</th>
         <th>Data</th>
-        <th>Fornecedor</th>
+        <th>Comprador</th>
         <th>Operação</th>
-        <th>Vendedor</th>
+        <th>Fornecedor</th>
         <th>NF</th>
         <th>Status</th>
         <th>Total</th>
@@ -23,16 +23,16 @@
       <tr *ngFor="let item of listacomprasFormatada; let i = index">
         <td>{{ item.id }}</td>
         <td>{{ item.data }}</td>
-        <td>{{ item.clienteNome }}</td>
+        <td>{{ item.compradorNome }}</td>
         <td>{{ item.tipoOperacao }}</td>
-        <td>{{ item.vendedorNome }}</td>
+        <td>{{ item.fornecedorNome }}</td>
         <td></td>
         <td>{{ item.status }}</td>
         <td>{{ item.totalPedido }}</td>
         <td class="acoesStyle">
-          <button class="btn btn-dark m-1" (click)="deletarCompra(item.id)">
+          <button class="btn btn-dark m-1" (click)="obterDetalhes(item.id)">
             <span class="acaoStyle"
-              ><fa-icon [icon]="faWindowClose"></fa-icon
+              ><fa-icon [icon]="faPencilAlt"></fa-icon
             ></span>
           </button>
           <button
@@ -50,8 +50,10 @@
               ><fa-icon [icon]="faCreditCard"></fa-icon
             ></span>
           </button>
-          <button class="btn btn-dark m-1" (click)="obterDetalhes(item.id)">
-            <span class="acaoStyle"><fa-icon [icon]="faEye"></fa-icon></span>
+          <button class="btn btn-dark m-1" (click)="deletarCompra(item.id)">
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faTrashAlt"></fa-icon
+            ></span>
           </button>
         </td>
       </tr>

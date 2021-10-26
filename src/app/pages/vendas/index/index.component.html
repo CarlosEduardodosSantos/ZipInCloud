@@ -30,9 +30,9 @@
         <td>{{ item.status }}</td>
         <td>{{ item.totalPedido }}</td>
         <td class="acoesStyle">
-          <button class="btn btn-dark m-1" (click)="deletarVenda(item.id)">
+          <button class="btn btn-dark m-1" (click)="obterDetalhes(item.id)">
             <span class="acaoStyle"
-              ><fa-icon [icon]="faWindowClose"></fa-icon
+              ><fa-icon [icon]="faPencilAlt"></fa-icon
             ></span>
           </button>
           <button
@@ -50,8 +50,10 @@
               ><fa-icon [icon]="faCreditCard"></fa-icon
             ></span>
           </button>
-          <button class="btn btn-dark m-1" (click)="obterDetalhes(item.id)">
-            <span class="acaoStyle"><fa-icon [icon]="faEye"></fa-icon></span>
+          <button class="btn btn-dark m-1" (click)="deletarVenda(item.id)">
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faTrashAlt"></fa-icon
+            ></span>
           </button>
         </td>
       </tr>

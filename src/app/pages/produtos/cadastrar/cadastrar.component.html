@@ -1,15 +1,6 @@
 <div class="m-4">
   <p class="fs-22 bolder">Cadastro de Produtos</p>
 
-  <div
-    class="alert alert-success alert-dismissible fade show"
-    role="alert"
-    [hidden]="alertSuccessState"
-  >
-    <strong>Pronto!</strong> Um novo produto foi cadastrado.
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  </div>
-
   <form
     #cadastroProduto="ngForm"
     (ngSubmit)="onSubmit(cadastroProduto.value)"
@@ -158,12 +149,12 @@
 
         <div class="inline">
           <div class="form-group inline-child-20">
-            <label for="MarcaProdutoID">Marca</label>
+            <label for="MarcaID">Marca</label>
             <div class="inline">
               <select
                 class="form-control"
-                name="MarcaProdutoID"
-                id="MarcaProdutoID"
+                name="MarcaID"
+                id="MarcaID"
                 ngModel
                 required
               >

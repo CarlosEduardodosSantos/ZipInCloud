@@ -89,7 +89,10 @@
               #Imagem
               name="Imagem"
               class="produtoImagem preview d-flex mx-auto"
-              [src]="imageBinding"
+              [src]="
+                img != undefined ? 'data:image/png;base64,' + img : imageBinding
+              "
+              [(ngModel)]="Imagem.src"
             />
             <hr />
             <label for="imagem">Imagem da categoria</label>

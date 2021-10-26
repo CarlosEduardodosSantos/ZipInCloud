@@ -1,0 +1,61 @@
+<!-- Modal Comprador -->
+<div
+  class="modal fade"
+  id="compradorExibirModal"
+  tabindex="-1"
+  aria-labelledby="compradorExibirModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <form #compradorExibirModal="ngForm" enctype="multipart/form-data">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Comprador</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <table class="w-100 table row-border hover" id="produtos-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>CPF/CNPJ</th>
+                <th class="centerTable">Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of compradorLista">
+                <td>{{ item.id }}</td>
+                <td>{{ item.pessoa.nome }}</td>
+                <td>{{ item.pessoa.cpfcnpj }}</td>
+                <td class="acoesStyle">
+                  <button
+                    class="btn btn-dark m-1"
+                    data-bs-dismiss="modal"
+                    (click)="onSubmitComprador(item.id)"
+                  >
+                    <span class="acaoStyle">Selecionar</span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Fechar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

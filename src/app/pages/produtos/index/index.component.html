@@ -8,21 +8,15 @@
     </button>
   </div>
 
-  <table
-    datatable
-    [dtOptions]="dtOptions"
-    [dtTrigger]="dtTrigger"
-    class="w-100 table row-border hover"
-    id="produtos-table"
-  >
+  <table class="w-100 table row-border hover" id="produtos-table">
     <thead>
       <tr>
         <th>#</th>
         <th>EAN</th>
         <th>Descrição</th>
         <th>Preço</th>
-        <th>Estoque</th>
-        <th>Imagem</th>
+        <th class="estoque">Estoque</th>
+        <th class="centerTable imagens">Imagem</th>
         <th class="centerTable">Ações</th>
       </tr>
     </thead>

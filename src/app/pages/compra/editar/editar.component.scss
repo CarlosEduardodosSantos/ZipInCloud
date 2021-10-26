@@ -1,0 +1,50 @@
+#vendidoPor {
+  margin-top: 90px;
+}
+
+.table {
+  display: flexbox;
+  vertical-align: middle;
+}
+
+tr th,
+tr td {
+  font-size: 14px;
+}
+
+tbody tr {
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+tbody tr:hover {
+  opacity: 1;
+  background-color: rgb(238, 238, 238);
+}
+
+tbody tr td {
+  border-bottom: none !important;
+}
+
+tbody tr {
+  border-bottom: 1px solid #d9dadb;
+}
+
+.acaoStyle {
+  color: #ffffff;
+}
+
+.acoesStyle {
+  width: 220px;
+  max-width: 220px;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  vertical-align: middle;
+}
+
+#DadosAdicionais {
+  border-radius: 4px;
+  width: 100%;
+  padding: 5px;
+}

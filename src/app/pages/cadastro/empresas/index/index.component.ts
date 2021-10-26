@@ -24,8 +24,9 @@ export class IndexComponent implements OnInit {
   }
 
   excluirElemento(index: number) {
-    this._api.excluirEmpresa(index);
-    location.reload();
+    this._api.excluirEmpresa(index).then(() => {
+      location.reload();
+    });
   }
 
   cadastrar() {

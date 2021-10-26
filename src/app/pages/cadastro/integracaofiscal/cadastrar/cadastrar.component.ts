@@ -7,8 +7,6 @@ import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
   styleUrls: ['./cadastrar.component.scss'],
 })
 export class CadastrarComponent implements OnInit {
-  alertSuccessState = true;
-
   ICMSlista: any[] = [
     { descricao: '00 - Tributada integralmente', index: 0 },
     {
@@ -152,11 +150,7 @@ export class CadastrarComponent implements OnInit {
   async ngOnInit() {}
 
   async onSubmit(data: any) {
-    this.alertSuccessState = false;
     console.log(data);
     await this._api.salvarIntegracaoFiscal(data);
-    setTimeout(() => {
-      this.alertSuccessState = true;
-    }, 3000);
   }
 }

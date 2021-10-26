@@ -14,8 +14,6 @@ export class CadastrarComponent implements OnInit {
   ncms: any;
   integracaofiscal: any;
 
-  alertSuccessState = true;
-
   imageBinding = '../../../../../assets/semimagem.jpg';
 
   constructor(private _api: ZipincloudService) {}
@@ -63,10 +61,6 @@ export class CadastrarComponent implements OnInit {
     data.imagem[0] != '/' ? delete data.imagem : '';
 
     await this._api.salvarProduto(data);
-    this.alertSuccessState = false;
-    setTimeout(() => {
-      this.alertSuccessState = true;
-    }, 3000);
   }
 
   //TODO:BASE64CONVERT//

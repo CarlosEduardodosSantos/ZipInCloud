@@ -1,15 +1,6 @@
 <div class="m-4">
   <p class="fs-22 bolder">Cadastro de NCM</p>
 
-  <div
-    class="alert alert-success alert-dismissible fade show"
-    role="alert"
-    [hidden]="alertSuccessState"
-  >
-    <strong>Pronto!</strong> Um novo NCM foi cadastrado.
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  </div>
-
   <form
     #cadastroNcm="ngForm"
     (ngSubmit)="onSubmit(cadastroNcm.value)"

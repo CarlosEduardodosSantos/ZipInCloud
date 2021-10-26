@@ -19,6 +19,7 @@
         <th>#</th>
         <th>Razão Social</th>
         <th>CNPJ</th>
+        <th class="centerTable">Logo</th>
         <th class="centerTable">Ações</th>
       </tr>
     </thead>
@@ -27,6 +28,16 @@
         <td>{{ item.id }}</td>
         <td>{{ item.razaoSocial }}</td>
         <td>{{ item.cnpj }}</td>
+        <td>
+          <img
+            class="img-Table"
+            [src]="
+              item.imagemLogo !== null
+                ? 'data:image/png;base64,' + item.imagemLogo
+                : '/assets/semimagem.jpg'
+            "
+          />
+        </td>
         <td class="acoesStyle">
           <button
             class="btn btn-success m-1 tleft"

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
-import { Subject } from 'rxjs';
 
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 

@@ -1,1 +1,259 @@
-<p>cadastro works!</p>
+<div class="m-2">
+  <p class="fs-22 bolder">Pedido de Compra</p>
+
+  <form
+    #cadastroCompra="ngForm"
+    (ngSubmit)="onSubmit(cadastroCompra.value)"
+    enctype="multipart/form-data"
+  >
+    <tabset class="member-tabset">
+      <tab class="tab" heading="Identificação">
+        <div class="form-group inline-child-20">
+          <label for="PessoaFornecedorID">Fornecedores</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="PessoaFornecedorID"
+            id="PessoaFornecedorID"
+            #PessoaFornecedorID
+            [value]="fornecedorDados.nome"
+            [(ngModel)]="idFornecedor"
+            data-bs-toggle="modal"
+            data-bs-target="#fornecedorExibirModal"
+          />
+          <app-fornecedor-exibir
+            (fornecedorId)="salvarIdFornecedor($event)"
+          ></app-fornecedor-exibir>
+        </div>
+
+        <div class="form-group inline-child-7">
+          <label for="PessoaCompradorID">Comprador</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="PessoaCompradorID"
+            id="PessoaCompradorID"
+            #PessoaCompradorID
+            [value]="compradorDados.nome"
+            [(ngModel)]="idComprador"
+            data-bs-toggle="modal"
+            data-bs-target="#compradorExibirModal"
+          />
+          <app-comprador-compra-exibir
+            (compradorId)="salvarIdComprador($event)"
+          ></app-comprador-compra-exibir>
+        </div>
+
+        <div class="form-group inline-child-7">
+          <label for="TipoOperacaoID">Tipo de Operação</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="TipoOperacaoID"
+            id="TipoOperacaoID"
+            #TipoOperacaoID
+            [value]="operacaoDados.descricao"
+            [(ngModel)]="idOperacao"
+            data-bs-toggle="modal"
+            data-bs-target="#tipooperacaoExibirModal"
+          />
+          <app-tipooperacao-compra-exibir
+            (operacaoId)="salvarTipoOperacao($event)"
+          ></app-tipooperacao-compra-exibir>
+        </div>
+
+        <div class="form-group inline-child-6">
+          <label for="PessoaTransportadoraID">Transportadora</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="PessoaTransportadoraID"
+            id="PessoaTransportadoraID"
+            #PessoaTransportadoraID
+            [value]="transportadoraDados.nome"
+            [(ngModel)]="idTransportadora"
+            data-bs-toggle="modal"
+            data-bs-target="#transportadoraCompraExibirModal"
+          />
+          <app-transportadora-compra-exibir
+            (transportadoraId)="salvarTransportadoraId($event)"
+            (transportadoraNome)="salvarTransportadoraNome($event)"
+          ></app-transportadora-compra-exibir>
+        </div>
+      </tab>
+
+      <tab class="tab" heading="Itens do Pedido"
+        ><form
+          #d="ngForm"
+          (change)="adicionarProduto(d.value)"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group inline-child-20">
+            <label for="ProdutoID">Produtos</label>
+            <select
+              class="form-control"
+              name="ProdutoID"
+              id="ProdutoID"
+              [(ngModel)]="item"
+            >
+              <option
+                *ngFor="let item of todosOsProdutos; let i = index"
+                value="{{ item.id }}"
+                [ngValue]="item.id"
+              >
+                {{ item.descricao }}
+              </option>
+            </select>
+          </div>
+        </form>
+
+        <table class="w-100 table row-border hover" id="produtos-table">
+          <thead>
+            <tr>
+              <th>Produto</th>
+              <th>Unitário</th>
+              <th>Quantidade</th>
+              <th>Desconto</th>
+              <th>Acrescimo</th>
+              <th>Frete</th>
+              <th>Despesas</th>
+              <th>Seguro</th>
+              <th>Subtotal</th>
+              <th class="centerTable">Total</th>
+              <th class="centerTable">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dados of listaProdutos; let i = index">
+              <td>{{ dados.descricaoProduto }}</td>
+              <td>{{ dados.precoUnitario }}</td>
+              <td>{{ dados.quantidade }}</td>
+              <td>{{ dados.totalDesconto }}</td>
+              <td>{{ dados.totalAcrescimo }}</td>
+              <td>{{ dados.frete }}</td>
+              <td>{{ dados.outrasDespesas }}</td>
+              <td>{{ dados.seguro }}</td>
+              <td>{{ dados.subTotal }}</td>
+              <td class="centerTable">{{ dados.totalFinal }}</td>
+              <td class="centerTable">
+                <button type="button" class="btn btn-danger m-1">
+                  <span class="acaoStyle">Remover</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="form-group inline-child-4">
+          <label for="TotalDesconto">Total Desconto</label>
+          <input
+            type="text"
+            class="form-control w-100 disableMouse"
+            name="TotalDesconto"
+            id="TotalDesconto"
+            value="{{ descontoFinal }}"
+          />
+        </div>
+
+        <div class="form-group inline-child-4">
+          <label for="TotalAcrescimo">Total Acrescimo</label>
+          <input
+            type="text"
+            class="form-control w-100 disableMouse"
+            name="TotalAcrescimo"
+            id="TotalAcrescimo"
+            value="{{ acrescimoFinal }}"
+          />
+        </div>
+
+        <div class="form-group inline-child-4">
+          <label for="TotalFinal">Total Final</label>
+          <input
+            type="text"
+            class="form-control w-100 disableMouse"
+            name="TotalFinal"
+            id="TotalFinal"
+            (change)="calcularFinal()"
+            value="{{ valorFinal }}"
+            [(ngModel)]="valorFinal"
+          />
+        </div>
+
+        <div class="form-group inline-child-4">
+          <label for="totalPagamento">Total Pagamento</label>
+          <input
+            type="text"
+            class="form-control w-100 disableMouse"
+            name="totalPagamento"
+            id="totalPagamento"
+            (change)="calcularFinal()"
+            value="{{ pagamentoFinal }}"
+          />
+        </div>
+
+        <div class="form-group inline-child-4">
+          <label for="faltaPagamento" *ngIf="falta >= 0.01">Falta</label>
+          <label for="faltaPagamento" *ngIf="falta <= 0.0">Troco</label>
+          <input
+            type="text"
+            [ngClass]="
+              falta >= 0.001
+                ? 'form-control w-100 bg-dangerLight disableMouse'
+                : 'form-control w-100 bg-successLight disableMouse'
+            "
+            name="faltaPagamento"
+            id="faltaPagamento"
+            value="{{ Math.abs(falta) }}"
+          />
+        </div>
+      </tab>
+
+      <tab class="tab" heading="Forma de Pagamento"
+        ><div class="form-group inline-child-14">
+          <label for="VendaFormaPagamentos">Formas de Pagamento</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="VendaFormaPagamentos"
+            id="VendaFormaPagamentos"
+            #VendaFormaPagamentos
+            [value]="formaDePagamentoDados.descricao"
+            data-bs-toggle="modal"
+            data-bs-target="#formapagamentoExibirModal"
+          />
+          <app-formaspagamento-exibir
+            (formapagamentoId)="salvarFormaPagamentoId($event)"
+          ></app-formaspagamento-exibir>
+        </div>
+        <div class="form-group inline-child-6">
+          <label for="valorPagoAtualmente">Valor pago atualmente</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="valorPagoAtualmente"
+            id="valorPagoAtualmente"
+            #valorPagoAtualmente
+            (input)="passarValorPago(this.valorPagoAtualmente.value)"
+            value="{{ pagamentoFinal }}"
+          /></div
+      ></tab>
+
+      <tab class="tab" heading="Dados Adicionais">
+        <textarea
+          name="DadosAdicionais"
+          id="DadosAdicionais"
+          ngModel
+        ></textarea>
+      </tab>
+    </tabset>
+
+    <input type="submit" class="btn btn-primary mt-4 m-1" value="Salvar" />
+    <button
+      type="button"
+      (click)="retornar()"
+      class="btn btn-secondary mt-4 m-1"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>

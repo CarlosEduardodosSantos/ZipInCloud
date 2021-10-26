@@ -23,6 +23,7 @@ import { EditarComponent as IntegracaoFiscalEditar } from './pages/cadastro/inte
 import { IndexComponent as NCMIndex } from './pages/cadastro/ncm/index/index.component';
 import { EditarComponent as NCMEditar } from './pages/cadastro/ncm/editar/editar.component';
 import { CadastrarComponent as NCMCadastrar } from './pages/cadastro/ncm/cadastrar/cadastrar.component';
+import { DetalhesComponent as NCMDetalhes } from './pages/cadastro/ncm/detalhes/detalhes.component';
 
 import { IndexComponent as MovimentaoEstoqueIndex } from './pages/movimentacaoestoque/index/index.component';
 
@@ -41,6 +42,13 @@ import { EditarComponent as GrupoEmpresasEditar } from './pages/cadastro/grupoem
 import { IndexComponent as ClientesIndex } from './pages/cadastro/clientes/index/index.component';
 import { EditarComponent as ClientesEditar } from './pages/cadastro/clientes/editar/editar.component';
 import { CadastrarComponent as ClientesCadastrar } from './pages/cadastro/clientes/cadastrar/cadastrar.component';
+
+import { IndexComponent as FornecedoresIndex } from './pages/cadastro/fornecedores/index/index.component';
+import { EditarComponent as FornecedoresEditar } from './pages/cadastro/fornecedores/editar/editar.component';
+import { CadastrarComponent as FornecedoresCadastrar } from './pages/cadastro/fornecedores/cadastrar/cadastrar.component';
+
+import { IndexComponent as ContasReceberIndex } from './pages/contas/receber/index/index.component';
+import { IndexComponent as ContasPagarIndex } from './pages/contas/pagar/index/index.component';
 
 const routes: Routes = [
   {
@@ -82,6 +90,10 @@ const routes: Routes = [
   {
     path: 'compra/editar/:id',
     component: CompraEditar,
+  },
+  {
+    path: 'movimentacaoestoque',
+    component: MovimentaoEstoqueIndex,
   },
   {
     path: 'compra/cadastrar',
@@ -148,6 +160,10 @@ const routes: Routes = [
     component: NCMEditar,
   },
   {
+    path: 'cadastro/ncm/detalhes/:id',
+    component: NCMDetalhes,
+  },
+  {
     path: 'cadastro/clientes',
     component: ClientesIndex,
   },
@@ -160,8 +176,24 @@ const routes: Routes = [
     component: ClientesEditar,
   },
   {
-    path: 'movimentacaoestoque',
-    component: MovimentaoEstoqueIndex,
+    path: 'cadastro/fornecedores',
+    component: FornecedoresIndex,
+  },
+  {
+    path: 'cadastro/fornecedores/cadastrar',
+    component: FornecedoresCadastrar,
+  },
+  {
+    path: 'cadastro/fornecedores/editar/:id',
+    component: FornecedoresEditar,
+  },
+  {
+    path: 'contas/receber',
+    component: ContasReceberIndex,
+  },
+  {
+    path: 'contas/pagar',
+    component: ContasPagarIndex,
   },
 ];
 

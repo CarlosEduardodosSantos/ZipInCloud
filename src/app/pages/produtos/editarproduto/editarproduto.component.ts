@@ -18,8 +18,7 @@ export class EditarprodutoComponent implements OnInit {
   marcas: any;
   origemProdutos: any;
   ncms: any;
-
-  alertSuccessState = true;
+  integracaofiscal: any;
 
   faEye = faEye;
 
@@ -45,6 +44,9 @@ export class EditarprodutoComponent implements OnInit {
 
     let ncmDados = await this._api.obterDadosNCMProdutos();
     this.ncms = ncmDados;
+
+    let iFDados = await this._api.obterDadosIntegracaoFiscalProdutos();
+    this.integracaofiscal = iFDados;
 
     console.log(this.produtoDados);
   }
@@ -75,11 +77,6 @@ export class EditarprodutoComponent implements OnInit {
     this._api.modificarProduto(data).then((res) => {
       console.log(res);
     });
-
-    this.alertSuccessState = false;
-    setTimeout(() => {
-      this.alertSuccessState = true;
-    }, 3000);
   }
 
   //TODO:BASE64CONVERT//

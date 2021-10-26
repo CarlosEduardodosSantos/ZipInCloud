@@ -61,12 +61,12 @@ export class EditarvendaComponent implements OnInit {
       this.dataAntiga = data.data;
       this.dadosAdicionais = data.dadosAdicionais;
       this.idFormaDePagamento = data.vendaFormaPagamentos[0].formaPagamentoID;
+      this.valorFinal = data.totalFinal;
 
       data.vendaItens.forEach((elem: any) => {
         console.log(elem);
         elem.totalDesconto = elem.desconto;
         elem.totalAcrescimo = elem.acrescimo;
-        this.valorFinal = this.valorFinal + elem.totalFinal;
         this.falta = this.valorFinal - this.pagamentoFinal;
       });
 

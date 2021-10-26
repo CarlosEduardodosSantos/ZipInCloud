@@ -1,6 +1,13 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  SecurityContext,
+} from '@angular/core';
 import { Observable, Subscriber } from 'rxjs';
-import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-categorias-modificar',
@@ -10,24 +17,38 @@ import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 export class CategoriasModificarComponent implements OnInit {
   @Input() descricaoAtual: any;
   @Input() idAtual: any;
+  @Input() img: any;
   @Output() outdata: EventEmitter<any> = new EventEmitter<any>();
 
   imageBinding: any = '/assets/semimagem.jpg';
 
-  constructor(private _api: ZipincloudService) {}
+  constructor(private sanitizer: DomSanitizer) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    setInterval(() => {
+      this.img = this.sanitizer.sanitize(SecurityContext.URL, this.img);
+    }, 1000);
+  }
 
   async adicionarImagem(data: any) {
     this.toBase64(data.files[0]);
   }
 
   async onSubmitConfiguracao(data: any) {
-    console.log(data);
-    if (data.Imagem) {
-      data.Imagem = data.Imagem.replace(/^data:image\/[a-z]+;base64,/, '');
-      data.Imagem[0] != '/' ? delete data.Imagem : '';
+    data.Imagem = data.Imagem.replace(/^data:image\/[a-z]+;base64,/, '');
+    if (
+      data.Imagem[0] == 'h' &&
+      data.Imagem[1] == 't' &&
+      data.Imagem[2] == 't' &&
+      data.Imagem[3] == 'p' &&
+      (data.Imagem[4] == 's' || data.Imagem[4] == ':')
+    ) {
+      delete data.Imagem;
+    } else {
+      data.Imagem = this.img;
     }
+
+    console.log(data);
 
     this.outdata.emit(data);
   }
@@ -38,7 +59,8 @@ export class CategoriasModificarComponent implements OnInit {
       this.readFile(file, sub);
     });
     obs.subscribe((d) => {
-      this.imageBinding = d;
+      d = d.replace(/^data:image\/[a-z]+;base64,/, '');
+      this.img = d;
     });
   }
 

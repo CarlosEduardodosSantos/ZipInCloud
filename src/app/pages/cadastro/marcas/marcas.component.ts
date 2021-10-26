@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from '../../../services/api/zipincloud.service';
-import { Subject } from 'rxjs';
 
 import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -13,8 +12,6 @@ export class MarcasComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
   listamarcas: any;
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
 
   faCogs = faCogs;
   faTrashAlt = faTrashAlt;
@@ -22,15 +19,7 @@ export class MarcasComponent implements OnInit {
   idAtual: any = 0;
   marcaAtual: any = '';
 
-  ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 2,
-    };
-    this.chamarAPIMarcas();
-  }
-
-  async chamarAPIMarcas() {
+  async ngOnInit() {
     let data = await this._api.obterDadosMarcasProdutos();
 
     this.listamarcas = data;

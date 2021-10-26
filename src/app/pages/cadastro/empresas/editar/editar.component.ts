@@ -108,29 +108,59 @@ export class EditarComponent implements OnInit {
       /^data:image\/[a-z]+;base64,/,
       ''
     );
-    data.ImagemLogo[0] != '/' ? delete data.ImagemLogo : '';
+    if (
+      data.ImagemLogo[0] == 'h' &&
+      data.ImagemLogo[1] == 't' &&
+      data.ImagemLogo[2] == 't' &&
+      data.ImagemLogo[3] == 'p' &&
+      (data.ImagemLogo[4] == 's' || data.ImagemLogo[4] == ':')
+    ) {
+      delete data.ImagemLogo;
+    }
 
     data.ImagemImpressoão = data.ImagemImpressoão.replace(
       /^data:image\/[a-z]+;base64,/,
       ''
     );
-    data.ImagemImpressoão[0] != '/' ? delete data.ImagemImpressoão : '';
+    if (
+      data.ImagemImpressoão[0] == 'h' &&
+      data.ImagemImpressoão[1] == 't' &&
+      data.ImagemImpressoão[2] == 't' &&
+      data.ImagemImpressoão[3] == 'p' &&
+      (data.ImagemImpressoão[4] == 's' || data.ImagemImpressoão[4] == ':')
+    ) {
+      delete data.ImagemImpressoão;
+    }
 
     data.ImagemPropragandaPDV1 = data.ImagemPropragandaPDV1.replace(
       /^data:image\/[a-z]+;base64,/,
       ''
     );
-    data.ImagemPropragandaPDV1[0] != '/'
-      ? delete data.ImagemPropragandaPDV1
-      : '';
+    if (
+      data.ImagemPropragandaPDV1[0] == 'h' &&
+      data.ImagemPropragandaPDV1[1] == 't' &&
+      data.ImagemPropragandaPDV1[2] == 't' &&
+      data.ImagemPropragandaPDV1[3] == 'p' &&
+      (data.ImagemPropragandaPDV1[4] == 's' ||
+        data.ImagemPropragandaPDV1[4] == ':')
+    ) {
+      delete data.ImagemPropragandaPDV1;
+    }
 
     data.ImagemPropragandaPDV2 = data.ImagemPropragandaPDV2.replace(
       /^data:image\/[a-z]+;base64,/,
       ''
     );
-    data.ImagemPropragandaPDV2[0] != '/'
-      ? delete data.ImagemPropragandaPDV2
-      : '';
+    if (
+      data.ImagemPropragandaPDV2[0] == 'h' &&
+      data.ImagemPropragandaPDV2[1] == 't' &&
+      data.ImagemPropragandaPDV2[2] == 't' &&
+      data.ImagemPropragandaPDV2[3] == 'p' &&
+      (data.ImagemPropragandaPDV2[4] == 's' ||
+        data.ImagemPropragandaPDV2[4] == ':')
+    ) {
+      delete data.ImagemPropragandaPDV2;
+    }
 
     data.GrupoEmpresaID = this.idGrupoEmpresa;
     data.RegimeTributarioID = this.idRTEmpresa;
@@ -138,7 +168,9 @@ export class EditarComponent implements OnInit {
     data.MunicipioID = this.municipioDados.id;
     console.log(data);
 
-    /* await this._api.modificarEmpresa(data); */
+    await this._api.modificarEmpresa(data).then(() => {
+      this.retornar();
+    });
   }
 
   retornar() {
@@ -151,10 +183,11 @@ export class EditarComponent implements OnInit {
       this.readFile(file, sub);
     });
     obs.subscribe((d) => {
-      orig === 1 ? (this.imageBinding = d) : '';
-      orig === 2 ? (this.imageImpressoaoBinding = d) : '';
-      orig === 3 ? (this.imagePropragandaPDV1Binding = d) : '';
-      orig === 4 ? (this.imagePropragandaPDV2Binding = d) : '';
+      d = d.replace(/^data:image\/[a-z]+;base64,/, '');
+      orig === 1 ? (this.dadosAnteriores.imagemLogo = d) : '';
+      orig === 2 ? (this.imagemImpressoao = d) : '';
+      orig === 3 ? (this.dadosAnteriores.imagemPropragandaPDV1 = d) : '';
+      orig === 4 ? (this.dadosAnteriores.imagemPropragandaPDV2 = d) : '';
     });
   }
 

@@ -21,6 +21,7 @@ import { EditarComponent as IntegracaoFiscalEditar } from './pages/cadastro/inte
 import { IndexComponent as NCMIndex } from './pages/cadastro/ncm/index/index.component';
 import { EditarComponent as NCMEditar } from './pages/cadastro/ncm/editar/editar.component';
 import { CadastrarComponent as NCMCadastrar } from './pages/cadastro/ncm/cadastrar/cadastrar.component';
+import { DetalhesComponent as NCMDetalhes } from './pages/cadastro/ncm/detalhes/detalhes.component';
 import { IndexComponent as MovimentaoEstoqueIndex } from './pages/movimentacaoestoque/index/index.component';
 import { IndexComponent as CompraIndex } from './pages/compra/index/index.component';
 import { CadastroComponent as CompraCadastrar } from './pages/compra/cadastro/cadastro.component';
@@ -34,9 +35,13 @@ import { EditarComponent as GrupoEmpresasEditar } from './pages/cadastro/grupoem
 import { IndexComponent as ClientesIndex } from './pages/cadastro/clientes/index/index.component';
 import { EditarComponent as ClientesEditar } from './pages/cadastro/clientes/editar/editar.component';
 import { CadastrarComponent as ClientesCadastrar } from './pages/cadastro/clientes/cadastrar/cadastrar.component';
+import { IndexComponent as FornecedoresIndex } from './pages/cadastro/fornecedores/index/index.component';
+import { EditarComponent as FornecedoresEditar } from './pages/cadastro/fornecedores/editar/editar.component';
+import { CadastrarComponent as FornecedoresCadastrar } from './pages/cadastro/fornecedores/cadastrar/cadastrar.component';
+import { IndexComponent as ContasReceberIndex } from './pages/contas/receber/index/index.component';
+import { IndexComponent as ContasPagarIndex } from './pages/contas/pagar/index/index.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { DataTablesModule } from 'angular-datatables';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
@@ -61,6 +66,10 @@ import { RegimetributarioExibirComponent } from './components/cadastro/empresas/
 import { EstadoExibirComponent } from './components/cadastro/empresas/estado-exibir/estado-exibir.component';
 import { MunicipioExibirComponent } from './components/cadastro/empresas/municipio-exibir/municipio-exibir.component';
 import { AcessorapidoComponent } from './components/cards/acessorapido/acessorapido.component';
+import { FornecedorExibirComponent } from './components/cadastro/compra/fornecedor-exibir/fornecedor-exibir.component';
+import { TipooperacaoCompraExibirComponent } from './components/cadastro/compra/tipooperacao-compra-exibir/tipooperacao-compra-exibir.component';
+import { TransportadoraCompraExibirComponent } from './components/cadastro/compra/transportadora-compra-exibir/transportadora-compra-exibir.component';
+import { CompradorCompraExibirComponent } from './components/cadastro/compra/comprador-compra-exibir/comprador-compra-exibir.component';
 
 @NgModule({
   declarations: [
@@ -110,6 +119,16 @@ import { AcessorapidoComponent } from './components/cards/acessorapido/acessorap
     ClientesIndex,
     ClientesEditar,
     ClientesCadastrar,
+    FornecedoresIndex,
+    FornecedoresEditar,
+    FornecedoresCadastrar,
+    ContasReceberIndex,
+    ContasPagarIndex,
+    NCMDetalhes,
+    FornecedorExibirComponent,
+    TipooperacaoCompraExibirComponent,
+    TransportadoraCompraExibirComponent,
+    CompradorCompraExibirComponent,
   ],
   imports: [
     BrowserModule,
@@ -118,7 +137,6 @@ import { AcessorapidoComponent } from './components/cards/acessorapido/acessorap
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
-    DataTablesModule,
     BrowserAnimationsModule,
     TabsModule.forRoot(),
     ModalModule.forRoot(),

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from '../../../services/api/zipincloud.service';
-import { Subject } from 'rxjs';
 
 import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,9 +11,7 @@ import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 export class IndexComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
-  listaprodutos: any[] = [];
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
+  listaprodutos: any;
 
   faCogs = faCogs;
   faTrashAlt = faTrashAlt;
@@ -22,13 +19,8 @@ export class IndexComponent implements OnInit {
   term: any;
 
   async ngOnInit() {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 2,
-    };
-
     await this._api.obterTodosDadosProdutos().then((data) => {
-      /* this.listaprodutos = data; */
+      this.listaprodutos = data;
 
       console.log(this.listaprodutos);
     });

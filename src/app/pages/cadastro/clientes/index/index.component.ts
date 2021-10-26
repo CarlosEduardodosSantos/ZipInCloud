@@ -24,15 +24,15 @@ export class IndexComponent implements OnInit {
   }
 
   excluirElemento(index: number) {
-    this._api.excluirEmpresa(index);
+    /* this._api.excluirEmpresa(index); */
     location.reload();
   }
 
   cadastrar() {
-    location.href = '/cadastro/empresas/cadastrar/';
+    location.href = '/cadastro/clientes/cadastrar/';
   }
 
   editar(id: any) {
-    location.href = '/cadastro/empresas/editar/' + id;
+    location.href = '/cadastro/clientes/editar/' + id;
   }
 }

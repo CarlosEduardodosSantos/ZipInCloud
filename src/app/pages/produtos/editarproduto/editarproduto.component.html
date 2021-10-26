@@ -1,15 +1,6 @@
 <div class="m-4">
   <p class="fs-22 bolder">Editar: {{ produtoDados.descricao }}</p>
 
-  <div
-    class="alert alert-warning alert-dismissible fade show"
-    role="alert"
-    [hidden]="alertSuccessState"
-  >
-    <strong>Aviso!</strong> Um produto foi editado.
-    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-  </div>
-
   <form
     #cadastroProduto="ngForm"
     (ngSubmit)="onSubmit(cadastroProduto.value)"
@@ -367,7 +358,12 @@
                 value="{{ produtoDados.produtoIntegracaoFiscalID }}"
                 [(ngModel)]="produtoDados.produtoIntegracaoFiscalID"
               >
-                <option value="1">Integração padrão</option></select
+                <option
+                  *ngFor="let iF of integracaofiscal; let i = index"
+                  value="{{ iF.id }}"
+                >
+                  {{ iF.descricao }}
+                </option></select
               ><a
                 href="/cadastro/integracaofiscal/cadastrar"
                 target="_blank"

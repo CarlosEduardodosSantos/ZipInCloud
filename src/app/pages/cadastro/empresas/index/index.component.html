@@ -34,7 +34,7 @@
         </td>
         <td class="acoesStyle">
           <button
-            class="btn btn-success m-1 tleft"
+            class="btn btn-dark m-1 tleft"
             type="button"
             (click)="editar(item.id)"
           >
@@ -43,7 +43,16 @@
             >
           </button>
           <button
-            class="btn btn-danger m-1 tright"
+            class="btn btn-dark m-1 tleft"
+            type="button"
+            (click)="certificados(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Certificados</span
+            >
+          </button>
+          <button
+            class="btn btn-dark m-1 tright"
             type="button"
             (click)="excluirElemento(item.id)"
           >

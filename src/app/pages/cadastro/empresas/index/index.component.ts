@@ -36,4 +36,8 @@ export class IndexComponent implements OnInit {
   editar(id: any) {
     location.href = '/cadastro/empresas/editar/' + id;
   }
+
+  certificados(id: any) {
+    location.href = '/cadastro/empresas/certificados/' + id;
+  }
 }

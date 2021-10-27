@@ -53,6 +53,67 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Clientes//
+  obterClientes() {
+    return this.http
+      .get(environment.url + 'api/PessoasAPI/clientes', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterClientesByID(ID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PessoasAPI/clientes/' + ID,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarClientes(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/PessoasAPI/clientes',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarClientes(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/PessoasAPI/clientes/' + data.id,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirClientes(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/PessoasAPI/clientes/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO:POST GET PUT DELETE - Categorias//
   obterCategoriaByID(id: any) {
     return this.http
@@ -95,6 +156,141 @@ export class ZipincloudService {
     return this.http
       .delete(
         environment.url + 'api/categories/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - Categorias Documentos//
+  obterCategoriaDocumentos() {
+    return this.http
+      .get(environment.url + 'api/CategoriaDocumentos', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterCategoriaDocumentosByID(ID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/CategoriaDocumentos/' + ID,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarCategoriaDocumentos(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/CategoriaDocumentos',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarCategoriaDocumentos(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/CategoriaDocumentos/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirCategoriaDocumentos(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/CategoriaDocumentos/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - Empresa Certificados//
+  obterEmpresaCertificado() {
+    return this.http
+      .get(environment.url + 'api/Empresas/certificados', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterEmpresaCertificadoByID(ID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/Empresas/certificados/' + ID,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterEmpresaCertificadoByIDOne(ID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/Empresas/certificados/once/' + ID,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarEmpresaCertificado(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/Empresas/certificados',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarEmpresaCertificado(data: any) {
+    console.log(data);
+    return this.http
+      .put(
+        environment.url + 'api/Empresas/certificados/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirEmpresaCertificado(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/Empresas/certificados' + ID,
 
         environment.headersPost
       )

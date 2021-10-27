@@ -90,3 +90,20 @@ body {
   color: #6c757d;
   background-color: transparent;
 }
+
+.drop {
+  border: none;
+}
+
+.dropdown-menu {
+  width: 100%;
+}
+
+.dropdown-item {
+  color: rgb(15, 121, 170);
+  transition: 0.3s;
+}
+
+.dropdown-item:hover {
+  color: rgb(4, 26, 36);
+}

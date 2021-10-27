@@ -63,6 +63,8 @@ export class CadastroComponent implements OnInit {
   async onSubmit(data: any) {
     console.log(data);
 
-    await this._api.salvarFormaPagamento(data);
+    await this._api.salvarFormaPagamento(data).then(() => {
+      location.href = 'cadastro/formaspagamento';
+    });
   }
 }

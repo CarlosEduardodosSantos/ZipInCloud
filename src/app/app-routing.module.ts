@@ -34,6 +34,9 @@ import { EditarComponent as CompraEditar } from './pages/compra/editar/editar.co
 import { IndexComponent as EmpresasIndex } from './pages/cadastro/empresas/index/index.component';
 import { CadastroComponent as EmpresasCadastrar } from './pages/cadastro/empresas/cadastro/cadastro.component';
 import { EditarComponent as EmpresasEditar } from './pages/cadastro/empresas/editar/editar.component';
+import { CertificadosComponent as EmpresasCertificadosIndex } from './pages/cadastro/empresas/certificados/index/certificados.component';
+import { EditarComponent as EmpresasCertificadosEditar } from './pages/cadastro/empresas/certificados/editar/editar.component';
+import { CadastroComponent as EmpresasCertificadosCadastrar } from './pages/cadastro/empresas/certificados/cadastro/cadastro.component';
 
 import { IndexComponent as GrupoEmpresasIndex } from './pages/cadastro/grupoempresa/index/index.component';
 import { CadastroComponent as GrupoEmpresasCadastrar } from './pages/cadastro/grupoempresa/cadastro/cadastro.component';
@@ -53,6 +56,10 @@ import { IndexComponent as ContasPagarIndex } from './pages/contas/pagar/index/i
 import { IndexComponent as FormasPagamentoIndex } from './pages/cadastro/formaspagamento/index/index.component';
 import { CadastroComponent as FormasPagamentoCadastrar } from './pages/cadastro/formaspagamento/cadastro/cadastro.component';
 import { EditarComponent as FormasPagamentoEditar } from './pages/cadastro/formaspagamento/editar/editar.component';
+
+import { IndexComponent as CategoriaDocumentoIndex } from './pages/cadastro/categoriadocumento/index/index.component';
+import { EditarComponent as CategoriaDocumentoEditar } from './pages/cadastro/categoriadocumento/editar/editar.component';
+import { CadastrarComponent as CategoriaDocumentoCadastrar } from './pages/cadastro/categoriadocumento/cadastrar/cadastrar.component';
 
 const routes: Routes = [
   {
@@ -114,6 +121,18 @@ const routes: Routes = [
   {
     path: 'cadastro/empresas/cadastrar',
     component: EmpresasCadastrar,
+  },
+  {
+    path: 'cadastro/empresas/certificados/:id',
+    component: EmpresasCertificadosIndex,
+  },
+  {
+    path: 'cadastro/empresas/certificados/editar/:id',
+    component: EmpresasCertificadosEditar,
+  },
+  {
+    path: 'cadastro/empresas/certificados/cadastrar/:id',
+    component: EmpresasCertificadosCadastrar,
   },
   {
     path: 'cadastro/grupoempresas',
@@ -202,6 +221,18 @@ const routes: Routes = [
   {
     path: 'cadastro/formaspagamento/editar/:id',
     component: FormasPagamentoEditar,
+  },
+  {
+    path: 'cadastro/categoriadocumentos',
+    component: CategoriaDocumentoIndex,
+  },
+  {
+    path: 'cadastro/categoriadocumentos/cadastrar',
+    component: CategoriaDocumentoCadastrar,
+  },
+  {
+    path: 'cadastro/categoriadocumentos/editar/:id',
+    component: CategoriaDocumentoEditar,
   },
   {
     path: 'contas/receber',

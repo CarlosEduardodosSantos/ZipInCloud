@@ -29,6 +29,9 @@ import { EditarComponent as CompraEditar } from './pages/compra/editar/editar.co
 import { IndexComponent as EmpresasIndex } from './pages/cadastro/empresas/index/index.component';
 import { CadastroComponent as EmpresasCadastrar } from './pages/cadastro/empresas/cadastro/cadastro.component';
 import { EditarComponent as EmpresasEditar } from './pages/cadastro/empresas/editar/editar.component';
+import { CertificadosComponent as EmpresasCertificadosIndex } from './pages/cadastro/empresas/certificados/index/certificados.component';
+import { EditarComponent as EmpresasCertificadosEditar } from './pages/cadastro/empresas/certificados/editar/editar.component';
+import { CadastroComponent as EmpresasCertificadosCadastrar } from './pages/cadastro/empresas/certificados/cadastro/cadastro.component';
 import { IndexComponent as GrupoEmpresasIndex } from './pages/cadastro/grupoempresa/index/index.component';
 import { CadastroComponent as GrupoEmpresasCadastrar } from './pages/cadastro/grupoempresa/cadastro/cadastro.component';
 import { EditarComponent as GrupoEmpresasEditar } from './pages/cadastro/grupoempresa/editar/editar.component';
@@ -43,6 +46,9 @@ import { IndexComponent as ContasPagarIndex } from './pages/contas/pagar/index/i
 import { IndexComponent as FormasPagamentoIndex } from './pages/cadastro/formaspagamento/index/index.component';
 import { CadastroComponent as FormasPagamentoCadastrar } from './pages/cadastro/formaspagamento/cadastro/cadastro.component';
 import { EditarComponent as FormasPagamentoEditar } from './pages/cadastro/formaspagamento/editar/editar.component';
+import { IndexComponent as CategoriaDocumentoIndex } from './pages/cadastro/categoriadocumento/index/index.component';
+import { EditarComponent as CategoriaDocumentoEditar } from './pages/cadastro/categoriadocumento/editar/editar.component';
+import { CadastrarComponent as CategoriaDocumentoCadastrar } from './pages/cadastro/categoriadocumento/cadastrar/cadastrar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
@@ -73,8 +79,11 @@ import { FornecedorExibirComponent } from './components/cadastro/compra/forneced
 import { TipooperacaoCompraExibirComponent } from './components/cadastro/compra/tipooperacao-compra-exibir/tipooperacao-compra-exibir.component';
 import { TransportadoraCompraExibirComponent } from './components/cadastro/compra/transportadora-compra-exibir/transportadora-compra-exibir.component';
 import { CompradorCompraExibirComponent } from './components/cadastro/compra/comprador-compra-exibir/comprador-compra-exibir.component';
-import { TipoPessoaExibirComponent } from './components/cadastro/clientes/tipo-pessoa-exibir/tipo-pessoa-exibir.component';
-
+import { EditarComponent } from './pages/cadastro/empresas/certificados/editar/editar.component';
+import { CadastroComponent } from './pages/cadastro/empresas/certificados/cadastro/cadastro.component';
+import { IndexComponent } from './pages/caixas/index/index.component';
+import { EditarComponent } from './pages/caixas/editar/editar.component';
+import { CadastrarComponent } from './pages/caixas/cadastrar/cadastrar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -133,10 +142,18 @@ import { TipoPessoaExibirComponent } from './components/cadastro/clientes/tipo-p
     TipooperacaoCompraExibirComponent,
     TransportadoraCompraExibirComponent,
     CompradorCompraExibirComponent,
-    TipoPessoaExibirComponent,
     FormasPagamentoIndex,
     FormasPagamentoCadastrar,
     FormasPagamentoEditar,
+    CategoriaDocumentoIndex,
+    CategoriaDocumentoEditar,
+    CategoriaDocumentoCadastrar,
+    EmpresasCertificadosIndex,
+    EmpresasCertificadosEditar,
+    EmpresasCertificadosCadastrar,
+    IndexComponent,
+    EditarComponent,
+    CadastrarComponent,
   ],
   imports: [
     BrowserModule,

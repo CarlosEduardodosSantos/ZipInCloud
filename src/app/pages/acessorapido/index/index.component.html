@@ -2,6 +2,18 @@
   <p class="fs-22 bolder title">Acesso Rápido</p>
   <div class="group-cards">
     <div class="row">
+      <p class="fs-18 bolder title">Pessoas</p>
+      <div *ngFor="let item of pessoasItems" class="col-3 mb-5">
+        <app-acessorapido
+          [nome]="item.nome"
+          [url]="item.url"
+          [imageUrl]="item.imageUrl"
+          [imageAlt]="item.imageAlt"
+        ></app-acessorapido>
+      </div>
+    </div>
+
+    <div class="row">
       <p class="fs-18 bolder title">Cadastro</p>
       <div *ngFor="let item of cadastroItems" class="col-3 mb-5">
         <app-acessorapido

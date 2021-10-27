@@ -6,16 +6,61 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
+  pessoasItems = [
+    {
+      nome: 'Clientes',
+      url: 'cadastro/clientes',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+    {
+      nome: 'Compradores',
+      url: 'cadastro/fornecedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+    {
+      nome: 'Contadores',
+      url: 'cadastro/fornecedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+    {
+      nome: 'Contatos',
+      url: 'cadastro/fornecedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+    {
+      nome: 'Endereços',
+      url: 'cadastro/fornecedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+    {
+      nome: 'Fornecedores',
+      url: 'cadastro/fornecedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+    {
+      nome: 'Funcionários',
+      url: 'cadastro/fornecedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+    {
+      nome: 'Motoristas',
+      url: 'cadastro/fornecedores',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro fornecedores',
+    },
+  ];
+
   cadastroItems = [
     {
       nome: 'Empresas',
       url: 'cadastro/empresas',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro empresas',
-    },
-    {
-      nome: 'Clientes',
-      url: 'cadastro/clientes',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro empresas',
     },
@@ -26,25 +71,7 @@ export class IndexComponent implements OnInit {
       imageAlt: 'Imagem produtos',
     },
     {
-      nome: 'Fornecedores',
-      url: 'cadastro/fornecedores',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro fornecedores',
-    },
-    {
-      nome: 'Vendedores',
-      url: 'cadastro/vendedores',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro vendedores',
-    },
-    {
-      nome: 'Transportadora',
-      url: 'cadastro/transportadora',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro transportadora',
-    },
-    {
-      nome: 'Grupo de empresas',
+      nome: 'Grupo de Empresas',
       url: 'cadastro/grupoempresas',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro grupo de empresas',
@@ -56,19 +83,19 @@ export class IndexComponent implements OnInit {
       imageAlt: 'Imagem cadastro categorias',
     },
     {
-      nome: 'Marca',
+      nome: 'Marcas',
       url: 'cadastro/marcas',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro marcas',
     },
     {
-      nome: 'Integração fiscal',
+      nome: 'Integrações Fiscais',
       url: 'cadastro/integracaofiscal',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro integracão fiscal',
     },
     {
-      nome: 'NCM',
+      nome: 'NCMs',
       url: 'cadastro/ncm',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro ncm',
@@ -79,29 +106,35 @@ export class IndexComponent implements OnInit {
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro formas de pagamento',
     },
+    {
+      nome: 'Categorias de Documentos',
+      url: 'cadastro/categoriadocumentos',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro categoria de documentos',
+    },
   ];
 
   comercialItems = [
     {
-      nome: 'Pedidos de venda',
+      nome: 'Pedidos de Venda',
       url: 'vendas',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem pedido de vendas da empresas',
     },
     {
-      nome: 'Pedidos de compra',
+      nome: 'Pedidos de Compra',
       url: 'compra',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem pedido de compra da empresas',
     },
     {
-      nome: 'Contas a receber',
+      nome: 'Contas a Receber',
       url: 'contas/receber',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem contas a receber',
     },
     {
-      nome: 'Contas a pagar',
+      nome: 'Contas a Pagar',
       url: 'contas/pagar',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem contas a pagar',

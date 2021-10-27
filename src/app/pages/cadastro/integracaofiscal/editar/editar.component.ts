@@ -161,6 +161,8 @@ export class EditarComponent implements OnInit {
 
   async onSubmit(data: any) {
     console.log(data);
-    await this._api.modificarIntegracaoFiscal(data);
+    await this._api.modificarIntegracaoFiscal(data).then(() => {
+      location.href = '/cadastro/integracaofiscal';
+    });
   }
 }

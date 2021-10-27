@@ -151,9 +151,9 @@ export class CadastroComponent implements OnInit {
     data.MunicipioID = this.municipioDados.id;
     console.log(data);
 
-    await this._api.salvarEmpresa(data).then(() => {
+    /* await this._api.salvarEmpresa(data).then(() => {
       this.retornar();
-    });
+    }); */
   }
 
   retornar() {

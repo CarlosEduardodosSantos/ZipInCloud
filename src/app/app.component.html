@@ -14,27 +14,175 @@
         <fa-icon [icon]="faStarHalfAlt"></fa-icon>
         <span class="menuLink fontw-500">Acesso Rápido</span>
       </a>
-      <a
-        href="produtos"
-        class="list-group-item list-group-item-action bg-light cor-sidebar"
-      >
-        <fa-icon [icon]="faCube"></fa-icon>
-        <span class="menuLink fontw-500">Produtos</span>
-      </a>
-      <a
-        href="compra"
-        class="list-group-item list-group-item-action bg-light cor-sidebar"
-      >
-        <fa-icon [icon]="faBookOpen"></fa-icon>
-        <span class="menuLink fontw-500">Compra</span>
-      </a>
-      <a
-        href="vendas"
-        class="list-group-item list-group-item-action bg-light cor-sidebar"
-      >
-        <fa-icon [icon]="faBookOpen"></fa-icon>
-        <span class="menuLink fontw-500">Vendas</span>
-      </a>
+
+      <div class="dropdown">
+        <button
+          class="
+            list-group-item list-group-item-action
+            bg-light
+            cor-sidebar
+            dropdown-toggle
+            fontw-500
+            drop
+          "
+          type="button"
+          id="dropdownMenuPessoas"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <fa-icon [icon]="faStarHalfAlt"></fa-icon>
+          Pessoas
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuPessoas">
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/clientes"
+              >Clientes</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/fornecedores"
+              >Compradores</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/fornecedores"
+              >Contadores</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/fornecedores"
+              >Contatos</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/fornecedores"
+              >Endereços</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/fornecedores"
+              >Fornecedores</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/fornecedores"
+              >Funcionários</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/fornecedores"
+              >Motoristas</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button
+          class="
+            list-group-item list-group-item-action
+            bg-light
+            cor-sidebar
+            dropdown-toggle
+            fontw-500
+            drop
+          "
+          type="button"
+          id="dropdownMenuCadastro"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <fa-icon [icon]="faStarHalfAlt"></fa-icon>
+          Cadastro
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuCadastro">
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/empresas"
+              >Empresas</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/produtos">Produtos</a>
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/grupoempresas"
+              >Grupo de Empresas</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/categorias"
+              >Categorias</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/marcas"
+              >Marcas</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/integracaofiscal"
+              >Integrações Fiscais</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/ncm">NCMs</a>
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/cadastro/formaspagamento"
+              >Formas de Pagamentos</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item fontw-500"
+              href="/cadastro/categoriadocumentos"
+              >Categorias de Documentos</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button
+          class="
+            list-group-item list-group-item-action
+            bg-light
+            cor-sidebar
+            dropdown-toggle
+            fontw-500
+            drop
+          "
+          type="button"
+          id="dropdownMenuCadastro"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <fa-icon [icon]="faStarHalfAlt"></fa-icon>
+          Comercial
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuCadastro">
+          <li>
+            <a class="dropdown-item fontw-500" href="/vendas"
+              >Pedidos de Venda</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/compra"
+              >Pedidos de Compras</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/contas/receber"
+              >Contas a Receber</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/contas/pagar"
+              >Contas a Pagar</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->

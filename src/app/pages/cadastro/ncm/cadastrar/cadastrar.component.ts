@@ -13,6 +13,8 @@ export class CadastrarComponent implements OnInit {
 
   async onSubmit(data: any) {
     console.log(data);
-    await this._api.salvarNcm(data);
+    await this._api.salvarNcm(data).then(() => {
+      location.href = '/cadastro/ncm';
+    });
   }
 }

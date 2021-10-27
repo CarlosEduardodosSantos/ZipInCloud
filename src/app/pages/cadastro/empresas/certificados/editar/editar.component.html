@@ -1,0 +1,113 @@
+<div class="m-2">
+  <p class="fs-22 bolder">Editar Certificado</p>
+
+  <form
+    #cadastroCertificado="ngForm"
+    (ngSubmit)="onSubmit(cadastroCertificado.value)"
+    enctype="multipart/form-data"
+  >
+    <tabset class="member-tabset">
+      <tab class="tab" heading="Identificação">
+        <div class="form-group inline-length-10" hidden>
+          <label for="ID">ID</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="ID"
+            id="ID"
+            #ID
+            [value]="dadosAnteriores.id"
+            [(ngModel)]="ID.value"
+          />
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="CNPJ">CNPJ</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="CNPJ"
+            id="CNPJ"
+            #CNPJ
+            [value]="dadosAnteriores.cnpj"
+            [(ngModel)]="CNPJ.value"
+          />
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="Serial">Serial</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Serial"
+            id="Serial"
+            #Serial
+            [value]="dadosAnteriores.serial"
+            [(ngModel)]="Serial.value"
+          />
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="Titular">Titular</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Titular"
+            id="Titular"
+            #Titular
+            [value]="dadosAnteriores.titular"
+            [(ngModel)]="Titular.value"
+          />
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="Informacao">Informação</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Informacao"
+            id="Informacao"
+            #Informacao
+            [value]="dadosAnteriores.informacao"
+            [(ngModel)]="Informacao.value"
+          />
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="ValidadeInicial">Validade Inicial</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="ValidadeInicial"
+            id="ValidadeInicial"
+            #ValidadeInicial
+            [value]="dadosAnteriores.validadeInicial"
+            [(ngModel)]="ValidadeInicial.value"
+          />
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="ValidadeFinal">Validade Final</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="ValidadeFinal"
+            id="ValidadeFinal"
+            #ValidadeFinal
+            [value]="dadosAnteriores.validadeFinal"
+            [(ngModel)]="ValidadeFinal.value"
+          />
+        </div>
+      </tab>
+    </tabset>
+
+    <input type="submit" class="btn btn-primary mt-4 m-1" value="Salvar" />
+    <button
+      type="button"
+      (click)="retornar(dadosAnteriores.empresaID)"
+      class="btn btn-secondary mt-4 m-1"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>

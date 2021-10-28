@@ -71,6 +71,12 @@ import { IndexComponent as MenusItemsIndex } from './pages/sistema/menusitems/in
 import { EditarComponent as MenusItemsEditar } from './pages/sistema/menusitems/editar/editar.component';
 import { CadastrarComponent as MenusItemsCadastrar } from './pages/sistema/menusitems/cadastrar/cadastrar.component';
 
+import { IndexComponent as ConfiguracoesPerfilUsuarioIndex } from './pages/configuracoes/perfildeusuario/index/index.component';
+
+import { IndexComponent as CfopIndex } from './pages/cadastro/cfop/index/index.component';
+import { EditarComponent as CfopEditar } from './pages/cadastro/cfop/editar/editar.component';
+import { CadastrarComponent as CfopCadastrar } from './pages/cadastro/cfop/cadastrar/cadastrar.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -287,6 +293,30 @@ const routes: Routes = [
   {
     path: 'sistema/menusitems/editar/:id',
     component: MenusItemsEditar,
+  },
+  {
+    path: 'configuracoes/perfilusuario',
+    component: ConfiguracoesPerfilUsuarioIndex,
+  },
+  {
+    path: 'configuracoes/perfilusuario/cadastrar',
+    component: ConfiguracoesPerfilUsuarioIndex,
+  },
+  {
+    path: 'configuracoes/perfilusuario/editar/:id',
+    component: ConfiguracoesPerfilUsuarioIndex,
+  },
+  {
+    path: 'cadastro/cfop',
+    component: CfopIndex,
+  },
+  {
+    path: 'cadastro/cfop/cadastrar',
+    component: CfopCadastrar,
+  },
+  {
+    path: 'cadastro/cfop/editar/:id',
+    component: CfopEditar,
   },
 ];
 

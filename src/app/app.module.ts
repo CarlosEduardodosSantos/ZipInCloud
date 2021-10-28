@@ -60,6 +60,10 @@ import { CadastrarComponent as MenusCadastrar } from './pages/sistema/menus/cada
 import { IndexComponent as MenusItemsIndex } from './pages/sistema/menusitems/index/index.component';
 import { EditarComponent as MenusItemsEditar } from './pages/sistema/menusitems/editar/editar.component';
 import { CadastrarComponent as MenusItemsCadastrar } from './pages/sistema/menusitems/cadastrar/cadastrar.component';
+import { IndexComponent as ConfiguracoesPerfilUsuarioIndex } from './pages/configuracoes/perfildeusuario/index/index.component';
+import { IndexComponent as CfopIndex } from './pages/cadastro/cfop/index/index.component';
+import { EditarComponent as CfopEditar } from './pages/cadastro/cfop/editar/editar.component';
+import { CadastrarComponent as CfopCadastrar } from './pages/cadastro/cfop/cadastrar/cadastrar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
@@ -90,6 +94,9 @@ import { FornecedorExibirComponent } from './components/cadastro/compra/forneced
 import { TipooperacaoCompraExibirComponent } from './components/cadastro/compra/tipooperacao-compra-exibir/tipooperacao-compra-exibir.component';
 import { TransportadoraCompraExibirComponent } from './components/cadastro/compra/transportadora-compra-exibir/transportadora-compra-exibir.component';
 import { CompradorCompraExibirComponent } from './components/cadastro/compra/comprador-compra-exibir/comprador-compra-exibir.component';
+import { IndexComponent as DocumentoPagarIndex } from './pages/documento/pagar/index/index.component';
+import { EditarComponent as DocumentoPagarEditar } from './pages/documento/pagar/editar/editar.component';
+import { CadastrarComponent as DocumentoPagarCadastrar } from './pages/documento/pagar/cadastrar/cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -150,6 +157,13 @@ import { CompradorCompraExibirComponent } from './components/cadastro/compra/com
     MenusItemsIndex,
     MenusItemsEditar,
     MenusItemsCadastrar,
+    ConfiguracoesPerfilUsuarioIndex,
+    CfopIndex,
+    CfopEditar,
+    CfopCadastrar,
+    DocumentoPagarIndex,
+    DocumentoPagarEditar,
+    DocumentoPagarCadastrar,
     //Componentes
     CategoriasCriarComponent,
     CategoriasModificarComponent,

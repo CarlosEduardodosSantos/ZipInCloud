@@ -1,0 +1,47 @@
+<div class="m-4">
+  <p class="fs-22 bolder">Cfop</p>
+
+  <div class="tright">
+    <button type="button" class="btn btn-primary" (click)="cadastrar()">
+      Novo
+    </button>
+  </div>
+
+  <table class="w-100 table row-border hover" id="produtos-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th class="centerTable">Código</th>
+        <th>Descrição</th>
+        <th class="centerTable">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaCfop; let i = index">
+        <td>{{ item.id }}</td>
+        <td class="centerTable">{{ item.codigo }}</td>
+        <td>{{ item.descricao }}</td>
+        <td class="acoesStyle">
+          <button
+            class="btn btn-success m-1 tleft"
+            type="button"
+            (click)="editar(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
+            >
+          </button>
+          <button
+            class="btn btn-danger m-1 tright"
+            type="button"
+            (click)="excluirElemento(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faTrashAlt"></fa-icon> Excluir</span
+            >
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

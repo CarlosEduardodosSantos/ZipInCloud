@@ -925,6 +925,60 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:GET POST PUT DELETE - Cfops//
+  obterCfops() {
+    return this.http
+      .get(environment.url + 'api/Cfop/', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterCfopsByID(id: any) {
+    return this.http
+      .get(environment.url + 'api/Cfop/' + id, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarCfops(data: any) {
+    return this.http
+      .post(environment.url + 'api/Cfop', data, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarCfops(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/Cfop/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirCfops(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/Cfop/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO:GETs ESPECIFICOS//
 
   obterTodosDadosProdutos() {

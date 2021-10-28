@@ -280,6 +280,114 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Menus//
+  obterMenus() {
+    return this.http
+      .get(environment.url + 'api/Menus', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterMenusByID(ID: any) {
+    return this.http
+      .get(environment.url + 'api/Menus/' + ID, environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarMenus(data: any) {
+    return this.http
+      .post(environment.url + 'api/Menus', data, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarMenus(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/Menus/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirMenus(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/Menus/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - MenusItems//
+  obterMenusItems() {
+    return this.http
+      .get(environment.url + 'api/MenusItems', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterMenusItemsByID(ID: any) {
+    return this.http
+      .get(environment.url + 'api/MenusItems/' + ID, environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarMenusItems(data: any) {
+    return this.http
+      .post(environment.url + 'api/MenusItems', data, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarMenusItems(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/MenusItems/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirMenusItems(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/MenusItems/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO:POST GET PUT DELETE - Empresa Certificados//
   obterEmpresaCertificado() {
     return this.http

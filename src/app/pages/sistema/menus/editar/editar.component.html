@@ -1,0 +1,42 @@
+<div class="m-2">
+  <p class="fs-22 bolder">Cadastro de Menus</p>
+
+  <form
+    #cadastroMenu="ngForm"
+    (ngSubmit)="onSubmit(cadastroMenu.value)"
+    enctype="multipart/form-data"
+  >
+    <div class="form-group inline-length-20" hidden>
+      <label for="ID">Nome do Menu</label>
+      <input
+        type="text"
+        class="form-control w-100"
+        name="ID"
+        id="ID"
+        #ID
+        [(ngModel)]="dadosAnteriores.id"
+      />
+    </div>
+
+    <div class="form-group inline-length-20">
+      <label for="Descricao">Nome do Menu</label>
+      <input
+        type="text"
+        class="form-control w-100"
+        name="Descricao"
+        id="Descricao"
+        #Descricao
+        [(ngModel)]="dadosAnteriores.descricao"
+      />
+    </div>
+
+    <input type="submit" class="btn btn-primary mt-4 m-1" value="Salvar" />
+    <button
+      type="button"
+      (click)="retornar()"
+      class="btn btn-secondary mt-4 m-1"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>

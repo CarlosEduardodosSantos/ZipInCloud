@@ -141,6 +141,15 @@ export class IndexComponent implements OnInit {
     },
   ];
 
+  pdvItems = [
+    {
+      nome: 'Caixas',
+      url: 'caixa',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem caixas',
+    },
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

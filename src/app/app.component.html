@@ -153,14 +153,14 @@
             drop
           "
           type="button"
-          id="dropdownMenuCadastro"
+          id="dropdownMenuComercial"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           <fa-icon [icon]="faStarHalfAlt"></fa-icon>
           Comercial
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuCadastro">
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuComercial">
           <li>
             <a class="dropdown-item fontw-500" href="/vendas"
               >Pedidos de Venda</a
@@ -180,6 +180,31 @@
             <a class="dropdown-item fontw-500" href="/contas/pagar"
               >Contas a Pagar</a
             >
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button
+          class="
+            list-group-item list-group-item-action
+            bg-light
+            cor-sidebar
+            dropdown-toggle
+            fontw-500
+            drop
+          "
+          type="button"
+          id="dropdownMenuPDV"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <fa-icon [icon]="faStarHalfAlt"></fa-icon>
+          PDV
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuPDV">
+          <li>
+            <a class="dropdown-item fontw-500" href="/vendas">Caixas</a>
           </li>
         </ul>
       </div>

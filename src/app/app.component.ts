@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
 
-import {
-  faStarHalfAlt,
-  faBars,
-  faCube,
-  faBookOpen,
-} from '@fortawesome/free-solid-svg-icons';
+import { faStarHalfAlt, faBars } from '@fortawesome/free-solid-svg-icons';
 
 import * as $ from 'jquery';
 
@@ -18,8 +13,6 @@ export class AppComponent {
   title = 'zipincloud';
   faStarHalfAlt = faStarHalfAlt;
   faBars = faBars;
-  faCube = faCube;
-  faBookOpen = faBookOpen;
 
   ngOnInit() {
     $('#menu-toggle').click(function (e) {

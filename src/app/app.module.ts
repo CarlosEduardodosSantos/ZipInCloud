@@ -32,6 +32,8 @@ import { EditarComponent as EmpresasEditar } from './pages/cadastro/empresas/edi
 import { CertificadosComponent as EmpresasCertificadosIndex } from './pages/cadastro/empresas/certificados/index/certificados.component';
 import { EditarComponent as EmpresasCertificadosEditar } from './pages/cadastro/empresas/certificados/editar/editar.component';
 import { CadastroComponent as EmpresasCertificadosCadastrar } from './pages/cadastro/empresas/certificados/cadastro/cadastro.component';
+import { EditarComponent as CertificadosEditar } from './pages/cadastro/empresas/certificados/editar/editar.component';
+import { CadastroComponent as CertificadosCadastrar } from './pages/cadastro/empresas/certificados/cadastro/cadastro.component';
 import { IndexComponent as GrupoEmpresasIndex } from './pages/cadastro/grupoempresa/index/index.component';
 import { CadastroComponent as GrupoEmpresasCadastrar } from './pages/cadastro/grupoempresa/cadastro/cadastro.component';
 import { EditarComponent as GrupoEmpresasEditar } from './pages/cadastro/grupoempresa/editar/editar.component';
@@ -49,6 +51,9 @@ import { EditarComponent as FormasPagamentoEditar } from './pages/cadastro/forma
 import { IndexComponent as CategoriaDocumentoIndex } from './pages/cadastro/categoriadocumento/index/index.component';
 import { EditarComponent as CategoriaDocumentoEditar } from './pages/cadastro/categoriadocumento/editar/editar.component';
 import { CadastrarComponent as CategoriaDocumentoCadastrar } from './pages/cadastro/categoriadocumento/cadastrar/cadastrar.component';
+import { IndexComponent as CaixaIndex } from './pages/caixas/index/index.component';
+import { EditarComponent as CaixaEditar } from './pages/caixas/editar/editar.component';
+import { CadastrarComponent as CaixaCadastrar } from './pages/caixas/cadastrar/cadastrar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
@@ -79,56 +84,43 @@ import { FornecedorExibirComponent } from './components/cadastro/compra/forneced
 import { TipooperacaoCompraExibirComponent } from './components/cadastro/compra/tipooperacao-compra-exibir/tipooperacao-compra-exibir.component';
 import { TransportadoraCompraExibirComponent } from './components/cadastro/compra/transportadora-compra-exibir/transportadora-compra-exibir.component';
 import { CompradorCompraExibirComponent } from './components/cadastro/compra/comprador-compra-exibir/comprador-compra-exibir.component';
-import { EditarComponent } from './pages/cadastro/empresas/certificados/editar/editar.component';
-import { CadastroComponent } from './pages/cadastro/empresas/certificados/cadastro/cadastro.component';
-import { IndexComponent } from './pages/caixas/index/index.component';
-import { EditarComponent } from './pages/caixas/editar/editar.component';
-import { CadastrarComponent } from './pages/caixas/cadastrar/cadastrar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
+    //Pages
     AcessoRapidoIndex,
     ProdutoIndex,
     ProdutoEditar,
     ProdutoCadastrar,
     VendaIndex,
     VendaEditar,
+    VendaCadastrar,
     CategoriaIndex,
     MarcaIndex,
     IntegracaoFiscalIndex,
     IntegracaofiscalDetalhes,
     IntegracaoFiscalCadastrar,
     IntegracaoFiscalEditar,
-    CategoriasCriarComponent,
-    CategoriasModificarComponent,
-    MarcasCriarComponent,
-    MarcasModificarComponent,
-    TipoprodutoModificarComponent,
-    TipoprodutoCriarComponent,
     NCMIndex,
     NCMEditar,
     NCMCadastrar,
+    NCMDetalhes,
     MovimentaoEstoqueIndex,
-    VendaCadastrar,
-    ClientesExibirComponent,
-    VendedoresExibirComponent,
-    TipooperacoesExibirComponent,
-    TransportadoraExibirComponent,
-    FormaspagamentoExibirComponent,
     CompraIndex,
     CompraCadastrar,
     CompraEditar,
     EmpresasIndex,
     EmpresasCadastrar,
     EmpresasEditar,
-    GrupoExibirComponent,
-    RegimetributarioExibirComponent,
-    EstadoExibirComponent,
-    MunicipioExibirComponent,
+    EmpresasCertificadosIndex,
+    EmpresasCertificadosEditar,
+    EmpresasCertificadosCadastrar,
+    CertificadosEditar,
+    CertificadosCadastrar,
     GrupoEmpresasIndex,
     GrupoEmpresasCadastrar,
     GrupoEmpresasEditar,
-    AcessorapidoComponent,
     ClientesIndex,
     ClientesEditar,
     ClientesCadastrar,
@@ -137,23 +129,36 @@ import { CadastrarComponent } from './pages/caixas/cadastrar/cadastrar.component
     FornecedoresCadastrar,
     ContasReceberIndex,
     ContasPagarIndex,
-    NCMDetalhes,
-    FornecedorExibirComponent,
-    TipooperacaoCompraExibirComponent,
-    TransportadoraCompraExibirComponent,
-    CompradorCompraExibirComponent,
     FormasPagamentoIndex,
     FormasPagamentoCadastrar,
     FormasPagamentoEditar,
     CategoriaDocumentoIndex,
     CategoriaDocumentoEditar,
     CategoriaDocumentoCadastrar,
-    EmpresasCertificadosIndex,
-    EmpresasCertificadosEditar,
-    EmpresasCertificadosCadastrar,
-    IndexComponent,
-    EditarComponent,
-    CadastrarComponent,
+    CaixaIndex,
+    CaixaEditar,
+    CaixaCadastrar,
+    //Componentes
+    CategoriasCriarComponent,
+    CategoriasModificarComponent,
+    MarcasCriarComponent,
+    MarcasModificarComponent,
+    TipoprodutoModificarComponent,
+    TipoprodutoCriarComponent,
+    ClientesExibirComponent,
+    VendedoresExibirComponent,
+    TipooperacoesExibirComponent,
+    TransportadoraExibirComponent,
+    FormaspagamentoExibirComponent,
+    GrupoExibirComponent,
+    RegimetributarioExibirComponent,
+    EstadoExibirComponent,
+    MunicipioExibirComponent,
+    AcessorapidoComponent,
+    FornecedorExibirComponent,
+    TipooperacaoCompraExibirComponent,
+    TransportadoraCompraExibirComponent,
+    CompradorCompraExibirComponent,
   ],
   imports: [
     BrowserModule,

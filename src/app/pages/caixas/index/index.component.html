@@ -1,1 +1,80 @@
-<p>index works!</p>
+<div class="m-4">
+  <p class="fs-22 bolder">Caixas</p>
+
+  <div class="tright">
+    <button type="button" class="btn btn-primary" (click)="cadastrar()">
+      Novo
+    </button>
+  </div>
+
+  <table class="w-100 table row-border hover" id="produtos-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th class="centerTable">Numero</th>
+        <th class="centerTable">Ativo</th>
+        <th class="centerTable tipo">Tipo</th>
+        <th class="centerTable">Emissão</th>
+        <th class="centerTable">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaCaixas; let i = index">
+        <td>{{ item.id }}</td>
+
+        <td class="centerTable" *ngIf="item.numero < 10">{{ item.numero }}</td>
+
+        <td *ngIf="item.ativo == true" class="centerTable">
+          <input
+            class="form-check-input disableMouse"
+            type="checkbox"
+            [checked]="true"
+          />
+        </td>
+        <td *ngIf="item.ativo == false" class="centerTable">
+          <input
+            class="form-check-input disableMouse"
+            type="checkbox"
+            [checked]="false"
+          />
+        </td>
+
+        <td
+          *ngIf="item.tipoPDV == 1"
+          class="centerTable bg-primary text-white bolder tipo"
+        >
+          <span>Mercado</span>
+        </td>
+        <td
+          *ngIf="item.tipoPDV == 2"
+          class="centerTable bg-danger text-white bolder tipo"
+        >
+          <span>Restaurante</span>
+        </td>
+
+        <td class="centerTable">{{ item.tipoEmissaoCupom }}</td>
+
+        <td class="acoesStyle">
+          <button
+            class="btn btn-success m-1 tleft"
+            type="button"
+            (click)="editar(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
+            >
+          </button>
+          <button
+            class="btn btn-danger m-1 tright"
+            type="button"
+            (click)="excluirElemento(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faTrashAlt"></fa-icon> Excluir</span
+            >
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

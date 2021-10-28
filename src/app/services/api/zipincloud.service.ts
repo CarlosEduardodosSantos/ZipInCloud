@@ -226,6 +226,60 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Caixas//
+  obterCaixas() {
+    return this.http
+      .get(environment.url + 'api/Caixa', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterCaixasByID(ID: any) {
+    return this.http
+      .get(environment.url + 'api/Caixa/' + ID, environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarCaixas(data: any) {
+    return this.http
+      .post(environment.url + 'api/Caixa', data, environment.headersPost)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarCaixas(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/Caixa/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirCaixas(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/Caixa/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO:POST GET PUT DELETE - Empresa Certificados//
   obterEmpresaCertificado() {
     return this.http

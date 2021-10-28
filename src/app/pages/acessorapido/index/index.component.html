@@ -36,5 +36,17 @@
         ></app-acessorapido>
       </div>
     </div>
+
+    <div class="row">
+      <p class="fs-18 bolder title">PDV</p>
+      <div *ngFor="let item of pdvItems" class="col-3">
+        <app-acessorapido
+          [nome]="item.nome"
+          [url]="item.url"
+          [imageUrl]="item.imageUrl"
+          [imageAlt]="item.imageAlt"
+        ></app-acessorapido>
+      </div>
+    </div>
   </div>
 </div>

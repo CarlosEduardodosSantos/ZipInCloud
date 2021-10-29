@@ -64,6 +64,17 @@ import { IndexComponent as ConfiguracoesPerfilUsuarioIndex } from './pages/confi
 import { IndexComponent as CfopIndex } from './pages/cadastro/cfop/index/index.component';
 import { EditarComponent as CfopEditar } from './pages/cadastro/cfop/editar/editar.component';
 import { CadastrarComponent as CfopCadastrar } from './pages/cadastro/cfop/cadastrar/cadastrar.component';
+import { IndexComponent as DocumentoPagarIndex } from './pages/documento/pagar/index/index.component';
+import { EditarComponent as DocumentoPagarEditar } from './pages/documento/pagar/editar/editar.component';
+import { CadastrarComponent as DocumentoPagarCadastrar } from './pages/documento/pagar/cadastrar/cadastrar.component';
+import { IndexComponent as DocumentoReceberIndex } from './pages/documento/receber/index/index.component';
+import { EditarComponent as DocumentoReceberEditar } from './pages/documento/receber/editar/editar.component';
+import { CadastrarComponent as DocumentoReceberCadastrar } from './pages/documento/receber/cadastrar/cadastrar.component';
+import { IndexComponent as DashboardVendasIndex } from './pages/dashboard/venda/index/index.component';
+import { IndexComponent as DashboardComprasIndex } from './pages/dashboard/compras/index/index.component';
+import { IndexComponent as DashboardEstoqueIndex } from './pages/dashboard/estoque/index/index.component';
+import { IndexComponent as DashboardContasReceberIndex } from './pages/dashboard/contasreceber/index/index.component';
+import { IndexComponent as DashboardContasPagarIndex } from './pages/dashboard/contaspagar/index/index.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
@@ -73,6 +84,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ModalModule } from 'ngx-bootstrap/modal';
+
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { CategoriasCriarComponent } from './components/cadastro/categorias-criar/categorias-criar.component';
 import { CategoriasModificarComponent } from './components/cadastro/categorias-modificar/categorias-modificar.component';
@@ -94,9 +107,6 @@ import { FornecedorExibirComponent } from './components/cadastro/compra/forneced
 import { TipooperacaoCompraExibirComponent } from './components/cadastro/compra/tipooperacao-compra-exibir/tipooperacao-compra-exibir.component';
 import { TransportadoraCompraExibirComponent } from './components/cadastro/compra/transportadora-compra-exibir/transportadora-compra-exibir.component';
 import { CompradorCompraExibirComponent } from './components/cadastro/compra/comprador-compra-exibir/comprador-compra-exibir.component';
-import { IndexComponent as DocumentoPagarIndex } from './pages/documento/pagar/index/index.component';
-import { EditarComponent as DocumentoPagarEditar } from './pages/documento/pagar/editar/editar.component';
-import { CadastrarComponent as DocumentoPagarCadastrar } from './pages/documento/pagar/cadastrar/cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -164,6 +174,14 @@ import { CadastrarComponent as DocumentoPagarCadastrar } from './pages/documento
     DocumentoPagarIndex,
     DocumentoPagarEditar,
     DocumentoPagarCadastrar,
+    DocumentoReceberIndex,
+    DocumentoReceberEditar,
+    DocumentoReceberCadastrar,
+    DashboardVendasIndex,
+    DashboardComprasIndex,
+    DashboardEstoqueIndex,
+    DashboardContasReceberIndex,
+    DashboardContasPagarIndex,
     //Componentes
     CategoriasCriarComponent,
     CategoriasModificarComponent,
@@ -191,6 +209,7 @@ import { CadastrarComponent as DocumentoPagarCadastrar } from './pages/documento
     CommonModule,
     AppRoutingModule,
     FontAwesomeModule,
+    HighchartsChartModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,

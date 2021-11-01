@@ -8,7 +8,7 @@ import { environment } from '../../../environments/environment';
 export class DashboardsService {
   constructor(public http: HttpClient) {}
 
-  //TODO: VENDAS//
+  //TODO: DASHBOARD VENDAS//
   obterVendasFaturadasDia() {
     return this.http
       .get(
@@ -68,6 +68,74 @@ export class DashboardsService {
     return this.http
       .get(
         environment.url + 'api/dashboards/vendas/produtos/anual',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  //TODO: DASHBOARD COMPRAS//
+  obterComprasFaturadasDia() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/compras/faturadas/dia',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterComprasFaturadasMes() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/compras/faturadas/mes',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterComprasFaturadasAno() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/compras/faturadas/ano',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterComprasFaturadasMesByID(id: any) {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/compras/faturadas/mes/' + id,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterComprasProdutosMesByID(id: any) {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/compras/produtos/mes/' + id,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterComprasProdutosAno() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/compras/produtos/anual',
         environment.headersPost
       )
       .toPromise()

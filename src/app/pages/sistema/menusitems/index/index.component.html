@@ -20,7 +20,9 @@
       <tr *ngFor="let item of listaMenusItems; let i = index">
         <td>{{ item.id }}</td>
         <td>{{ item.descricao }}</td>
-        <td>{{ item.menu.descricao }}</td>
+        <td>
+          {{ item.menu.descricao }}
+        </td>
         <td class="acoesStyle">
           <button
             class="btn btn-success m-1 tleft"

@@ -71,6 +71,12 @@ export class IndexComponent implements OnInit {
       imageAlt: 'Imagem produtos',
     },
     {
+      nome: 'Movimentação de Estoque',
+      url: 'movimentacao/estoque',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem produtos',
+    },
+    {
       nome: 'Grupo de Empresas',
       url: 'cadastro/grupoempresas',
       imageUrl: '../../../../assets/acessorapido/a.png',
@@ -112,6 +118,12 @@ export class IndexComponent implements OnInit {
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro categoria de documentos',
     },
+    {
+      nome: 'Cfop',
+      url: 'cadastro/cfop',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro cfop',
+    },
   ];
 
   comercialItems = [
@@ -147,6 +159,45 @@ export class IndexComponent implements OnInit {
       url: 'caixa',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem caixas',
+    },
+  ];
+
+  menuItems = [
+    {
+      nome: 'Menu Items',
+      url: 'sistema/menusitems',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem menus items',
+    },
+    {
+      nome: 'Menu Items',
+      url: 'sistema/menusitems',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem menus items',
+    },
+  ];
+
+  configuracoesItems = [
+    {
+      nome: 'Perfil de Usuários',
+      url: 'configuracoes/perfilusuario',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem menus items',
+    },
+  ];
+
+  dashboardItems = [
+    {
+      nome: 'Dashboard Vendas',
+      url: 'dashboard/vendas',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem menus items',
+    },
+    {
+      nome: 'Dashboard Compras',
+      url: 'dashboard/compras',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem menus items',
     },
   ];
 

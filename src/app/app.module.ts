@@ -107,6 +107,7 @@ import { FornecedorExibirComponent } from './components/cadastro/compra/forneced
 import { TipooperacaoCompraExibirComponent } from './components/cadastro/compra/tipooperacao-compra-exibir/tipooperacao-compra-exibir.component';
 import { TransportadoraCompraExibirComponent } from './components/cadastro/compra/transportadora-compra-exibir/transportadora-compra-exibir.component';
 import { CompradorCompraExibirComponent } from './components/cadastro/compra/comprador-compra-exibir/comprador-compra-exibir.component';
+import { IndexComponent } from './pages/dashboard/fiscal/index/index.component';
 
 @NgModule({
   declarations: [
@@ -203,6 +204,7 @@ import { CompradorCompraExibirComponent } from './components/cadastro/compra/com
     TipooperacaoCompraExibirComponent,
     TransportadoraCompraExibirComponent,
     CompradorCompraExibirComponent,
+    IndexComponent,
   ],
   imports: [
     BrowserModule,

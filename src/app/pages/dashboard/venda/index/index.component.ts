@@ -130,6 +130,8 @@ export class IndexComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
+    let mes = new Date().getMonth();
+
     await this._api.obterVendasFaturadasDia().then((data) => {
       this.vendasDiarias = data;
     });
@@ -252,7 +254,7 @@ export class IndexComponent implements OnInit {
     this.updateFlag = true;
 
     //TODO: Produtos mês//
-    this._api.obterVendasProdutosMesByID(10).then((data: any) => {
+    this._api.obterVendasProdutosMesByID(mes + 1).then((data: any) => {
       this.maioresProdutos = this._counter.findOcc(data, 'produtoID');
       this.maioresProdutos = this.maioresProdutos.sort();
 
@@ -330,5 +332,8 @@ export class IndexComponent implements OnInit {
         this.updateFlagMaioresProdutosAnual = true;
       }, 1000);
     });
+
+    //TODO: Produtos Top Clientes ano//
+    //TODO: Produtos Top Vendedores ano//
   }
 }

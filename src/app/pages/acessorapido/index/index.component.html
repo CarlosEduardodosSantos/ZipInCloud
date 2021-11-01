@@ -1,6 +1,6 @@
 <div class="m-4">
   <p class="fs-22 bolder title">Acesso Rápido</p>
-  <div class="group-cards">
+  <div class="group-cards mt-5">
     <div class="row">
       <p class="fs-18 bolder title">Pessoas</p>
       <div *ngFor="let item of pessoasItems" class="col-3 mb-5">
@@ -27,7 +27,7 @@
 
     <div class="row">
       <p class="fs-18 bolder title">Comercial</p>
-      <div *ngFor="let item of comercialItems" class="col-3">
+      <div *ngFor="let item of comercialItems" class="col-3 mb-5">
         <app-acessorapido
           [nome]="item.nome"
           [url]="item.url"
@@ -39,7 +39,19 @@
 
     <div class="row">
       <p class="fs-18 bolder title">PDV</p>
-      <div *ngFor="let item of pdvItems" class="col-3">
+      <div *ngFor="let item of pdvItems" class="col-3 mb-5">
+        <app-acessorapido
+          [nome]="item.nome"
+          [url]="item.url"
+          [imageUrl]="item.imageUrl"
+          [imageAlt]="item.imageAlt"
+        ></app-acessorapido>
+      </div>
+    </div>
+
+    <div class="row">
+      <p class="fs-18 bolder title">Dashboards</p>
+      <div *ngFor="let item of dashboardItems" class="col-3 mb-5">
         <app-acessorapido
           [nome]="item.nome"
           [url]="item.url"

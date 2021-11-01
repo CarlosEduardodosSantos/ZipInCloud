@@ -105,6 +105,11 @@
             <a class="dropdown-item fontw-500" href="/produtos">Produtos</a>
           </li>
           <li>
+            <a class="dropdown-item fontw-500" href="/movimentacao/estoque"
+              >Movimentação de Estoque</a
+            >
+          </li>
+          <li>
             <a class="dropdown-item fontw-500" href="/cadastro/grupoempresas"
               >Grupo de Empresas</a
             >
@@ -207,7 +212,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuPDV">
           <li>
-            <a class="dropdown-item fontw-500" href="/vendas">Caixas</a>
+            <a class="dropdown-item fontw-500" href="/caixa">Caixas</a>
           </li>
         </ul>
       </div>
@@ -232,11 +237,11 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuSistema">
           <li>
-            <a class="dropdown-item fontw-500" href="/sistema/menus">Menus</a>
+            <a class="dropdown-item fontw-500" href="/sistema/menus">Menu</a>
           </li>
           <li>
             <a class="dropdown-item fontw-500" href="/sistema/menusitems"
-              >Menus Items</a
+              >Menu Items</a
             >
           </li>
         </ul>
@@ -266,6 +271,38 @@
               class="dropdown-item fontw-500"
               href="/configuracoes/perfilusuario"
               >Perfil de Usuários</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button
+          class="
+            list-group-item list-group-item-action
+            bg-light
+            cor-sidebar
+            dropdown-toggle
+            fontw-500
+            drop
+          "
+          type="button"
+          id="dropdownMenuConfiguracoes"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <fa-icon [icon]="faStarHalfAlt"></fa-icon>
+          Dashboards
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuConfiguracoes">
+          <li>
+            <a class="dropdown-item fontw-500" href="/dashboard/vendas"
+              >Dashboard Vendas</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item fontw-500" href="/dashboard/compras"
+              >Dashboard Compras</a
             >
           </li>
         </ul>

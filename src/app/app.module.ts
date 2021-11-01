@@ -79,6 +79,7 @@ import { IndexComponent as DashboardFiscalIndex } from './pages/dashboard/fiscal
 import { IndexComponent as NFeParametrosIndex } from './pages/nfe/parametros/index/index.component';
 import { EditarComponent as NFeParametrosEditar } from './pages/nfe/parametros/editar/editar.component';
 import { CadastrarComponent as NFeParametrosCadastrar } from './pages/nfe/parametros/cadastrar/cadastrar.component';
+import { AplicacaoComponent as IntegracaoFiscalAplicacao } from './pages/cadastro/integracaofiscal/aplicacao/aplicacao.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
@@ -190,6 +191,7 @@ import { CompradorCompraExibirComponent } from './components/cadastro/compra/com
     NFeParametrosIndex,
     NFeParametrosEditar,
     NFeParametrosCadastrar,
+    IntegracaoFiscalAplicacao,
     //Componentes
     CategoriasCriarComponent,
     CategoriasModificarComponent,

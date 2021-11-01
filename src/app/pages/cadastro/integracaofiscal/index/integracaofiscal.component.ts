@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ZipincloudService } from '../../../../services/api/zipincloud.service';
 
-import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faCogs,
+  faTrashAlt,
+  faPencilAlt,
+  faSearchPlus,
+  faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-integracaofiscal',
@@ -15,6 +21,9 @@ export class IntegracaofiscalComponent implements OnInit {
 
   faCogs = faCogs;
   faTrashAlt = faTrashAlt;
+  faPencilAlt = faPencilAlt;
+  faSearchPlus = faSearchPlus;
+  faPlus = faPlus;
 
   idAtual: any = 0;
   integracaoFiscalAtual: any = '';
@@ -43,5 +52,9 @@ export class IntegracaofiscalComponent implements OnInit {
 
   editar(id: any) {
     location.href = '/cadastro/integracaofiscal/editar/' + id;
+  }
+
+  aplicar(id: any) {
+    location.href = '/cadastro/integracaofiscal/aplicar/' + id;
   }
 }

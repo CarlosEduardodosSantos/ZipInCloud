@@ -74,8 +74,8 @@
           <div class="imageContainer">
             <div class="form-group">
               <img
-                id="img"
-                #img
+                id="imagem"
+                #imagem
                 name="imagem"
                 class="produtoImagem preview"
                 [src]="
@@ -83,7 +83,7 @@
                     ? 'data:image/png;base64,' + produtoDados.imagem
                     : imageBinding
                 "
-                [(ngModel)]="img.src"
+                [(ngModel)]="imagem.src"
               />
               <div>
                 <label for="file" class="btn"

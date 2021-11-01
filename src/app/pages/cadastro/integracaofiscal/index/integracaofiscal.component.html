@@ -39,31 +39,38 @@
         <td>{{ item.seguro }}</td>
         <td class="acoesStyle">
           <button
-            class="btn btn-secondary m-1 tleft"
+            class="btn btn-dark m-1"
+            type="button"
+            (click)="aplicar(item.id)"
+          >
+            <span class="acaoStyle"><fa-icon [icon]="faPlus"></fa-icon></span>
+          </button>
+          <button
+            class="btn btn-dangerDark m-1"
             type="button"
             (click)="dadosespecificos(item.id)"
           >
             <span class="acaoStyle"
-              ><fa-icon [icon]="faCogs"></fa-icon> Detalhes</span
-            >
+              ><fa-icon [icon]="faSearchPlus"></fa-icon
+            ></span>
           </button>
           <button
-            class="btn btn-success m-1 tleft"
+            class="btn btn-warningDark m-1"
             type="button"
             (click)="editar(item.id)"
           >
             <span class="acaoStyle"
-              ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
-            >
+              ><fa-icon [icon]="faPencilAlt"></fa-icon
+            ></span>
           </button>
           <button
-            class="btn btn-danger m-1 tright"
+            class="btn btn-dark m-1"
             type="button"
             (click)="excluirElemento(item.id)"
           >
             <span class="acaoStyle"
-              ><fa-icon [icon]="faTrashAlt"></fa-icon> Excluir</span
-            >
+              ><fa-icon [icon]="faTrashAlt"></fa-icon
+            ></span>
           </button>
         </td>
       </tr>

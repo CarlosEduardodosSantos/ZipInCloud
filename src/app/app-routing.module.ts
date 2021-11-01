@@ -19,6 +19,7 @@ import { IntegracaofiscalComponent as IntegracaoFiscalIndex } from './pages/cada
 import { IntegracaofiscalDetalhesComponent as IntegracaofiscalDetalhes } from './pages/cadastro/integracaofiscal/detalhes/integracaofiscal-detalhes.component';
 import { CadastrarComponent as IntegracaoFiscalCadastrar } from './pages/cadastro/integracaofiscal/cadastrar/cadastrar.component';
 import { EditarComponent as IntegracaoFiscalEditar } from './pages/cadastro/integracaofiscal/editar/editar.component';
+import { AplicacaoComponent as IntegracaoFiscalAplicacao } from './pages/cadastro/integracaofiscal/aplicacao/aplicacao.component';
 
 import { IndexComponent as NCMIndex } from './pages/cadastro/ncm/index/index.component';
 import { EditarComponent as NCMEditar } from './pages/cadastro/ncm/editar/editar.component';
@@ -203,6 +204,10 @@ const routes: Routes = [
   {
     path: 'cadastro/integracaofiscal/cadastrar',
     component: IntegracaoFiscalCadastrar,
+  },
+  {
+    path: 'cadastro/integracaofiscal/aplicar/:id',
+    component: IntegracaoFiscalAplicacao,
   },
   {
     path: 'cadastro/ncm',

@@ -209,9 +209,22 @@
   background-color: #eea7ae !important;
 }
 
+.btn-dangerDark {
+  background-color: #922731 !important;
+  transition: 3s;
+}
+
+.btn-dangerDark:hover {
+  background-color: #7c141f !important;
+}
+
 .bg-successLight {
   background-color: #c2f5c5 !important;
   transition: 3s;
+}
+
+.bg-successLight:hover {
+  background-color: #a9e9ad !important;
 }
 
 body {

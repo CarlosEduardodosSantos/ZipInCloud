@@ -68,7 +68,6 @@ export class EditarprodutoComponent implements OnInit {
       data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
     } else {
       delete data.imagem;
-      delete data.imagem;
     }
 
     console.log(this.produtoDados);

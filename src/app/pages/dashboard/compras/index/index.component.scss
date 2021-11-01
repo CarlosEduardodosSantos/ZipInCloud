@@ -1,8 +1,31 @@
 .fa {
   margin-top: -20px;
   font-size: 40px;
+  color: #a51b1b;
+  transition: 0.3s;
+}
+
+.fa:hover {
+  color: #801414;
 }
 
 highcharts-chart {
   box-shadow: 3px 3px 3px black;
+}
+
+/* Copy this @keyframes block to your CSS*/
+@keyframes anim {
+  0.0% {
+    transform: translate(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(0px);
+    opacity: 1;
+  }
+}
+
+/* Add the animation: property to whichever element you want to animate */
+.card {
+  animation: anim 1s ease 0s normal none;
 }

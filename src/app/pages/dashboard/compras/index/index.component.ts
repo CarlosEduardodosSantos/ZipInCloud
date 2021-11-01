@@ -42,7 +42,7 @@ export class IndexComponent implements OnInit {
         marker: { enabled: false },
         data: ['carregando'],
         type: 'spline',
-        color: '#000',
+        color: '#801414',
       },
     ],
     title: { text: 'Compras Anual' },
@@ -77,7 +77,8 @@ export class IndexComponent implements OnInit {
         marker: { enabled: false },
         data: ['carregando'],
         type: 'spline',
-        color: '#000',
+        color: '#e27a7a',
+        borderColor: '#ce2222',
       },
     ],
     title: { text: 'Maiores Produtos - Mensal' },
@@ -99,7 +100,8 @@ export class IndexComponent implements OnInit {
         marker: { enabled: false },
         data: ['carregando'],
         type: 'spline',
-        color: '#000',
+        color: '#e27a7a',
+        borderColor: '#ce2222',
       },
     ],
     title: { text: 'Maiores Produtos - Anual' },
@@ -248,7 +250,7 @@ export class IndexComponent implements OnInit {
           this.mes12,
         ],
         type: 'spline',
-        color: '#000',
+        color: '#801414',
       },
     ];
     this.updateFlag = true;
@@ -281,7 +283,8 @@ export class IndexComponent implements OnInit {
             marker: { enabled: false },
             data: d,
             type: 'spline',
-            color: '#000',
+            color: '#e27a7a',
+            borderColor: '#ce2222',
           },
         ];
         this.chartOptionsMaioresProdutosMes.xAxis = [
@@ -323,7 +326,8 @@ export class IndexComponent implements OnInit {
             marker: { enabled: false },
             data: d,
             type: 'spline',
-            color: '#000',
+            color: '#e27a7a',
+            borderColor: '#ce2222',
           },
         ];
         this.chartOptionsMaioresProdutosAnual.xAxis = [

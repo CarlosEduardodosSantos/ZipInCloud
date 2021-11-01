@@ -1,1 +1,45 @@
-<p>index works!</p>
+<div class="container p-5">
+  <div class="row">
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">HOJE NFE</p>
+        <fa-icon [icon]="faCreditCard" class="tright fa text-primary"></fa-icon>
+        <h5 class="card-title">{{ placeholder }}</h5>
+      </div>
+    </div>
+
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">ESTE MÊS NFE</p>
+        <fa-icon [icon]="faMoneyBill" class="tright fa text-primary"></fa-icon>
+        <h5 class="card-title">{{ placeholder }}</h5>
+      </div>
+    </div>
+
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">ESTE ANO NFE</p>
+        <fa-icon [icon]="faMoneyBill" class="tright fa text-primary"></fa-icon>
+        <h5 class="card-title">{{ placeholder }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <highcharts-chart
+      [Highcharts]="HighchartsMaioresProdutosMes"
+      [options]="chartOptionsMaioresProdutosMes"
+      [(update)]="updateFlagMaioresProdutosMes"
+      style="width: 46%; height: 300px; display: inline-block"
+      class="mx-auto mt-5"
+    ></highcharts-chart>
+
+    <highcharts-chart
+      [Highcharts]="HighchartsMaioresProdutosAnual"
+      [options]="chartOptionsMaioresProdutosAnual"
+      [(update)]="updateFlagMaioresProdutosAnual"
+      style="width: 46%; height: 300px; display: inline-block"
+      class="mx-auto mt-5 tright"
+    ></highcharts-chart>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="m-4">
+  <p class="fs-22 bolder">Parâmetros NFe</p>
+
+  <div class="tright">
+    <button type="button" class="btn btn-primary" (click)="cadastrar()">
+      Novo
+    </button>
+  </div>
+
+  <table class="w-100 table row-border hover" id="produtos-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th class="centerTable">Modelo Documento</th>
+        <th class="centerTable">Ambiente</th>
+        <th class="centerTable">Tipo Emissão</th>
+        <th class="centerTable">Serie</th>
+        <th class="centerTable">Ultima NFe</th>
+        <th class="centerTable">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaParametrosNFe; let i = index">
+        <td>{{ item.id }}</td>
+        <td class="centerTable" *ngIf="item.modeloDocumento == 55">NFe</td>
+        <td class="centerTable" *ngIf="item.modeloDocumento == 57">CTe</td>
+        <td class="centerTable" *ngIf="item.modeloDocumento == 58">MDFe</td>
+        <td class="centerTable" *ngIf="item.modeloDocumento == 65">NFCe</td>
+        <td class="centerTable" *ngIf="item.modeloDocumento == 67">CTeOS</td>
+
+        <td class="centerTable" *ngIf="item.tipoAmbiente == 1">Produção</td>
+        <td class="centerTable" *ngIf="item.tipoAmbiente == 2">Homologação</td>
+
+        <td class="centerTable" *ngIf="item.tipoEmissao == 1">teNormal</td>
+        <td class="centerTable" *ngIf="item.tipoEmissao == 2">teFSIA</td>
+        <td class="centerTable" *ngIf="item.tipoEmissao == 3">teSCAN</td>
+        <td class="centerTable" *ngIf="item.tipoEmissao == 4">teEPEC</td>
+        <td class="centerTable" *ngIf="item.tipoEmissao == 5">teFSDA</td>
+        <td class="centerTable" *ngIf="item.tipoEmissao == 6">teSVCAN</td>
+        <td class="centerTable" *ngIf="item.tipoEmissao == 7">teSVCRS</td>
+        <td class="centerTable" *ngIf="item.tipoEmissao == 9">teOffLine</td>
+
+        <td class="centerTable">{{ item.numeroSerie }}</td>
+
+        <td class="centerTable">{{ item.ultimoNumeroNFe }}</td>
+
+        <td class="acoesStyle">
+          <button
+            class="btn btn-success m-1 tleft"
+            type="button"
+            (click)="editar(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
+            >
+          </button>
+          <button
+            class="btn btn-danger m-1 tright"
+            type="button"
+            (click)="excluirElemento(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faTrashAlt"></fa-icon> Excluir</span
+            >
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

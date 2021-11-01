@@ -280,6 +280,70 @@ export class ZipincloudService {
       });
   }
 
+  //TODO:POST GET PUT DELETE - Parâmetros NFe//
+  obterParametrosNFe() {
+    return this.http
+      .get(
+        environment.url + 'api/nfeparametros/parametros',
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterParametrosNFeByID(ID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/nfeparametros/parametros/' + ID,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarParametrosNFe(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/nfeparametros/parametros',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarParametrosNFe(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/nfeparametros/parametros/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirParametrosNFe(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/nfeparametros/parametros/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO:POST GET PUT DELETE - Menus//
   obterMenus() {
     return this.http

@@ -1,0 +1,372 @@
+<div class="m-2">
+  <p class="fs-22 bolder">Cadastro de Parâmetro NFe</p>
+
+  <form
+    #cadastroParametroNFe="ngForm"
+    (ngSubmit)="onSubmit(cadastroParametroNFe.value)"
+    enctype="multipart/form-data"
+  >
+    <tabset class="member-tabset">
+      <tab class="tab" heading="Envio">
+        <div class="form-group inline-length-10">
+          <label for="Descricao">Descrição</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="Descricao"
+            id="Descricao"
+            #Descricao
+          />
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="ModeloDocumento">Modelo Documento</label>
+          <select
+            class="form-control"
+            name="ModeloDocumento"
+            id="ModeloDocumento"
+            #ModeloDocumento
+            [(ngModel)]="ModeloDocumento.value"
+          >
+            <option *ngFor="let item of modeloDocumento" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="TipoEmissao">Tipo Emissão</label>
+          <select
+            class="form-control"
+            name="TipoEmissao"
+            id="TipoEmissao"
+            #TipoEmissao
+            [(ngModel)]="TipoEmissao.value"
+          >
+            <option *ngFor="let item of tipoEmissao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="TipoAmbiente">Ambiente</label>
+          <select
+            class="form-control"
+            name="TipoAmbiente"
+            id="TipoAmbiente"
+            #TipoAmbiente
+            [(ngModel)]="TipoAmbiente.value"
+          >
+            <option *ngFor="let item of tipoAmbiente" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="Protocolo">Protocolo</label>
+          <select
+            class="form-control"
+            name="Protocolo"
+            id="Protocolo"
+            #Protocolo
+            [(ngModel)]="Protocolo.value"
+          >
+            <option *ngFor="let item of protocolo" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="TimeOut">TimeOut</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="TimeOut"
+            id="TimeOut"
+            #TimeOut
+            ngModel
+          />
+        </div>
+      </tab>
+      <tab class="tab" heading="Parâmetros">
+        <div class="form-group inline-length-5">
+          <label for="NumeroSerie">Numero de Serie</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="NumeroSerie"
+            id="NumeroSerie"
+            #NumeroSerie
+            ngModel
+          />
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="UltimoNumeroNFe">Ultima NFe</label>
+          <input
+            type="number"
+            class="form-control w-100"
+            name="UltimoNumeroNFe"
+            id="UltimoNumeroNFe"
+            #UltimoNumeroNFe
+            ngModel
+          />
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="NomeImpressora">Nome Impressora</label>
+          <input
+            type="text"
+            class="form-control w-100"
+            name="NomeImpressora"
+            id="NomeImpressora"
+            #NomeImpressora
+            ngModel
+          />
+        </div>
+      </tab>
+      <tab class="tab" heading="Versão do Serviço">
+        <div class="form-group inline-length-5">
+          <label for="VersaoRecepcaoEventoCceCancelamento"
+            >Recepção CCE Cancelamento</label
+          >
+          <select
+            class="form-control"
+            name="VersaoRecepcaoEventoCceCancelamento"
+            id="VersaoRecepcaoEventoCceCancelamento"
+            #VersaoRecepcaoEventoCceCancelamento
+            [(ngModel)]="VersaoRecepcaoEventoCceCancelamento.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoRecepcaoEventoEpec">Recepçao Epec</label>
+          <select
+            class="form-control"
+            name="VersaoRecepcaoEventoEpec"
+            id="VersaoRecepcaoEventoEpec"
+            #VersaoRecepcaoEventoEpec
+            [(ngModel)]="VersaoRecepcaoEventoEpec.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoRecepcaoEventoManifestacaoDestinatario"
+            >Recepção MD</label
+          >
+          <select
+            class="form-control"
+            name="VersaoRecepcaoEventoManifestacaoDestinatario"
+            id="VersaoRecepcaoEventoManifestacaoDestinatario"
+            #VersaoRecepcaoEventoManifestacaoDestinatario
+            [(ngModel)]="VersaoRecepcaoEventoManifestacaoDestinatario.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNfeRecepcao">NFe Recepção</label>
+          <select
+            class="form-control"
+            name="VersaoNfeRecepcao"
+            id="VersaoNfeRecepcao"
+            #VersaoNfeRecepcao
+            [(ngModel)]="VersaoNfeRecepcao.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNfeRetRecepcao">NFe Retorno Recepção</label>
+          <select
+            class="form-control"
+            name="VersaoNfeRetRecepcao"
+            id="VersaoNfeRetRecepcao"
+            #VersaoNfeRetRecepcao
+            [(ngModel)]="VersaoNfeRetRecepcao.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNfeInutilizacao">NFe Inutilização</label>
+          <select
+            class="form-control"
+            name="VersaoNfeInutilizacao"
+            id="VersaoNfeInutilizacao"
+            #VersaoNfeInutilizacao
+            [(ngModel)]="VersaoNfeInutilizacao.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNfeConsultaProtocolo">NFe Protocolo</label>
+          <select
+            class="form-control"
+            name="VersaoNfeConsultaProtocolo"
+            id="VersaoNfeConsultaProtocolo"
+            #VersaoNfeConsultaProtocolo
+            [(ngModel)]="VersaoNfeConsultaProtocolo.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNfeStatusServico">NFe Status Serviço</label>
+          <select
+            class="form-control"
+            name="VersaoNfeStatusServico"
+            id="VersaoNfeStatusServico"
+            #VersaoNfeStatusServico
+            [(ngModel)]="VersaoNfeStatusServico.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNfeConsultaCadastro">NFe Consulta Cadastro</label>
+          <select
+            class="form-control"
+            name="VersaoNfeConsultaCadastro"
+            id="VersaoNfeConsultaCadastro"
+            #VersaoNfeConsultaCadastro
+            [(ngModel)]="VersaoNfeConsultaCadastro.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNFeAutorizacao">NFe Autorização</label>
+          <select
+            class="form-control"
+            name="VersaoNFeAutorizacao"
+            id="VersaoNFeAutorizacao"
+            #VersaoNFeAutorizacao
+            [(ngModel)]="VersaoNFeAutorizacao.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNFeRetAutorizacao">NFe Retorno Autorização</label>
+          <select
+            class="form-control"
+            name="VersaoNFeRetAutorizacao"
+            id="VersaoNFeRetAutorizacao"
+            #VersaoNFeRetAutorizacao
+            [(ngModel)]="VersaoNFeRetAutorizacao.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNFeDistribuicaoDFe">NFe Distribuição</label>
+          <select
+            class="form-control"
+            name="VersaoNFeDistribuicaoDFe"
+            id="VersaoNFeDistribuicaoDFe"
+            #VersaoNFeDistribuicaoDFe
+            [(ngModel)]="VersaoNFeDistribuicaoDFe.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNfeConsultaDest">NFe Consulta Dest.</label>
+          <select
+            class="form-control"
+            name="VersaoNfeConsultaDest"
+            id="VersaoNfeConsultaDest"
+            #VersaoNfeConsultaDest
+            [(ngModel)]="VersaoNfeConsultaDest.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-5">
+          <label for="VersaoNfeDownloadNF">NFe Download</label>
+          <select
+            class="form-control"
+            name="VersaoNfeDownloadNF"
+            id="VersaoNfeDownloadNF"
+            #VersaoNfeDownloadNF
+            [(ngModel)]="VersaoNfeDownloadNF.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group inline-length-10">
+          <label for="VersaoNfceAministracaoCSC">NFe Admin CSC</label>
+          <select
+            class="form-control"
+            name="VersaoNfceAministracaoCSC"
+            id="VersaoNfceAministracaoCSC"
+            #VersaoNfceAministracaoCSC
+            [(ngModel)]="VersaoNfceAministracaoCSC.value"
+          >
+            <option *ngFor="let item of tipoVersao" [value]="item.i">
+              {{ item.modelo }}
+            </option>
+          </select>
+        </div>
+      </tab>
+    </tabset>
+
+    <input type="submit" class="btn btn-primary mt-4 m-1" value="Salvar" />
+    <button
+      type="button"
+      (click)="retornar()"
+      class="btn btn-secondary mt-4 m-1"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>

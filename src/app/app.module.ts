@@ -75,6 +75,10 @@ import { IndexComponent as DashboardComprasIndex } from './pages/dashboard/compr
 import { IndexComponent as DashboardEstoqueIndex } from './pages/dashboard/estoque/index/index.component';
 import { IndexComponent as DashboardContasReceberIndex } from './pages/dashboard/contasreceber/index/index.component';
 import { IndexComponent as DashboardContasPagarIndex } from './pages/dashboard/contaspagar/index/index.component';
+import { IndexComponent as DashboardFiscalIndex } from './pages/dashboard/fiscal/index/index.component';
+import { IndexComponent as NFeParametrosIndex } from './pages/nfe/parametros/index/index.component';
+import { EditarComponent as NFeParametrosEditar } from './pages/nfe/parametros/editar/editar.component';
+import { CadastrarComponent as NFeParametrosCadastrar } from './pages/nfe/parametros/cadastrar/cadastrar.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
@@ -107,7 +111,6 @@ import { FornecedorExibirComponent } from './components/cadastro/compra/forneced
 import { TipooperacaoCompraExibirComponent } from './components/cadastro/compra/tipooperacao-compra-exibir/tipooperacao-compra-exibir.component';
 import { TransportadoraCompraExibirComponent } from './components/cadastro/compra/transportadora-compra-exibir/transportadora-compra-exibir.component';
 import { CompradorCompraExibirComponent } from './components/cadastro/compra/comprador-compra-exibir/comprador-compra-exibir.component';
-import { IndexComponent } from './pages/dashboard/fiscal/index/index.component';
 
 @NgModule({
   declarations: [
@@ -183,6 +186,10 @@ import { IndexComponent } from './pages/dashboard/fiscal/index/index.component';
     DashboardEstoqueIndex,
     DashboardContasReceberIndex,
     DashboardContasPagarIndex,
+    DashboardFiscalIndex,
+    NFeParametrosIndex,
+    NFeParametrosEditar,
+    NFeParametrosCadastrar,
     //Componentes
     CategoriasCriarComponent,
     CategoriasModificarComponent,
@@ -204,7 +211,6 @@ import { IndexComponent } from './pages/dashboard/fiscal/index/index.component';
     TipooperacaoCompraExibirComponent,
     TransportadoraCompraExibirComponent,
     CompradorCompraExibirComponent,
-    IndexComponent,
   ],
   imports: [
     BrowserModule,

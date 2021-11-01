@@ -89,6 +89,11 @@ import { IndexComponent as DashboardComprasIndex } from './pages/dashboard/compr
 import { IndexComponent as DashboardEstoqueIndex } from './pages/dashboard/estoque/index/index.component';
 import { IndexComponent as DashboardContasReceberIndex } from './pages/dashboard/contasreceber/index/index.component';
 import { IndexComponent as DashboardContasPagarIndex } from './pages/dashboard/contaspagar/index/index.component';
+import { IndexComponent as DashboardFiscalIndex } from './pages/dashboard/fiscal/index/index.component';
+
+import { IndexComponent as NFeParametrosIndex } from './pages/nfe/parametros/index/index.component';
+import { EditarComponent as NFeParametrosEditar } from './pages/nfe/parametros/editar/editar.component';
+import { CadastrarComponent as NFeParametrosCadastrar } from './pages/nfe/parametros/cadastrar/cadastrar.component';
 
 const routes: Routes = [
   {
@@ -374,6 +379,22 @@ const routes: Routes = [
   {
     path: 'dashboard/contasreceber',
     component: DashboardContasReceberIndex,
+  },
+  {
+    path: 'dashboard/fiscal',
+    component: DashboardFiscalIndex,
+  },
+  {
+    path: 'nfe/parametros',
+    component: NFeParametrosIndex,
+  },
+  {
+    path: 'nfe/parametros/editar/:id',
+    component: NFeParametrosEditar,
+  },
+  {
+    path: 'nfe/parametros/cadastrar',
+    component: NFeParametrosCadastrar,
   },
 ];
 

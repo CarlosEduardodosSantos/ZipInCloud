@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { DashboardsService } from 'src/app/services/api/dashboards.service';
 import * as Highcharts from 'highcharts';
+import { CounterService } from 'src/app/services/utilitarios/counter.service';
+import { ZipincloudService } from 'src/app/services/api/zipincloud.service';
 
 @Component({
   selector: 'app-index',
@@ -51,7 +53,7 @@ export class IndexComponent implements OnInit {
       {
         showInLegend: false,
         marker: { enabled: false },
-        data: ['carregando'],
+        data: ['Carregando'],
         type: 'column',
         color: '#7ae2e2',
         borderColor: '#22cece',
@@ -91,13 +93,13 @@ export class IndexComponent implements OnInit {
       {
         showInLegend: false,
         marker: { enabled: false },
-        data: ['carregando'],
+        data: ['Carregando'],
         type: 'column',
         color: '#7ae2e2',
         borderColor: '#22cece',
       },
     ],
-    title: { text: 'Anual - Baixado' },
+    title: { text: 'Anual - Aberto' },
     xAxis: {
       categories: [
         'Jan',
@@ -124,20 +126,20 @@ export class IndexComponent implements OnInit {
 
   updateFlagMesAberto = false;
 
-  Highcharts: typeof Highcharts = Highcharts;
-  updateFlag = false;
+  HighchartsMesCategoriaBaixado: typeof Highcharts = Highcharts;
 
-  chartOptions: Highcharts.Options = {
+  chartOptionsMesCategoriaBaixado: Highcharts.Options = {
     series: [
       {
         showInLegend: false,
         marker: { enabled: false },
-        data: ['carregando'],
-        type: 'spline',
-        color: '#148080',
+        data: ['Carregando'],
+        type: 'column',
+        color: '#7ae2e2',
+        borderColor: '#22cece',
       },
     ],
-    title: { text: 'Vendas Anual' },
+    title: { text: 'Categorias Anual - Baixado' },
     xAxis: {
       categories: [
         'Jan',
@@ -162,7 +164,53 @@ export class IndexComponent implements OnInit {
     credits: { enabled: false },
   };
 
-  constructor(private _api: DashboardsService) {}
+  updateFlagMesCategoriaBaixado = false;
+
+  HighchartsMesCategoriaAberto: typeof Highcharts = Highcharts;
+
+  chartOptionsMesCategoriaAberto: Highcharts.Options = {
+    series: [
+      {
+        showInLegend: false,
+        marker: { enabled: false },
+        data: ['Carregando'],
+        type: 'column',
+        color: '#7ae2e2',
+        borderColor: '#22cece',
+      },
+    ],
+    title: { text: 'Categorias Anual - Aberto' },
+    xAxis: {
+      categories: [
+        'Jan',
+        'Fev',
+        'Mar',
+        'Abr',
+        'Mai',
+        'Jun',
+        'Jul',
+        'Ago',
+        'Set',
+        'Out',
+        'Nov',
+        'Dez',
+      ],
+      crosshair: false,
+    },
+    yAxis: {
+      crosshair: false,
+      title: { text: null },
+    },
+    credits: { enabled: false },
+  };
+
+  updateFlagMesCategoriaAberto = false;
+
+  constructor(
+    private _api: DashboardsService,
+    private _counter: CounterService,
+    private _product: ZipincloudService
+  ) {}
 
   async ngOnInit() {
     this._api.obterContasAPagarHojeRecebido().then((res: any) => {
@@ -396,5 +444,100 @@ export class IndexComponent implements OnInit {
       },
     ];
     this.updateFlagMesAberto = true;
+
+    //TODO: Categoria Anual Baixado//
+    this._api.obterContasAPagarMesCategoriaBaixadoByID().then((data: any) => {
+      console.log(data);
+
+      let categorias = this._counter.findOcc(data, 'categoriaDocumentoID');
+      categorias = categorias.sort();
+
+      console.log(categorias);
+
+      let d: any[] = [];
+      for (let index = 0; index < categorias.length; index++) {
+        d.push(categorias[index].ocorrencias);
+      }
+
+      let descricao: any[] = [];
+      for (let index = 0; index < categorias.length; index++) {
+        this._product
+          .obterCategoriaDocumentosByID(categorias[index].categoriaDocumentoID)
+          .then((data: any) => {
+            descricao.push(data.descricao);
+          });
+      }
+
+      descricao.reverse();
+
+      setTimeout(() => {
+        this.chartOptionsMesCategoriaBaixado.series = [
+          {
+            showInLegend: false,
+            marker: { enabled: false },
+            data: d,
+            type: 'column',
+            color: '#7ae2e2',
+            borderColor: '#1ba5a5',
+          },
+        ];
+        this.chartOptionsMesCategoriaBaixado.xAxis = [
+          {
+            categories: descricao,
+          },
+        ];
+        this.updateFlagMesCategoriaBaixado = true;
+      }, 1000);
+    });
+
+    //TODO: Categoria Anual Aberto//
+    this._api.obterContasAPagarMesCategoriaAbertoByID().then((data: any) => {
+      let categorias = this._counter.findOcc2(data, 'categoriaDocumentoID');
+      categorias = categorias.sort(function (a: any, b: any) {
+        var keyA = new Date(a.ocorrencias),
+          keyB = new Date(b.ocorrencias);
+        // Compare the 2 dates
+        if (keyA < keyB) return -1;
+        if (keyA > keyB) return 1;
+        return 0;
+      });
+      categorias = categorias.reverse();
+      console.log(categorias);
+
+      let d: any[] = [];
+      for (let index = 0; index < categorias.length; index++) {
+        d.push({
+          name: categorias[index].descricao,
+          y: categorias[index].ocorrencias,
+          z: 10,
+        });
+      }
+      console.log(d);
+
+      let descricao: any[] = [];
+      for (let index = 0; index < categorias.length; index++) {
+        descricao.push(categorias[index].descricao);
+      }
+      console.log(descricao);
+
+      setTimeout(() => {
+        this.chartOptionsMesCategoriaAberto.series = [
+          {
+            showInLegend: false,
+            marker: { enabled: false },
+            data: d,
+            type: 'pie',
+            color: '#7ae2e2',
+            borderColor: '#1ba5a5',
+          },
+        ];
+        this.chartOptionsMesCategoriaAberto.xAxis = [
+          {
+            categories: descricao,
+          },
+        ];
+        this.updateFlagMesCategoriaAberto = true;
+      }, 1000);
+    });
   }
 }

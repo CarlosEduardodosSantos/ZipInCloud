@@ -144,6 +144,119 @@ export class DashboardsService {
       });
   }
 
+  //TODO: DASHBOARD CONTAS A RECEBER//
+  obterContasAReceberHojeRecebido() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/hoje/recebido',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterContasAReceberMesRecebido() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/mes/recebido',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterContasAReceberAnoRecebido() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/ano/recebido',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterContasAReceberMesBaixadoByID(id: any) {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/mes/recebido/' + id,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterContasAReceberHojeAberto() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/hoje/aberto',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterContasAReceberMesAberto() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/mes/aberto',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterContasAReceberAnoAberto() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/ano/aberto',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterContasAReceberMesAbertoByID(id: any) {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/mes/aberto/' + id,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterContasAReceberMesCategoriaBaixadoByID() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/mes/categoriarecebido',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+  obterContasAReceberMesCategoriaAbertoByID() {
+    return this.http
+      .get(
+        environment.url + 'api/dashboards/contas/receber/mes/categoriaaberto',
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
   //TODO: DASHBOARD CONTAS A PAGAR//
   obterContasAPagarHojeRecebido() {
     return this.http
@@ -234,12 +347,10 @@ export class DashboardsService {
       });
   }
 
-  obterContasAPagarMesCategoriaBaixadoByID(id: any) {
+  obterContasAPagarMesCategoriaBaixadoByID() {
     return this.http
       .get(
-        environment.url +
-          'api/dashboards/contas/pagar/mes/categoriarecebido/' +
-          id,
+        environment.url + 'api/dashboards/contas/pagar/mes/categoriarecebido',
         environment.headersPost
       )
       .toPromise()
@@ -247,12 +358,10 @@ export class DashboardsService {
         return res;
       });
   }
-  obterContasAPagarMesCategoriaAbertoByID(id: any) {
+  obterContasAPagarMesCategoriaAbertoByID() {
     return this.http
       .get(
-        environment.url +
-          'api/dashboards/contas/pagar/mes/categoriaaberto/' +
-          id,
+        environment.url + 'api/dashboards/contas/pagar/mes/categoriaaberto',
         environment.headersPost
       )
       .toPromise()

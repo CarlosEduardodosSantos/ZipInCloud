@@ -2,24 +2,24 @@
   <div class="row">
     <div class="card mx-auto" style="width: 18rem">
       <div class="card-body">
-        <p class="card-text">HOJE RECEBIDO</p>
-        <fa-icon [icon]="faMoneyBill" class="tright farecebido"></fa-icon>
+        <p class="card-text">HOJE PAGO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright fapago"></fa-icon>
         <h5 class="card-title">{{ valorVendasDiaRecebidas }}</h5>
       </div>
     </div>
 
     <div class="card mx-auto" style="width: 18rem">
       <div class="card-body">
-        <p class="card-text">ESTE MÊS RECEBIDO</p>
-        <fa-icon [icon]="faMoneyBill" class="tright farecebido"></fa-icon>
+        <p class="card-text">ESTE MÊS PAGO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright fapago"></fa-icon>
         <h5 class="card-title">{{ valorVendasMesRecebidas }}</h5>
       </div>
     </div>
 
     <div class="card mx-auto" style="width: 18rem">
       <div class="card-body">
-        <p class="card-text">ESTE ANO RECEBIDO</p>
-        <fa-icon [icon]="faMoneyBill" class="tright farecebido"></fa-icon>
+        <p class="card-text">ESTE ANO PAGO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright fapago"></fa-icon>
         <h5 class="card-title">{{ valorVendasAnoRecebidas }}</h5>
       </div>
     </div>
@@ -27,7 +27,7 @@
   <div class="row mt-5">
     <div class="card mx-auto" style="width: 18rem">
       <div class="card-body">
-        <p class="card-text">HOJE ABERTO</p>
+        <p class="card-text">HOJE PAGO</p>
         <fa-icon [icon]="faMoneyBill" class="tright faaberto"></fa-icon>
         <h5 class="card-title">{{ valorVendasDiaAbertas }}</h5>
       </div>
@@ -62,6 +62,22 @@
     [Highcharts]="HighchartsMesAberto"
     [options]="chartOptionsMesAberto"
     [(update)]="updateFlagMesAberto"
+    style="width: 46%; height: 300px; display: inline-block"
+    class="mx-auto mt-5 tright"
+  ></highcharts-chart>
+
+  <highcharts-chart
+    [Highcharts]="HighchartsMesCategoriaBaixado"
+    [options]="chartOptionsMesCategoriaBaixado"
+    [(update)]="updateFlagMesCategoriaBaixado"
+    style="width: 46%; height: 300px; display: inline-block"
+    class="mx-auto mt-5"
+  ></highcharts-chart>
+
+  <highcharts-chart
+    [Highcharts]="HighchartsMesCategoriaAberto"
+    [options]="chartOptionsMesCategoriaAberto"
+    [(update)]="updateFlagMesCategoriaAberto"
     style="width: 46%; height: 300px; display: inline-block"
     class="mx-auto mt-5 tright"
   ></highcharts-chart>

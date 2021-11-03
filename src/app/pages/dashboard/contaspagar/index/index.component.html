@@ -1,1 +1,68 @@
-<p>index works!</p>
+<div class="container p-5">
+  <div class="row">
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">HOJE RECEBIDO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright farecebido"></fa-icon>
+        <h5 class="card-title">{{ valorVendasDiaRecebidas }}</h5>
+      </div>
+    </div>
+
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">ESTE MÊS RECEBIDO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright farecebido"></fa-icon>
+        <h5 class="card-title">{{ valorVendasMesRecebidas }}</h5>
+      </div>
+    </div>
+
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">ESTE ANO RECEBIDO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright farecebido"></fa-icon>
+        <h5 class="card-title">{{ valorVendasAnoRecebidas }}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">HOJE ABERTO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright faaberto"></fa-icon>
+        <h5 class="card-title">{{ valorVendasDiaAbertas }}</h5>
+      </div>
+    </div>
+
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">ESTE MÊS ABERTO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright faaberto"></fa-icon>
+        <h5 class="card-title">{{ valorVendasMesAbertas }}</h5>
+      </div>
+    </div>
+
+    <div class="card mx-auto" style="width: 18rem">
+      <div class="card-body">
+        <p class="card-text">ESTE ANO ABERTO</p>
+        <fa-icon [icon]="faMoneyBill" class="tright faaberto"></fa-icon>
+        <h5 class="card-title">{{ valorVendasAnoAbertas }}</h5>
+      </div>
+    </div>
+  </div>
+
+  <highcharts-chart
+    [Highcharts]="HighchartsMesBaixado"
+    [options]="chartOptionsMesBaixado"
+    [(update)]="updateFlagMesBaixado"
+    style="width: 46%; height: 300px; display: inline-block"
+    class="mx-auto mt-5"
+  ></highcharts-chart>
+
+  <highcharts-chart
+    [Highcharts]="HighchartsMesAberto"
+    [options]="chartOptionsMesAberto"
+    [(update)]="updateFlagMesAberto"
+    style="width: 46%; height: 300px; display: inline-block"
+    class="mx-auto mt-5 tright"
+  ></highcharts-chart>
+</div>

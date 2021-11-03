@@ -234,7 +234,7 @@ export class IndexComponent implements OnInit {
     this.chartOptions.series = [
       {
         showInLegend: false,
-        marker: { enabled: false },
+        marker: { enabled: true },
         data: [
           this.mes1,
           this.mes2,

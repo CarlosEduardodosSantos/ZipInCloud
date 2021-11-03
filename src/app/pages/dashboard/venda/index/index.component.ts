@@ -27,13 +27,20 @@ export class IndexComponent implements OnInit {
   maioresProdutos: any[] = [];
   maioresProdutosAno: any[] = [];
 
+  maioresVendas: any[] = [];
+  maioresVendasAno: any[] = [];
+
   Highcharts: typeof Highcharts = Highcharts;
   HighchartsMaioresProdutosMes: typeof Highcharts = Highcharts;
   HighchartsMaioresProdutosAnual: typeof Highcharts = Highcharts;
+  HighchartsMaioresVendasProdutosMes: typeof Highcharts = Highcharts;
+  HighchartsMaioresVendasProdutosAnual: typeof Highcharts = Highcharts;
 
   updateFlag = false;
   updateFlagMaioresProdutosMes = false;
   updateFlagMaioresProdutosAnual = false;
+  updateFlagMaioresVendasProdutosMes = false;
+  updateFlagMaioresVendasProdutosAnual = false;
 
   chartOptions: Highcharts.Options = {
     series: [
@@ -105,6 +112,52 @@ export class IndexComponent implements OnInit {
       },
     ],
     title: { text: 'Maiores Produtos - Anual' },
+    xAxis: {
+      categories: ['carregando'],
+      crosshair: false,
+    },
+    yAxis: {
+      crosshair: false,
+      title: { text: null },
+    },
+    credits: { enabled: false },
+  };
+
+  chartOptionsMaioresVendasProdutosMes: Highcharts.Options = {
+    series: [
+      {
+        showInLegend: false,
+        marker: { enabled: false },
+        data: ['carregando'],
+        type: 'column',
+        color: '#7ae2e2',
+        borderColor: '#22cece',
+      },
+    ],
+    title: { text: 'Maiores Vendas - Mensal' },
+    xAxis: {
+      categories: ['carregando'],
+      crosshair: false,
+    },
+    yAxis: {
+      crosshair: false,
+      title: { text: null },
+    },
+    credits: { enabled: false },
+  };
+
+  chartOptionsMaioresVendasProdutosAnual: Highcharts.Options = {
+    series: [
+      {
+        showInLegend: false,
+        marker: { enabled: false },
+        data: ['carregando'],
+        type: 'column',
+        color: '#7ae2e2',
+        borderColor: '#22cece',
+      },
+    ],
+    title: { text: 'Maiores Vendas - Anual' },
     xAxis: {
       categories: ['carregando'],
       crosshair: false,
@@ -234,7 +287,7 @@ export class IndexComponent implements OnInit {
     this.chartOptions.series = [
       {
         showInLegend: false,
-        marker: { enabled: false },
+        marker: { enabled: true },
         data: [
           this.mes1,
           this.mes2,

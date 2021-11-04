@@ -6,63 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-  pessoasItems = [
-    {
-      nome: 'Clientes',
-      url: 'cadastro/clientes',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro de clientes',
-    },
-    {
-      nome: 'Compradores',
-      url: 'cadastro/compradores',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro de compradores',
-    },
-    {
-      nome: 'Contadores',
-      url: 'cadastro/contadores',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro de contadores',
-    },
-    {
-      nome: 'Contatos',
-      url: 'cadastro/contatos',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro de contatos',
-    },
-    {
-      nome: 'Endereços',
-      url: 'cadastro/enderecos',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro de enderecos',
-    },
-    {
-      nome: 'Fornecedores',
-      url: 'cadastro/fornecedores',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro de fornecedores',
-    },
-    {
-      nome: 'Funcionários',
-      url: 'cadastro/funcionarios',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro de funcionarios',
-    },
-    {
-      nome: 'Motoristas',
-      url: 'cadastro/motoristas',
-      imageUrl: '../../../../assets/acessorapido/a.png',
-      imageAlt: 'Imagem cadastro de motoristas',
-    },
-  ];
-
   cadastroItems = [
     {
       nome: 'Empresas',
       url: 'cadastro/empresas',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem cadastro de empresas',
+    },
+    {
+      nome: 'Clientes',
+      url: 'cadastro/clientes',
+      imageUrl: '../../../../assets/acessorapido/a.png',
+      imageAlt: 'Imagem cadastro de clientes',
     },
     {
       nome: 'Produtos',
@@ -72,7 +27,7 @@ export class IndexComponent implements OnInit {
     },
     {
       nome: 'Movimentação de Estoque',
-      url: 'movimentacao/estoque',
+      url: 'movimentacaoestoque',
       imageUrl: '../../../../assets/acessorapido/a.png',
       imageAlt: 'Imagem movimentação de estoque',
     },

@@ -1,13 +1,15 @@
 <div class="m-4">
-  <p class="fs-22 bolder">Vendas</p>
+  <p class="fs-22 bolder">Movimentação de Estoque</p>
   <table class="w-100 table row-border hover" id="produtos-table">
     <thead>
       <tr>
         <th>ID</th>
         <th>Data</th>
+        <th>Movimento</th>
         <th>Produto</th>
         <th>Quantidade</th>
-        <th>Movimento</th>
+        <th>Estoque</th>
+        <th>Tipo</th>
         <th>Pedido</th>
         <th class="centerTable">Ações</th>
       </tr>
@@ -15,12 +17,13 @@
     <tbody>
       <tr *ngFor="let item of listavendas; let i = index">
         <td>{{ item.id }}</td>
-        <td>{{ item.dataMovimento }}</td>
-        <td>{{ item.descricaoProduto }}</td>
-        <td>{{ item.quantidade }}</td>
-        <td *ngIf="item.movimento == 1">Saida</td>
-        <td *ngIf="item.movimento != 1">Entrada</td>
-        <td>{{ item.vendaID }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.id }}</td>
         <td class="acoesStyle">
           <button
             class="btn btn-dark m-1"
@@ -35,3 +38,5 @@
     </tbody>
   </table>
 </div>
+
+<!-- TODO: Arrumar movimentação de estoque! -->

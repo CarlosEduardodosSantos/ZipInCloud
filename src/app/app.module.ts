@@ -40,11 +40,6 @@ import { EditarComponent as GrupoEmpresasEditar } from './pages/cadastro/grupoem
 import { IndexComponent as ClientesIndex } from './pages/cadastro/clientes/index/index.component';
 import { EditarComponent as ClientesEditar } from './pages/cadastro/clientes/editar/editar.component';
 import { CadastrarComponent as ClientesCadastrar } from './pages/cadastro/clientes/cadastrar/cadastrar.component';
-import { IndexComponent as FornecedoresIndex } from './pages/cadastro/fornecedores/index/index.component';
-import { EditarComponent as FornecedoresEditar } from './pages/cadastro/fornecedores/editar/editar.component';
-import { CadastrarComponent as FornecedoresCadastrar } from './pages/cadastro/fornecedores/cadastrar/cadastrar.component';
-import { IndexComponent as ContasReceberIndex } from './pages/contas/receber/index/index.component';
-import { IndexComponent as ContasPagarIndex } from './pages/contas/pagar/index/index.component';
 import { IndexComponent as FormasPagamentoIndex } from './pages/cadastro/formaspagamento/index/index.component';
 import { CadastroComponent as FormasPagamentoCadastrar } from './pages/cadastro/formaspagamento/cadastro/cadastro.component';
 import { EditarComponent as FormasPagamentoEditar } from './pages/cadastro/formaspagamento/editar/editar.component';
@@ -112,6 +107,7 @@ import { FornecedorExibirComponent } from './components/cadastro/compra/forneced
 import { TipooperacaoCompraExibirComponent } from './components/cadastro/compra/tipooperacao-compra-exibir/tipooperacao-compra-exibir.component';
 import { TransportadoraCompraExibirComponent } from './components/cadastro/compra/transportadora-compra-exibir/transportadora-compra-exibir.component';
 import { CompradorCompraExibirComponent } from './components/cadastro/compra/comprador-compra-exibir/comprador-compra-exibir.component';
+import { EnderecoCriarComponent } from './components/cadastro/endereco-criar/endereco-criar.component';
 
 @NgModule({
   declarations: [
@@ -152,11 +148,6 @@ import { CompradorCompraExibirComponent } from './components/cadastro/compra/com
     ClientesIndex,
     ClientesEditar,
     ClientesCadastrar,
-    FornecedoresIndex,
-    FornecedoresEditar,
-    FornecedoresCadastrar,
-    ContasReceberIndex,
-    ContasPagarIndex,
     FormasPagamentoIndex,
     FormasPagamentoCadastrar,
     FormasPagamentoEditar,
@@ -213,6 +204,7 @@ import { CompradorCompraExibirComponent } from './components/cadastro/compra/com
     TipooperacaoCompraExibirComponent,
     TransportadoraCompraExibirComponent,
     CompradorCompraExibirComponent,
+    EnderecoCriarComponent,
   ],
   imports: [
     BrowserModule,

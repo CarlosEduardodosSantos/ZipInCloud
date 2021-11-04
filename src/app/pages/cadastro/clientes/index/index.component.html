@@ -13,14 +13,28 @@
         <th>#</th>
         <th>Nome</th>
         <th>CPF/CNPJ</th>
+        <th class="centerTable">Tipos</th>
         <th class="centerTable">Ações</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of listaClientes; let i = index">
-        <td>{{ item.id }}</td>
-        <td>{{ item.nome }}</td>
-        <td>{{ item.cpfcnpj }}</td>
+        <td>{{ item.pessoaID }}</td>
+        <td>{{ item.pessoa.nome }}</td>
+        <td>{{ item.pessoa.documento }}</td>
+        <td
+          *ngFor="let index of item.pessoa.pessoasTiposPessoas"
+          class="tiposStyle"
+        >
+          <span *ngIf="index.tipoPessoa == 1">Cliente</span>
+          <span *ngIf="index.tipoPessoa == 2">Fornecedor</span>
+          <span *ngIf="index.tipoPessoa == 3">Transportadora</span>
+          <span *ngIf="index.tipoPessoa == 4">Vendedor</span>
+          <span *ngIf="index.tipoPessoa == 5">Contador</span>
+          <span *ngIf="index.tipoPessoa == 6">Funcionário</span>
+          <span *ngIf="index.tipoPessoa == 7">Comprador</span>
+          <span *ngIf="index.tipoPessoa == 8">Motorista</span>
+        </td>
         <td class="acoesStyle">
           <button
             class="btn btn-success m-1 tleft"

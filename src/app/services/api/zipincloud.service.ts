@@ -1311,7 +1311,7 @@ export class ZipincloudService {
 
   obterTodosDadosClientes() {
     return this.http
-      .get(environment.url + 'api/PessoaClientesApi', environment.headers)
+      .get(environment.url + 'api/PessoaClientes', environment.headers)
       .toPromise()
       .then((res) => {
         return res;

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CadastrarComponent } from './cadastrar.component';
+import { EnderecoCriarComponent } from './endereco-criar.component';
 
-describe('CadastrarComponent', () => {
-  let component: CadastrarComponent;
-  let fixture: ComponentFixture<CadastrarComponent>;
+describe('EnderecoCriarComponent', () => {
+  let component: EnderecoCriarComponent;
+  let fixture: ComponentFixture<EnderecoCriarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CadastrarComponent ]
+      declarations: [ EnderecoCriarComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CadastrarComponent);
+    fixture = TestBed.createComponent(EnderecoCriarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -46,13 +46,6 @@ import { IndexComponent as ClientesIndex } from './pages/cadastro/clientes/index
 import { EditarComponent as ClientesEditar } from './pages/cadastro/clientes/editar/editar.component';
 import { CadastrarComponent as ClientesCadastrar } from './pages/cadastro/clientes/cadastrar/cadastrar.component';
 
-import { IndexComponent as FornecedoresIndex } from './pages/cadastro/fornecedores/index/index.component';
-import { EditarComponent as FornecedoresEditar } from './pages/cadastro/fornecedores/editar/editar.component';
-import { CadastrarComponent as FornecedoresCadastrar } from './pages/cadastro/fornecedores/cadastrar/cadastrar.component';
-
-import { IndexComponent as ContasReceberIndex } from './pages/contas/receber/index/index.component';
-import { IndexComponent as ContasPagarIndex } from './pages/contas/pagar/index/index.component';
-
 import { IndexComponent as FormasPagamentoIndex } from './pages/cadastro/formaspagamento/index/index.component';
 import { CadastroComponent as FormasPagamentoCadastrar } from './pages/cadastro/formaspagamento/cadastro/cadastro.component';
 import { EditarComponent as FormasPagamentoEditar } from './pages/cadastro/formaspagamento/editar/editar.component';
@@ -238,18 +231,6 @@ const routes: Routes = [
     component: ClientesEditar,
   },
   {
-    path: 'cadastro/fornecedores',
-    component: FornecedoresIndex,
-  },
-  {
-    path: 'cadastro/fornecedores/cadastrar',
-    component: FornecedoresCadastrar,
-  },
-  {
-    path: 'cadastro/fornecedores/editar/:id',
-    component: FornecedoresEditar,
-  },
-  {
     path: 'cadastro/formaspagamento',
     component: FormasPagamentoIndex,
   },
@@ -275,11 +256,11 @@ const routes: Routes = [
   },
   {
     path: 'contas/receber',
-    component: ContasReceberIndex,
+    redirectTo: 'vendas',
   },
   {
     path: 'contas/pagar',
-    component: ContasPagarIndex,
+    redirectTo: 'compra',
   },
   {
     path: 'caixa',

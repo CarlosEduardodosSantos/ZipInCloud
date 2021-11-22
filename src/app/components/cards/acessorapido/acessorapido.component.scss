@@ -19,3 +19,19 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.card {
+  animation: simpleCardStartupAnimation 1s;
+}
+
+@keyframes simpleCardStartupAnimation {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}

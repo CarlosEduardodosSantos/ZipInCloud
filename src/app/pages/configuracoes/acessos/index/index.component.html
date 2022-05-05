@@ -1,0 +1,98 @@
+<div class="m-4">
+  <p class="fs-22 bolder">Acessos</p>
+
+  <div class="tright">
+    <button type="button" class="btn btn-primary" (click)="cadastrar()">
+      Novo
+    </button>
+  </div>
+
+  <table class="w-100 table row-border hover" id="produtos-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Perfil</th>
+        <th>Menu</th>
+        <th>Menu Item</th>
+        <th class="centerTable">Ver</th>
+        <th class="centerTable">Editar</th>
+        <th class="centerTable">Excluir</th>
+        <th class="centerTable">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaPerfilUsuarioAcesso; let i = index">
+        <td>{{ item.id }}</td>
+        <td>{{ item.perfilUsuario.descricao }}</td>
+        <td>{{ item.menu.descricao }}</td>
+        <td>{{ item.menuItem.descricao }}</td>
+
+        <td *ngIf="item.ver == true" class="centerTable">
+          <input
+            class="form-check-input disableMouse"
+            type="checkbox"
+            [checked]="true"
+          />
+        </td>
+        <td *ngIf="item.ver == false" class="centerTable">
+          <input
+            class="form-check-input disableMouse"
+            type="checkbox"
+            [checked]="false"
+          />
+        </td>
+
+        <td *ngIf="item.editar == true" class="centerTable">
+          <input
+            class="form-check-input disableMouse"
+            type="checkbox"
+            [checked]="true"
+          />
+        </td>
+        <td *ngIf="item.editar == false" class="centerTable">
+          <input
+            class="form-check-input disableMouse"
+            type="checkbox"
+            [checked]="false"
+          />
+        </td>
+
+        <td *ngIf="item.excluir == true" class="centerTable">
+          <input
+            class="form-check-input disableMouse"
+            type="checkbox"
+            [checked]="true"
+          />
+        </td>
+        <td *ngIf="item.excluir == false" class="centerTable">
+          <input
+            class="form-check-input disableMouse"
+            type="checkbox"
+            [checked]="false"
+          />
+        </td>
+
+        <td class="acoesStyle">
+          <button
+            class="btn btn-success m-1 tleft"
+            type="button"
+            (click)="editar(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
+            >
+          </button>
+          <button
+            class="btn btn-danger m-1 tright"
+            type="button"
+            (click)="excluirElemento(item.id)"
+          >
+            <span class="acaoStyle"
+              ><fa-icon [icon]="faTrashAlt"></fa-icon> Excluir</span
+            >
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

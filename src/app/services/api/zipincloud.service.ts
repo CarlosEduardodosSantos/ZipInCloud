@@ -11,7 +11,7 @@ export class ZipincloudService {
   //TODO:POST GET PUT DELETE - Produtos//
   salvarProduto(data: any) {
     return this.http
-      .post(environment.url + 'api/produtoes', data, environment.headersPost)
+      .post(environment.url + 'api/Produtoes', data, environment.headersPost)
       .toPromise()
       .then((res) => {
         return res;
@@ -34,7 +34,7 @@ export class ZipincloudService {
   excluirProduto(ID: any) {
     return this.http
       .delete(
-        environment.url + 'api/produtoes/' + ID,
+        environment.url + 'api/Prods/' + ID,
 
         environment.headersPost
       )
@@ -443,6 +443,125 @@ export class ZipincloudService {
     return this.http
       .delete(
         environment.url + 'api/MenusItems/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - Perfil Usuarios//
+  obterPerfilUsuario() {
+    return this.http
+      .get(environment.url + 'api/PerfilUsuarios', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterPerfilUsuarioByID(ID: any) {
+    return this.http
+      .get(environment.url + 'api/PerfilUsuarios/' + ID, environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarPerfilUsuario(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/PerfilUsuarios',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarPerfilUsuario(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/PerfilUsuarios/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirPerfilUsuario(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/PerfilUsuarios/' + ID,
+
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  //TODO:POST GET PUT DELETE - Perfil Usuarios Acesso//
+  obterPerfilUsuarioAcesso() {
+    return this.http
+      .get(environment.url + 'api/PerfilUsuariosAcesso', environment.headers)
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  obterPerfilUsuarioAcessoByID(ID: any) {
+    return this.http
+      .get(
+        environment.url + 'api/PerfilUsuariosAcesso/' + ID,
+        environment.headers
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  salvarPerfilUsuarioAcesso(data: any) {
+    return this.http
+      .post(
+        environment.url + 'api/PerfilUsuariosAcesso',
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  modificarPerfilUsuarioAcesso(data: any) {
+    return this.http
+      .put(
+        environment.url + 'api/PerfilUsuariosAcesso/' + data.ID,
+        data,
+        environment.headersPost
+      )
+      .toPromise()
+      .then((res) => {
+        return res;
+      });
+  }
+
+  excluirPerfilUsuarioAcesso(ID: any) {
+    return this.http
+      .delete(
+        environment.url + 'api/PerfilUsuariosAcesso/' + ID,
 
         environment.headersPost
       )
@@ -1047,7 +1166,7 @@ export class ZipincloudService {
 
   obterTodosDadosProdutos() {
     return this.http
-      .get(environment.url + 'api/produtoes/produtos', environment.headers)
+      .get(environment.url + 'api/Produtoes')
       .toPromise()
       .then((res) => {
         return res;
@@ -1068,7 +1187,7 @@ export class ZipincloudService {
 
   obterDadosProdutosPeloID(ID: any) {
     return this.http
-      .get(environment.url + 'api/produtoes/' + ID, environment.headers)
+      .get(environment.url + 'api/Produtoes/' + ID)
       .toPromise()
       .then((res) => {
         return res;

@@ -11,28 +11,28 @@ import { faCogs, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 export class IndexComponent implements OnInit {
   constructor(private _api: ZipincloudService) {}
 
-  listaPerfilUsuario: any;
+  listaPerfilUsuarioAcesso: any;
 
   faCogs = faCogs;
   faTrashAlt = faTrashAlt;
 
   async ngOnInit() {
-    await this._api.obterPerfilUsuario().then((data: any) => {
-      this.listaPerfilUsuario = data;
+    await this._api.obterPerfilUsuarioAcesso().then((data: any) => {
+      this.listaPerfilUsuarioAcesso = data;
       console.log(data);
     });
   }
 
   excluirElemento(index: number) {
-    this._api.excluirPerfilUsuario(index);
+    this._api.excluirPerfilUsuarioAcesso(index);
     location.reload();
   }
 
   cadastrar() {
-    location.href = '/configuracoes/perfilusuario/cadastrar/';
+    location.href = '/configuracoes/acessos/cadastrar/';
   }
 
   editar(id: any) {
-    location.href = '/configuracoes/perfilusuario/editar/' + id;
+    location.href = '/configuracoes/acessos/editar/' + id;
   }
 }

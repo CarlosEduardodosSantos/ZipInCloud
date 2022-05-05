@@ -56,6 +56,13 @@ export class CadastrarComponent implements OnInit {
     data.ValorCompra == '' ? (data.ValorCompra = 0) : '';
     data.ValorVenda == '' ? (data.ValorVenda = 0) : '';
     data.ValorVendaPrazo == '' ? (data.ValorVendaPrazo = 0) : '';
+    data.CategoriaID == '' ? (data.CategoriaID = 0) : 1;
+    data.MarcaID == '' ? (data.MarcaID = 0) : 1;
+    data.ProdutoIntegracaoFiscalID == ''
+      ? (data.ProdutoIntegracaoFiscalID = 0)
+      : 1;
+    data.NcmID == '' ? (data.NcmID = 0) : 1;
+    data.OrigemID == '' ? (data.OrigemID = 0) : 1;
 
     data.imagem = data.imagem.replace(/^data:image\/[a-z]+;base64,/, '');
     data.imagem[0] != '/' ? delete data.imagem : '';

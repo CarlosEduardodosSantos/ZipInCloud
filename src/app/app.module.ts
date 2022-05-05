@@ -56,6 +56,11 @@ import { IndexComponent as MenusItemsIndex } from './pages/sistema/menusitems/in
 import { EditarComponent as MenusItemsEditar } from './pages/sistema/menusitems/editar/editar.component';
 import { CadastrarComponent as MenusItemsCadastrar } from './pages/sistema/menusitems/cadastrar/cadastrar.component';
 import { IndexComponent as ConfiguracoesPerfilUsuarioIndex } from './pages/configuracoes/perfildeusuario/index/index.component';
+import { CadastrarComponent as ConfiguracoesPerfilUsuarioCadastrar } from './pages/configuracoes/perfildeusuario/cadastrar/cadastrar.component';
+import { EditarComponent as ConfiguracoesPerfilUsuarioEditar } from './pages/configuracoes/perfildeusuario/editar/editar.component';
+import { CadastrarComponent as ConfiguracoesAcessosCadastrar } from './pages/configuracoes/acessos/cadastrar/cadastrar.component';
+import { EditarComponent as ConfiguracoesAcessosEditar } from './pages/configuracoes/acessos/editar/editar.component';
+import { IndexComponent as ConfiguracoesAcessosIndex } from './pages/configuracoes/acessos/index/index.component';
 import { IndexComponent as CfopIndex } from './pages/cadastro/cfop/index/index.component';
 import { EditarComponent as CfopEditar } from './pages/cadastro/cfop/editar/editar.component';
 import { CadastrarComponent as CfopCadastrar } from './pages/cadastro/cfop/cadastrar/cadastrar.component';
@@ -164,6 +169,11 @@ import { EnderecoCriarComponent } from './components/cadastro/endereco-criar/end
     MenusItemsEditar,
     MenusItemsCadastrar,
     ConfiguracoesPerfilUsuarioIndex,
+    ConfiguracoesPerfilUsuarioCadastrar,
+    ConfiguracoesPerfilUsuarioEditar,
+    ConfiguracoesAcessosCadastrar,
+    ConfiguracoesAcessosEditar,
+    ConfiguracoesAcessosIndex,
     CfopIndex,
     CfopEditar,
     CfopCadastrar,
@@ -183,6 +193,7 @@ import { EnderecoCriarComponent } from './components/cadastro/endereco-criar/end
     NFeParametrosEditar,
     NFeParametrosCadastrar,
     IntegracaoFiscalAplicacao,
+
     //Componentes
     CategoriasCriarComponent,
     CategoriasModificarComponent,

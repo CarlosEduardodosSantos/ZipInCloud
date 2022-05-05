@@ -22,12 +22,12 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of listaprodutos; let i = index">
-        <td>{{ item.id }}</td>
         <td>{{ item.codigo }}</td>
-        <td>{{ item.descricao }}</td>
-        <td>R${{ item.valorVenda }}</td>
+        <td>{{ item.ean }}</td>
+        <td>{{ item.valorVenda }}</td>
+        <td>R${{ item.vlvenda }}</td>
         <td>{{ item.saldoEstoque }}</td>
-        <img
+         <img
           class="img-Table"
           [src]="
             item.imagem !== null
@@ -39,7 +39,7 @@
         <td class="acoesStyle">
           <button
             class="btn btn-success m-1 tleft"
-            (click)="editarElemento(item.id)"
+            (click)="editarElemento(item.codigo)"
           >
             <span class="acaoStyle"
               ><fa-icon [icon]="faCogs"></fa-icon> Editar</span
@@ -47,7 +47,7 @@
           </button>
           <button
             class="btn btn-danger m-1 tright"
-            (click)="excluirElemento(item.id)"
+            (click)="excluirElemento(item.codigo)"
           >
             <span class="acaoStyle"
               ><fa-icon [icon]="faTrashAlt"></fa-icon> Excluir</span

@@ -34,6 +34,7 @@ export class EditarprodutoComponent implements OnInit {
     });
     await this._api.obterDadosProdutosPeloID(id).then((data) => {
       this.produtoDados = data;
+      console.log(this.produtoDados);
     });
 
     let categoriaDados = await this._api.obterDadosCategoriasProdutos();
